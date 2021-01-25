@@ -1,0 +1,263 @@
+.homepage-container {
+  min-height: calc(100vh - (85px + 100px));
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.homepage-introduction h1 {
+  font-size: 34px;
+  margin-bottom: 15px;
+}
+
+.homepage-introduction p {
+  font-size: 18px;
+  line-height: 36px;
+}
+
+.homepage-latest-blog-posts {
+  margin-top: 70px;
+}
+
+.homepage-latest-blog-posts h2,
+.homepage-projects h2 {
+  font-size: 24px;
+}
+
+.homepage-latest-blog-posts-view-all {
+  display: inline-block;
+  text-decoration: none;
+  padding: 9px 12.5px;
+  background: #f2f2f2;
+  border-radius: 4px;
+  color: #5f5f5f;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 25px;
+  vertical-align: middle;
+}
+
+.homepage-latest-blog-posts-view-all:hover {
+  background: #e5e5e5;
+}
+
+.homepage-latest-blog-posts-list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.homepage-latest-blog-post {
+  padding: 15px 15px 15px 10px;
+  width: 100%;
+}
+
+.homepage-latest-blog-post:hover {
+  border-radius: 4px;
+  background: #f2f2f2;
+}
+
+.homepage-latest-thumbnail {
+  display: inline-block;
+  width: 8%;
+  text-align: left;
+}
+
+.homepage-latest-thumbnail img {
+  vertical-align: middle;
+  height: 55px;
+  width: auto;
+}
+
+.homepage-latest-blog-post-title {
+  display: inline-block;
+  vertical-align: middle;
+  width: 92%;
+}
+
+.homepage-latest-blog-post-title h3 {
+  font-size: 20px;
+  color: #454545;
+  font-weight: normal;
+  margin: 0;
+  margin-left: 15px;
+}
+
+.homepage-projects {
+  margin-top: 70px;
+}
+
+.homepage-project {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.homepage-project h3 {
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.homepage-project h3 a {
+  display: flex;
+  color: #111;
+  align-items: center;
+  text-decoration: none;
+}
+
+.homepage-project-icon {
+  display: inline-block;
+  font-size: 30px;
+  margin-right: 1rem;
+}
+
+.homepage-project-title {
+  display: inline-block;
+}
+
+.homepage-project p {
+  display: block;
+  flex: 1 1;
+  margin: 0 20px 0 0;
+  font-size: 16px;
+}
+
+.homepage-project-btns {
+  display: flex;
+  align-items: center;
+}
+
+.homepage-project-view-btn {
+  -webkit-appearance: none;
+  display: inline-block;
+  border: 2px solid #5183f5;
+  border-radius: 4px;
+  background: #5183f5;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: none;
+  padding: 7.5px 10px;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.homepage-project-view-btn:hover {
+  border: 2px solid #0e51ec;
+  color: #fff;
+  background: #0e51ec;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 700px) and (min-width: 0px) {
+  .homepage-container {
+    margin-top: 100px;
+  }
+
+  .homepage-introduction h1 {
+    font-size: 26px;
+    margin-bottom: 15px;
+  }
+
+  .homepage-introduction p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .homepage-latest-blog-posts {
+    margin-top: 50px;
+  }
+
+  .homepage-latest-blog-posts h2,
+  .homepage-projects h2 {
+    font-size: 17px;
+  }
+
+  .homepage-latest-blog-posts-view-all {
+    padding: 8px 9px;
+    font-size: 10px;
+    margin-left: 15px;
+  }
+
+  .homepage-latest-blog-post {
+    padding: 10px 10px 10px 5px;
+  }
+
+  .homepage-latest-thumbnail {
+    width: 8%;
+  }
+
+  .homepage-latest-thumbnail img {
+    height: 40px;
+  }
+
+  .homepage-latest-blog-post-title {
+    width: 92%;
+  }
+
+  .homepage-latest-blog-post-title h3 {
+    font-size: 16px;
+  }
+
+  .homepage-projects {
+    margin-top: 50px;
+  }
+
+  .homepage-project {
+    padding: 15px 0;
+  }
+
+  .homepage-project h3 {
+    font-size: 14px;
+    width: 110px;
+    min-width: 110px;
+    max-width: 110px;
+    margin-right: 10px;
+  }
+
+  .homepage-project-icon {
+    font-size: 24px;
+    margin-right: 12px;
+  }
+
+  .homepage-project p {
+    font-size: 13px;
+    margin: 0 10px 0 0;
+  }
+
+  .homepage-project-view-btn {
+    font-size: 11px;
+    padding: 7px 9px;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 0px) {
+  .homepage-latest-thumbnail {
+    width: 10%;
+  }
+
+  .homepage-latest-thumbnail img {
+    height: 32.5px;
+  }
+
+  .homepage-latest-blog-post-title {
+    width: 90%;
+  }
+
+  .homepage-latest-blog-post-title h3 {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 0px) {
+  .homepage-project p {
+    display: none;
+  }
+}

@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  border-top: 5px solid #e5e5e5;
+  color: #272727;
+  overflow-x: hidden;
+  font-family: Open Sans, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+}
+
+/* Stop firefox from adding blue box around links */
+a:focus {
+  outline: none;
+}
+
+.layout-wrapper {
+  width: 97.5%;
+  height: 100%;
+  max-width: 850px;
+  margin: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}

@@ -1,0 +1,127 @@
+import {Component} from 'react';
+import Header from "../components/header.js";
+import Footer from "../components/footer.js";
+
+export default class extends Component {
+  render () {
+    return (
+      <div className="layout-wrapper">
+        <Header />
+        <div className="homepage-container">
+          <div>
+            <h1>Hi, I'm krehwell. I am never sleepless</h1>
+            <p>
+              This is a blog which I make to implement Next.js after learning it
+              from its <a href="http://nextjs.org/docs/">docs</a>. This project
+              is made right after my previous project{" "}
+              <a href="https://sexgod.herokuapp.com/">note10net</a> (note over internet) and my
+              WebRTC project <a href="https://callntol.surge.sh/">callntol</a>.
+            </p>
+          </div>
+          <div className="homepage-latest-blog-posts">
+            <h2>
+              Latest Blog Posts{" "}
+              <a className="homepage-latest-blog-posts-view-all" href="/blog">
+                View all
+              </a>
+            </h2>
+            <div className="homepage-latest-blog-posts-list">
+              <a href="/blog/post-title">
+                <div className="homepage-latest-blog-post">
+                  <div className="homepage-latest-thumbnail">
+                    <img src="https://assets.coderrocketfuel.com/coding-blog-nodejs-thumbnail.png" />
+                  </div>
+                  <div className="homepage-latest-blog-post-title">
+                    <h3>Post 1 Title</h3>
+                  </div>
+                </div>
+              </a>
+              <a href="/blog/post-title">
+                <div className="homepage-latest-blog-post">
+                  <div className="homepage-latest-thumbnail">
+                    <img src="https://assets.coderrocketfuel.com/coding-blog-nodejs-thumbnail.png" />
+                  </div>
+                  <div className="homepage-latest-blog-post-title">
+                    <h3>Post 2 Title</h3>
+                  </div>
+                </div>
+              </a>
+              <a href="/blog/post-title">
+                <div className="homepage-latest-blog-post">
+                  <div className="homepage-latest-thumbnail">
+                    <img src="https://assets.coderrocketfuel.com/coding-blog-nodejs-thumbnail.png" />
+                  </div>
+                  <div className="homepage-latest-blog-post-title">
+                    <h3>Post 3 Title</h3>
+                  </div>
+                </div>
+              </a>
+              <a href="/blog/post-title">
+                <div className="homepage-latest-blog-post">
+                  <div className="homepage-latest-thumbnail">
+                    <img src="https://assets.coderrocketfuel.com/coding-blog-nodejs-thumbnail.png" />
+                  </div>
+                  <div className="homepage-latest-blog-post-title">
+                    <h3>Post 4 Title</h3>
+                  </div>
+                </div>
+              </a>
+              <a href="/blog/post-title">
+                <div className="homepage-latest-blog-post">
+                  <div className="homepage-latest-thumbnail">
+                    <img src="https://assets.coderrocketfuel.com/coding-blog-nodejs-thumbnail.png" />
+                  </div>
+                  <div className="homepage-latest-blog-post-title">
+                    <h3>Post 5 Title</h3>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="homepage-projects">
+            <h2>Other Weeebbzz</h2>
+            <div className="homepage-project-list">
+              <div className="homepage-project">
+                <h3>
+                  <a href="https://sexgod.herokuapp.com/">
+                    <div className="homepage-project-icon"> 📝</div>
+                    <div className="homepage-project-title">note10net (note over internet)</div>
+                  </a>
+                </h3>
+                <p>you write your note, you save your note, you manage your note. but do it in on internet</p>
+                <div className="homepage-project-btns">
+                  <a className="homepage-project-view-btn" href="https://github.com/krehwell/Note10net">view</a>
+                </div>
+              </div>
+              <div className="homepage-project">
+                <h3>
+                  <a href="https://callntol.surge.sh/">
+                    <div className="homepage-project-icon">📞</div>
+                    <div className="homepage-project-title">callntol</div>
+                  </a>
+                </h3>
+                <p>send message, call, and mocking each other easily</p>
+                <div className="homepage-project-btns">
+                  <a className="homepage-project-view-btn" href="https://callntol.surge.sh/">view</a>
+                </div>
+              </div>
+              <div className="homepage-project">
+                <h3>
+                  <a href="https://callntol.surge.sh/">
+                    <div className="homepage-project-icon">💔</div>
+                    <div className="homepage-project-title">other unrelated to web</div>
+                  </a>
+                </h3>
+                <p>see on <a href="https://github.com/krehwell">my github</a></p>
+                <div className="homepage-project-btns">
+                  <a className="homepage-project-view-btn" href="https://github.com/krehwell?tab=repositories">view</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+}
