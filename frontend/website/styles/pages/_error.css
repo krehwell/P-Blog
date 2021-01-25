@@ -1,0 +1,28 @@
+.error-container {
+  min-height: calc(100vh - (325px));
+  margin-top: 100px;
+  text-align: center;
+}
+
+.error-container h1 {
+  font-size: 30px;
+}
+
+.error-container p {
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) and (min-width: 0px) {
+  .error-container {
+    min-height: calc(100vh - (400px));
+    margin-top: 90px;
+  }
+
+  .error-container h1 {
+    font-size: 20px;
+  }
+
+  .error-container p {
+    font-size: 14px;
+  }
+}
