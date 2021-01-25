@@ -10,7 +10,7 @@ export default class extends Component {
           <a href="/Contact">Contact</a>
         </div>
         <div className="footer-bottom-msg">
-          <p>Handcrafted by me, use it freely as your freedom. no need to be wise</p>
+          <p>handcrafted by me and internet, use it freely as your freedom. no need to be wise.</p>
         </div>
       </footer>
     )

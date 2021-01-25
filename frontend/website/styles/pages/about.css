@@ -1,0 +1,89 @@
+.about-container {
+  min-height: calc(100vh - (85px + 100px));
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.about-section {
+  margin-bottom: 80px;
+}
+
+.about-section h1 {
+  font-size: 32px;
+}
+
+.about-section h2 {
+  font-size: 26px;
+}
+
+.about-section p {
+  margin-bottom: 25px;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.about-section ul {
+  padding: 0;
+  font-size: 18px;
+}
+
+.about-section ul li {
+  padding-left: 1.5rem;
+  margin-left: 1.5rem;
+  position: relative;
+  list-style-type: none;
+  margin-bottom: 10px;
+  line-height: 24px;
+}
+
+.about-section ul li:before {
+  content: "\2022 ";
+  position: absolute;
+  left: 0;
+  color: #929292;
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.about-section ul li a {
+  color: #5183f5;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid #e2eafd;
+}
+
+.about-section ul li a:hover {
+  color: #2161f2;
+  background: #f0f4fe;
+  border-bottom: 2px solid #2161f2;
+}
+
+@media only screen and (max-width: 600px) and (min-width: 0px) {
+  .about-section {
+    margin-bottom: 50px;
+  }
+
+  .about-section h1 {
+    font-size: 24px;
+  }
+
+  .about-section h2 {
+    font-size: 18px;
+  }
+
+  .about-section p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .about-section ul {
+    font-size: 13.5px;
+  }
+
+  .about-section ul li {
+    padding-left: 18px;
+    margin-left: 8px;
+    margin-bottom: 10px;
+  }
+}

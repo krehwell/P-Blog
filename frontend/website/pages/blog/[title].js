@@ -13,17 +13,23 @@ export default class extends Component {
     Prism.highlightAll();
   }
 
+  static async getInitialProps({query}){
+    return {
+      title: query.title
+    }
+  }
+
   render(){
     return(
       <div className="layout-wrapper">
         <Header />
         <div className="blog-post-container">
           <div className="blog-post-top-section">
-            <h1>Your Blog Post Title</h1>
+            <h1>Your Blog Post Title {this.props.title}</h1>
             <div className="blog-post-top-meta">
-              <span>5/1/2020 | </span>
+              <span>5/1/2020</span>
               <a className="blog-post-top-tag-btn" href="/blog/tags/javascript">
-                <span>javascript | </span>
+                <span>javascript</span>
               </a>
               <a className="blog-post-top-tag-btn" href="/blog/tags/css">
                 <span>css</span>
