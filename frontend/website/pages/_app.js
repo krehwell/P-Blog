@@ -9,6 +9,9 @@ import "../styles/components/footer.css";
 import "../styles/pages/homepage.css";
 import "../styles/pages/blog-posts.css";
 
+// external import
+import "../styles/prismjs.css";
+
 export default function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
