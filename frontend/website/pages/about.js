@@ -2,12 +2,17 @@ import {Component} from "react";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
+import HeadMetadata from "../components/headMetadata.js";
 
 export default class extends Component {
 
   render(){
     return (
       <div className="layout-wrapper">
+        <HeadMetadata
+          title="About Me | krehwell"
+          metaDescription="krehwell is the author of this blog"
+        />
         <Header />
         <div className="about-container">
           <div className="about-section">
@@ -19,7 +24,7 @@ export default class extends Component {
           <div className="about-section">
             <h2>Personal Tools</h2>
             <ul>
-              <li><strong>Machine</strong>: <a href="https://archlinux.org">Arch Linux</a></li>
+              <li><strong>Machine</strong>: <a href="https://ubuntu.com/wsl">WSL | Ubuntu</a></li>
               <li><strong>Editor</strong>: <a href="https://vim.org">Vim</a></li>
               <li><strong>Dildo</strong>: No, I don't use any</li>
               <li><strong>Dotfiles</strong>: <a href="https://github.com/krehwell/dotfiles">My Setup</a></li>
