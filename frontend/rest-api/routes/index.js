@@ -24,5 +24,11 @@ app.get("/posts/get-five-newest-posts", (req, res) => {
   })
 })
 
+app.get("/posts/get-blog-post-by-url-title", (req, res) => {
+  api.getBlogTitleByUrlTilte(req.query.urlTitle, (apiResponse) => {
+    res.send(apiResponse);
+  })
+})
+
 
 module.exports = app;

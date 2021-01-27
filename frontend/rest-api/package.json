@@ -15,7 +15,8 @@
     "express": "^4.17.1",
     "helmet": "^4.4.1",
     "moment": "^2.29.1",
-    "mongoose": "^5.11.13"
+    "mongoose": "^5.11.13",
+    "showdown": "^1.9.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
