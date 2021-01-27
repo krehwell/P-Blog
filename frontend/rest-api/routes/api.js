@@ -3,6 +3,7 @@ const moment = require("moment");
 const showdown = require("showdown");
 
 module.exports = {
+
   getAllBlogPosts: (callback) => {
     const now = moment().unix();
 
