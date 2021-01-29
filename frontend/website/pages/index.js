@@ -3,7 +3,17 @@ import Header from "../components/header.js";
 import Footer from "../components/footer.js";
 import HeadMetadata from "../components/headMetadata.js";
 
+import getFiveNewestPost from "../api/getFiveNewestPost.js";
+
 export default class extends Component {
+  static async getInitialProps(){
+    let apiResult = await getFiveNewestPost();
+
+    return {
+      posts: apiResult && apiResult.posts
+    }
+  }
+
   render () {
     return (
       <div className="layout-wrapper">
@@ -31,56 +41,21 @@ export default class extends Component {
               </a>
             </h2>
             <div className="homepage-latest-blog-posts-list">
-              <a href="/blog/post-title">
-                <div className="homepage-latest-blog-post">
-                  <div className="homepage-latest-thumbnail">
-                    <img src="https://assets.coderrocketfuel.com/coding-blog-nodejs-thumbnail.png" />
-                  </div>
-                  <div className="homepage-latest-blog-post-title">
-                    <h3>Post 1 Title</h3>
-                  </div>
-                </div>
-              </a>
-              <a href="/blog/post-title">
-                <div className="homepage-latest-blog-post">
-                  <div className="homepage-latest-thumbnail">
-                    <img src="https://assets.coderrocketfuel.com/coding-blog-nodejs-thumbnail.png" />
-                  </div>
-                  <div className="homepage-latest-blog-post-title">
-                    <h3>Post 2 Title</h3>
-                  </div>
-                </div>
-              </a>
-              <a href="/blog/post-title">
-                <div className="homepage-latest-blog-post">
-                  <div className="homepage-latest-thumbnail">
-                    <img src="https://assets.coderrocketfuel.com/coding-blog-nodejs-thumbnail.png" />
-                  </div>
-                  <div className="homepage-latest-blog-post-title">
-                    <h3>Post 3 Title</h3>
-                  </div>
-                </div>
-              </a>
-              <a href="/blog/post-title">
-                <div className="homepage-latest-blog-post">
-                  <div className="homepage-latest-thumbnail">
-                    <img src="https://assets.coderrocketfuel.com/coding-blog-nodejs-thumbnail.png" />
-                  </div>
-                  <div className="homepage-latest-blog-post-title">
-                    <h3>Post 4 Title</h3>
-                  </div>
-                </div>
-              </a>
-              <a href="/blog/post-title">
-                <div className="homepage-latest-blog-post">
-                  <div className="homepage-latest-thumbnail">
-                    <img src="https://assets.coderrocketfuel.com/coding-blog-nodejs-thumbnail.png" />
-                  </div>
-                  <div className="homepage-latest-blog-post-title">
-                    <h3>Post 5 Title</h3>
-                  </div>
-                </div>
-              </a>
+              {this.props.posts ? this.props.posts?.map((post, index) => {
+                return (
+                  <a key={index} href={`/blog/${post.urlTitle}`}>
+                    <div className="homepage-latest-blog-post">
+                      <div className="homepage-latest-thumbnail">
+                        <img src={post.thumbnailImageUrl} />
+                      </div>
+                      <div className="homepage-latest-blog-post-title">
+                        <h3>{post.title}</h3>
+                      </div>
+                    </div>
+                  </a>
+                )})
+                : null
+              }
             </div>
           </div>
           <div className="homepage-projects">
