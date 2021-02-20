@@ -1,0 +1,122 @@
+.login-wrapper {
+    min-height: 100vh;
+    background-color: #f5f9fd;
+}
+
+.login-content-container {
+    user-select: none;
+}
+
+.login-form-container {
+    width: 500px;
+    margin: auto;
+    padding: 45px 48px;
+    box-shadow: 0 2px 4px 0 rgba(39, 64, 89, 0.4);
+    background-color: #fff;
+    border-radius: 2px;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-45%);
+    -webkit-transform: translate(-50%, -45%);
+    transform: translate(-50%, -45%);
+}
+
+.login-form-error-block {
+    background-color: rgb(184, 60, 59, 0.95);
+    padding-left: 12px;
+    border-radius: 3px;
+    margin-top: 8px;
+    margin-bottom: 25px;
+    color: #f0f0f0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 15px;
+}
+
+.login-form-top-header {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.38;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 40px;
+}
+
+.login-form-field {
+    margin-bottom: 15px;
+}
+
+.login-form-field input {
+    width: 100%;
+}
+
+.login-form-field input[type="email"],
+.login-form-field input[type="password"] {
+    font-size: 16px;
+    line-height: normal;
+    padding: 17px 0;
+    text-indent: 20px;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: none;
+    border: 1px solid #cacbcc;
+    box-sizing: content-box;
+    overflow: visible;
+    color: #26394d;
+    user-select: none;
+}
+
+.login-form-field input[type="email"].error,
+.login-form-field input[type="password"].error {
+    border-color: #cb3837;
+}
+
+.login-form-field input[type="email"]:hover,
+.login-form-field input[type="password"]:hover {
+    border-color: #357edd;
+}
+
+.login-form-field input[type="email"]::placeholder,
+.login-form-field input[type="password"]::placeholder {
+    opacity: 0.75;
+}
+
+.login-form-error-msg {
+    color: #cb3837;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.login-form-submit-btn-container {
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.login-form-submit-btn {
+    background: #357edd;
+    color: #fff;
+    letter-spacing: 0.3px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 2px;
+    padding: 18px 0px 18px 0px;
+}
+
+.login-form-submit-btn.loading {
+    opacity: 0.9;
+}
+
+.login-form-submit-btn.loading span:after {
+    color: rgb(232, 232, 232);
+    content: " .";
+    animation: dots 1.2s steps(5, end) infinite;
+}
