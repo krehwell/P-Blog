@@ -1,0 +1,35 @@
+.header-wrapper {
+    width: 100%;
+    background-color: #357edd;
+    height: 50px;
+    position: fixed;
+    user-select: none;
+    z-index: 100;
+}
+
+.header-logo {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    margin-left: 25px;
+    font-size: 15.5px;
+    letter-spacing: 0.5px;
+}
+
+.header-logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-log-out {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    float: right;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 15.5px;
+    letter-spacing: 0.5px;
+}
