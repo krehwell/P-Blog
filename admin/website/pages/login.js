@@ -34,77 +34,77 @@ export default class extends Component {
 
     render() {
         return (
-            <div className="layout-wrapper">
-                <Head>
-                    <title>Login | Admin</title>
-                </Head>
-                <div className="login-wrapper">
-                    <div className="login-content-container">
-                        <div className="login-form-container">
+          <div className="layout-wrapper">
+            <Head>
+              <title>Login | Admin</title>
+            </Head>
+            <div className="login-wrapper">
+              <div className="login-content-container">
+                <div className="login-form-container">
 
-                            {this.state.credentialError ? (
-                                <div className="login-form-error-block">
-                                    <span>
-                                        Email address and/or password is
-                                        Incorrect
-                                    </span>
-                                </div>
-                            ) : null}
-
-                            <div className="login-form-top-header">
-                                <span>Admin Page</span>
-                            </div>
-
-                            <div className="login-form-field">
-                                <input
-                                    onChange={this.updateEmailInputValue}
-                                    value={this.state.emailInputValue}
-                                    type="email"
-                                    autoComplete="new-password"
-                                    placeholder="Email Adress"
-                                    className={ this.state.credentialError || this.state.emailRequiredError ? "error" : null }
-                                />
-                                {
-                                    this.state.emailRequiredError ?
-                                        <div className="login-form-msg">
-                                            <span>Email field is required.</span>
-                                        </div> : null
-                                }
-                            </div>
-
-                            <div className="login-form-field">
-                                <input
-                                    onChange={this.updatePasswordInputValue}
-                                    value={this.state.passwordInputValue}
-                                    type="password"
-                                    autoComplete="new-password"
-                                    placeholder="Password"
-                                    className={ this.state.credentialError || this.state.emailRequiredError ? "error" : null }
-                                />
-                                {
-                                    this.state.emailRequiredError ?
-                                        <div className="login-form-msg">
-                                            <span>Password field is required.</span>
-                                        </div> : null
-                                }
-                            </div>
-
-                            <div className="login-form-submit-btn-container">
-                                {
-                                    !this.state.loading ?
-                                        <div onClick={() => this.submitLoginRequest()} className="login-form-submit-btn">
-                                            <span>Login</span>
-                                        </div> :
-                                        <div className="login-form-submit-btn loading">
-                                            <span>Loading</span>
-                                        </div>
-                                }
-                            </div>
-
-                        </div>
+                  {this.state.credentialError ? (
+                    <div className="login-form-error-block">
+                      <span>
+                        Email address and/or password is
+                        Incorrect
+                      </span>
                     </div>
+                  ) : null}
+
+                  <div className="login-form-top-header">
+                    <span>Admin Page</span>
+                  </div>
+
+                  <div className="login-form-field">
+                    <input
+                      onChange={this.updateEmailInputValue}
+                      value={this.state.emailInputValue}
+                      type="email"
+                      autoComplete="new-password"
+                      placeholder="Email Adress"
+                      className={ this.state.credentialError || this.state.emailRequiredError ? "error" : null }
+                    />
+                    {
+                      this.state.emailRequiredError ?
+                        <div className="login-form-msg">
+                          <span>Email field is required.</span>
+                        </div> : null
+                    }
+                  </div>
+
+                  <div className="login-form-field">
+                    <input
+                      onChange={this.updatePasswordInputValue}
+                      value={this.state.passwordInputValue}
+                      type="password"
+                      autoComplete="new-password"
+                      placeholder="Password"
+                      className={ this.state.credentialError || this.state.emailRequiredError ? "error" : null }
+                    />
+                    {
+                      this.state.emailRequiredError ?
+                        <div className="login-form-msg">
+                          <span>Password field is required.</span>
+                        </div> : null
+                    }
+                  </div>
+
+                  <div className="login-form-submit-btn-container">
+                    {
+                      !this.state.loading ?
+                        <div onClick={() => this.submitLoginRequest()} className="login-form-submit-btn">
+                          <span>Login</span>
+                        </div> :
+                        <div className="login-form-submit-btn loading">
+                          <span>Loading</span>
+                        </div>
+                    }
+                  </div>
+
                 </div>
+              </div>
             </div>
+          </div>
         );
     }
 }
