@@ -6,6 +6,11 @@ import "../styles/components/sidebar.css";
 // pages
 import "../styles/login.css";
 import "../styles/blog/index.css";
+import "../styles/blog/create-new-post.css";
+
+// codemirror
+import "codemirror/lib/codemirror.css"
+import "codemirror/theme/dracula.css"
 
 export default function MyApp({Component, pageProps}) {
     return <Component {...pageProps}/>

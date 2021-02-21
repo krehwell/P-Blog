@@ -15,5 +15,10 @@
     "next": "^10.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
+  },
+  "dependencies": {
+    "codemirror": "^5.59.3",
+    "moment": "^2.29.1",
+    "react-codemirror2": "^7.2.1"
   }
 }
