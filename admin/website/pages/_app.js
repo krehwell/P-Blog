@@ -9,6 +9,10 @@ import "../styles/blog/index.css";
 import "../styles/blog/create-new-post.css";
 import "../styles/blog/edit.css"
 import "../styles/images/index.css";
+import "../styles/images/upload.css";
+
+// modals
+import "../styles/components/modals/delete-blog-post.css"
 
 // codemirror
 import "codemirror/lib/codemirror.css"

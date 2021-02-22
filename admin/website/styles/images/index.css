@@ -1,0 +1,121 @@
+.images-content {
+    max-width: 1200px;
+    margin: auto;
+    overflow: auto;
+    padding: 40px;
+}
+
+.images-top-header {
+    width: 100%;
+    height: 46px;
+    line-height: 46px;
+    user-select: none;
+}
+
+.images-page-header-label {
+    display: inline-block;
+    font-size: 18px;
+    cursor: default;
+    font-weight: bold;
+}
+
+.images-add-new-btn-container {
+    display: inline-block;
+    float: right;
+}
+
+.images-add-new-btn-container a {
+    text-decoration: none;
+}
+
+.images-add-new-btn {
+    font-size: 14px;
+    width: 100px;
+    white-space: nowrap;
+    border-radius: 2px;
+    background-color: rgb(0, 0, 0, 0.75);
+    color: #fff;
+    font-family: inherit;
+    text-align: center;
+}
+
+.images-list-container {
+    margin-top: 30px;
+}
+
+.images-list-items-table {
+    margin-top: 30px;
+}
+
+.images-list-items-table-header {
+    border-bottom: 1.75px solid #d1d1d1;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: rgb(0, 0, 0, 0.9);
+    cursor: default;
+}
+
+.images-list-items-table-header-item {
+    display: inline-block;
+}
+
+.images-list-items-table-header-item.filename {
+    width: 60%;
+}
+
+.images-list-items-table-header-item.link {
+    width: 30%;
+}
+
+.images-list-items-table-header-item.edit {
+    width: 10%;
+}
+
+.images-list-items-table-item {
+    border-bottom: 1.75px solid #e3e3e3;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 14px;
+    color: rgb(0, 0, 0, 0.9);
+    cursor: default;
+}
+
+.images-list-items-table-item-data {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.images-list-items-table-item-data.filename {
+    width: 60%;
+}
+
+.images-list-items-table-item-data.link {
+    width: 30%;
+}
+
+.images-list-items-table-item-data.link a,
+.images-list-items-table-item-data.link a:visited {
+    color: rgb(30, 144, 255);
+}
+
+.images-list-items-table-item-data.edit {
+    width: 10%;
+}
+
+.images-list-items-table-item-data.edit a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.images-list-items-table-item-data.edit a:hover {
+    text-decoration: underline;
+}
+
+.images-get-data-error {
+    text-align: center;
+    margin-top: 35vh;
+}
