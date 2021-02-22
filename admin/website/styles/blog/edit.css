@@ -1,0 +1,191 @@
+.edit-blog-post-content {
+    max-width: 1300px;
+    margin: auto;
+    overflow: auto;
+    padding: 30px 20px 30px 20px;
+}
+
+.edit-blog-post-header {
+    width: 100%;
+    height: 52px;
+    line-height: 52px;
+    font-size: 18px;
+    cursor: default;
+    font-weight: bold;
+}
+
+.edit-blog-post-form-container {
+    overflow: auto;
+    margin-top: 25px;
+}
+
+.edit-blog-post-form-section {
+    margin-bottom: 25px;
+}
+
+.edit-blog-post-form-section-label {
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.edit-blog-post-form-section-input {
+    width: 100%;
+}
+
+.edit-blog-post-form-section-input input[type="text"] {
+    width: 575px;
+    font-size: 15px;
+    line-height: normal;
+    padding: 10.5px 0;
+    text-indent: 14px;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: none;
+    border: 0.5px solid #cacbcc;
+    box-sizing: content-box;
+    overflow: visible;
+    color: #26394d;
+    user-select: none;
+}
+
+.edit-blog-post-form-section-input input[type="datetime-local"] {
+    width: 275px;
+    font-size: 14px;
+    line-height: normal;
+    padding: 10.5px 0;
+    text-indent: 6px;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: none;
+    border: 0.5px solid #cacbcc;
+    box-sizing: content-box;
+    overflow: visible;
+    color: #26394d;
+    user-select: none;
+}
+
+.edit-blog-post-content-btns-container {
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.edit-blog-post-content-btns-row {
+    margin-bottom: 10px;
+}
+
+.edit-blog-post-content-btn {
+    background-image: linear-gradient(to bottom, #e4e4e4, #f7f7f7);
+    border: 1px solid #afafaf;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    font-size: 11px;
+    cursor: default;
+    margin-right: 7.5px;
+}
+
+.edit-blog-post-form-section-code-content-input {
+    width: 90%;
+}
+
+.edit-blog-post-form-section-input textarea {
+    resize: none;
+    height: 125px;
+    width: 575px;
+    border-radius: 3px;
+    border: 0.5px solid #cacbcc;
+    padding: 10.5px;
+    box-sizing: border-box;
+    font-size: 14.5px;
+}
+
+.char-length {
+    user-select: none;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.char-length.green {
+    color: green;
+}
+
+.char-length.red {
+    color: rgb(186, 51, 58, 0.85);
+}
+
+.edit-blog-post-form-section-date-input-now {
+    text-decoration: underline;
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-blog-post-seo-section-title {
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.edit-blog-post-form-btns-section {
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.edit-blog-post-form-submit-btn-container {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.edit-blog-post-form-btn {
+    background: #357edd;
+    color: #fff;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 2px;
+    padding: 15px 0px 15px 0px;
+}
+
+.edit-blog-post-form-btn.loading {
+    opacity: 0.9;
+}
+
+.edit-blog-post-form-btn.loading span:after {
+    color: rgb(232, 232, 232);
+    content: " .";
+    animation: dots 1.2s steps(5, end) infinite;
+}
+
+.edit-blog-post-submit-error-msg {
+    color: rgb(186, 51, 58, 0.85);
+    margin-top: 15px;
+    text-align: left;
+}
+
+.edit-blog-post-submit-success-msg {
+    color: green;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.edit-blog-post-form-delete {
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+    color: rgb(186, 51, 58, 0.85);
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.edit-blog-post-form-delete:hover {
+    text-decoration: underline;
+}
+
+.edit-blog-post-get-data-error-msg {
+    text-align: center;
+    margin-top: 35vh;
+}

@@ -1,0 +1,177 @@
+.delete-blog-post-modal-wrapper {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    overflow: hidden;
+    z-index: 100;
+    color: rgb(43, 43, 43);
+    transition: visibility 0s, opacity 0.05s linear;
+}
+
+.delete-blog-post-modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 425px;
+    height: 260px;
+    border-radius: 3px;
+    text-align: left;
+    color: #324b5a;
+}
+
+.delete-blog-post-modal-close-wrapper {
+    display: flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.delete-blog-post-modal-close-button {
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.show-delete-blog-post-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.delete-blog-post-modal-inner-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    padding: 0px 50px 20px;
+}
+
+.delete-blog-post-modal-content-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.delete-blog-post-modal-content-text-wrapper {
+    width: 100%;
+    padding-right: 20px;
+}
+
+.delete-blog-post-modal-content-text {
+    margin-top: 30px;
+    font-size: 15px;
+}
+
+.delete-blog-post-modal-confirm-btn-container {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.delete-blog-post-modal-confirm-btn {
+    width: 110px;
+    background: rgb(186, 51, 58, 0.9);
+    -webkit-font-smoothing: antialiased;
+    border-radius: 2px;
+    border: 1px solid #c0341d;
+    transition: all 0.1s;
+    cursor: pointer;
+    font-size: 13.5px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.delete-blog-post-modal-confirm-btn:hover {
+    background: rgb(186, 51, 58);
+}
+
+.delete-blog-post-modal-confirm-btn.loading {
+    opacity: 0.9;
+}
+
+.delete-blog-post-modal-confirm-btn.loading span:after {
+    color: rgb(232, 232, 232);
+    content: " .";
+    animation: dots 1.2s steps(5, end) infinite;
+}
+
+.delete-blog-post-modal-error-wrapper {
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    cursor: default;
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.delete-blog-post-modal-error-title {
+    margin-top: 15px;
+}
+
+.delete-blog-post-modal-error-text {
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.delete-blog-post-modal-success-wrapper {
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    cursor: default;
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.delete-blog-post-modal-success-text {
+    margin-top: 25px;
+}
+
+.delete-blog-post-modal-loading-wrapper {
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    cursor: default;
+    padding: 25px;
+    margin-top: 75px;
+    text-align: center;
+}
+
+.delete-blog-post-modal-loading-icon {
+    margin: auto;
+}
+
+.delete-blog-post-modal-loading-subtext {
+    font-size: 14.5px;
+    margin-top: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+    .delete-blog-post-modal-content {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+        margin-top: 50px;
+    }
+}
