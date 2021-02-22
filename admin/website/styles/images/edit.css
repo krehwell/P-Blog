@@ -1,0 +1,162 @@
+.images-edit-content {
+    max-width: 1300px;
+    margin: auto;
+    overflow: auto;
+    padding: 30px 20px 30px 20px;
+}
+
+.images-edit-header {
+    width: 100%;
+    height: 52px;
+    line-height: 52px;
+    font-size: 18px;
+    cursor: default;
+    font-weight: bold;
+}
+
+.images-edit-metadata-container {
+    margin-top: 30px;
+}
+
+.images-edit-metadata-title {
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.images-edit-metadata-items {
+    margin-top: 25px;
+}
+
+.images-edit-metadata-item {
+    margin-bottom: 15px;
+}
+
+.images-edit-metadata-item-label {
+    display: inline-block;
+    width: 90px;
+    font-weight: bold;
+}
+
+.images-edit-metadata-item-data {
+    display: inline-block;
+}
+
+.images-edit-form-container {
+    overflow: auto;
+    margin-top: 30px;
+}
+
+.images-edit-form-title {
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.images-edit-form-section {
+    margin-top: 25px;
+}
+
+.images-edit-form-section-label {
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.images-edit-form-section-input {
+    width: 100%;
+}
+
+.images-edit-form-section-input input {
+    width: 400px;
+    font-size: 15px;
+    line-height: normal;
+    padding: 10.5px 0;
+    text-indent: 14px;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: none;
+    border: 0.5px solid #cacbcc;
+    box-sizing: content-box;
+    overflow: visible;
+    color: #26394d;
+    user-select: none;
+}
+
+.images-edit-page-submit-btn-section {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.images-edit-form-btn-container {
+    display: inline-block;
+    width: 110px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.images-edit-form-btn {
+    background: #357edd;
+    color: #fff;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 2px;
+    padding: 13px 0px 13px 0px;
+}
+
+.images-edit-form-btn.loading {
+    opacity: 0.9;
+}
+
+.images-edit-form-btn.loading span:after {
+    color: rgb(232, 232, 232);
+    content: " .";
+    animation: dots 1.2s steps(5, end) infinite;
+}
+
+.images-edit-submit-error-msg {
+    color: rgb(186, 51, 58, 0.85);
+    margin-top: 15px;
+    text-align: left;
+}
+
+.images-edit-submit-success-msg {
+    color: green;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.images-edit-delete-container {
+    margin-top: 30px;
+}
+
+.images-edit-delete-title {
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.images-edit-delete-subtitle {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.images-edit-delete-btn-container {
+    display: inline-block;
+    width: 110px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.images-edit-delete-btn {
+    background: rgb(186, 51, 58, 0.9);
+    color: #fff;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 2px;
+    padding: 13px 0px 13px 0px;
+}
+
+.images-edit-get-data-error-msg {
+    text-align: center;
+    margin-top: 35vh;
+}

@@ -10,9 +10,11 @@ import "../styles/blog/create-new-post.css";
 import "../styles/blog/edit.css"
 import "../styles/images/index.css";
 import "../styles/images/upload.css";
+import "../styles/images/edit.css";
 
 // modals
 import "../styles/components/modals/delete-blog-post.css"
+import "../styles/components/modals/delete-image.css"
 
 // codemirror
 import "codemirror/lib/codemirror.css"
