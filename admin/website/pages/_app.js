@@ -13,6 +13,7 @@ import "../styles/images/upload.css";
 import "../styles/images/edit.css";
 import "../styles/sitemap.css";
 import "../styles/change-password.css";
+import "../styles/_error.css";
 
 // modals
 import "../styles/components/modals/delete-blog-post.css"
