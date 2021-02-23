@@ -1,0 +1,75 @@
+.sitemap-content {
+    max-width: 1300px;
+    margin: auto;
+    overflow: auto;
+    padding: 30px 20px 30px 20px;
+}
+
+.sitemap-header {
+    width: 100%;
+    height: 52px;
+    line-height: 52px;
+    font-size: 18px;
+    cursor: default;
+    font-weight: bold;
+    user-select: none;
+}
+
+.sitemap-form-container {
+    margin-top: 40px;
+}
+
+.sitemap-form-section {
+    overflow: auto;
+    margin-bottom: 50px;
+}
+
+.sitemap-form-title {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.sitemap-form-description {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.sitemap-form-btn-container {
+    display: inline-block;
+    width: 135px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
+.sitemap-form-btn {
+    background: #357edd;
+    color: #fff;
+    letter-spacing: 0.5px;
+    font-size: 12.5px;
+    font-weight: 700;
+    border-radius: 2px;
+    padding: 13px 0px 13px 0px;
+}
+
+.sitemap-form-btn.loading {
+    opacity: 0.9;
+}
+
+.sitemap-form-btn.loading span:after {
+    color: rgb(232, 232, 232);
+    content: " .";
+    animation: dots 1.2s steps(5, end) infinite;
+}
+
+.sitemap-success-msg {
+    color: green;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.sitemap-error-msg {
+    color: rgb(186, 51, 58, 0.85);
+    margin-top: 10px;
+    text-align: left;
+}
