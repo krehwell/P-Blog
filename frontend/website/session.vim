@@ -7,7 +7,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +10 pages/index.js
+badd +1 pages/index.js
 badd +5 api/getFiveNewestPost.js
 argglobal
 %argdel
@@ -50,12 +50,12 @@ setlocal fen
 normal! zo
 10
 normal! zo
-let s:l = 13 - ((12 * winheight(0) + 21) / 43)
+let s:l = 23 - ((22 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 041|
+23
+normal! 010|
 wincmd w
 2wincmd w
 exe 'vert 1resize ' . ((&columns * 27 + 96) / 192)
