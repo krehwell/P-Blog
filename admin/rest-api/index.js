@@ -28,18 +28,21 @@ mongoose.connection.on("error", (error) => {
     }
 });
 
-mongoose.connection.on("open", () => {
-    console.log("Connected to MongoDB database");
+mongoose.connection.on("open", function () {
+    if (process.env.NODE_ENV === "development") {
+        console.log("Connected to database.");
+    }
 });
 
 app.use(helmet());
+
 app.use(
     cors({
         origin:
-            process.env.NODE_ENV === "develoment"
+            process.env.NODE_ENV === "development"
                 ? config.devAdminURL
                 : /admin.example\.com$/,
-        credential: true,
+        credentials: true,
     })
 );
 
