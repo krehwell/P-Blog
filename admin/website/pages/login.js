@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Head from "next/head";
 
+import login from "../api/admin-user/login.js";
+
 export default class extends Component {
     constructor(props) {
         super(props);
@@ -29,7 +31,38 @@ export default class extends Component {
     };
 
     submitLoginRequest = () => {
-        this.setState({ loading: true });
+
+		if (!this.state.emailInputValue || !this.state.passwordInputValue) {
+			if (!this.state.emailInputValue) {
+				this.setState({ emailRequiredError: true })
+			}
+
+			if (!this.state.passwordInputValue) {
+				this.setState({ passwordRequiredError: true })
+			}
+		} else {
+            this.setState({loading: true});
+
+            const self = this;
+
+			login(
+                this.state.emailInputValue,
+                this.state.passwordInputValue,
+                (apiResponse) => {
+                    if (!apiResponse.success) {
+                        self.setState({
+                            loading: false,
+                            credentialError: true,
+                            emailRequiredError: false,
+                            passwordRequiredError: false,
+                        });
+                    } else {
+                        console.log("you hit me, should be refreshed now");
+                        window.location.href = "/";
+                    }
+                }
+            );
+        }
     };
 
     render() {
