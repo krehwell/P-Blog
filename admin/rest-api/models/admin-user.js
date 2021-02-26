@@ -39,4 +39,14 @@ AdminUserSchema.pre("save", function (next) {
     }
 });
 
+AdminUserSchema.methods.comparePassword = function(pw, cb) {
+    bcrypt.compare(pw, this.password, (err, isMatch) => {
+        if (err) {
+            return cb(err);
+        } else {
+            cb(null, isMatch);
+        }
+    })
+}
+
 module.exports = mongoose.model("AdminUser", AdminUserSchema);
