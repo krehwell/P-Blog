@@ -32,6 +32,19 @@ export default class extends Component {
         this.codeMirror = null;
     }
 
+    static async getInitialProps({req, res}) {
+        let authResult = await authUser(req);
+
+        console.log(authResult);
+
+        if(!authResult.success) {
+            res.writeHead(302, {Location: "/login"});
+            res.end();
+        }
+
+        return {}
+    }
+
     updateTitleInputValue = (event) => {
         this.setState({titleInputValue: event.target.value})
     }

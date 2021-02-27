@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Head from "next/head";
 
 import login from "../api/admin-user/login.js";
+import authUser from "../api/admin-user/auth.js";
 
 export default class extends Component {
     constructor(props) {
@@ -14,6 +15,17 @@ export default class extends Component {
             passwordInputValue: "",
             passwordRequiredError: false,
         };
+    }
+
+    static async getInitialProps ({req, res}) {
+        const authResult = await authUser(req);
+
+        if (authResult.success) {
+            res.writeHead(302, {Location: "/"});
+            res.end();
+        }
+
+        return {};
     }
 
     updateEmailInputValue = (event) => {

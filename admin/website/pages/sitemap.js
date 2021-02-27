@@ -4,6 +4,8 @@ import Head from "next/head";
 import Header from "../components/header.js";
 import Sidebar from "../components/sidebar.js";
 
+import authUser from "../api/admin-user/auth.js";
+
 export default class extends Component {
     constructor(props) {
         super(props)
@@ -21,6 +23,17 @@ export default class extends Component {
             pingError: false,
             pingSuccess: false
         }
+    }
+
+    static async getInitialProps({req, res}) {
+        let authResult = await authUser(req);
+
+        if(!authResult.success) {
+            res.writeHead(302, {Location: "/login"});
+            res.end();
+        }
+
+        return {}
     }
 
     updateSitemapRequest = () => {

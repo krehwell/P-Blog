@@ -18,6 +18,17 @@ export default class extends Component {
         }
     }
 
+    static async getInitialProps({req, res}) {
+        let authResult = await authUser(req);
+
+        if(!authResult.success) {
+            res.writeHead(302, {Location: "/login"});
+            res.end();
+        }
+
+        return {}
+    }
+
     handleInputChange = (event) => {
         this.setState({selectedFile: event.target.file});
     }
