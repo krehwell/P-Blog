@@ -23,7 +23,7 @@ const app = express.Router();
 */
 
 // LOGIN ROUTE
-app.put("/users/login/", (req, res) => {
+app.put("/users/login", function (req, res) {
 
     if (!req.body.email || !req.body.password) {
         // console.log("--- User Login Failed ---");
@@ -69,6 +69,18 @@ app.get("/users/authenticate", function (req, res) {
         res.json({ success: false });
     } else {
         api.authenticateAdminUser(authUserId, authToken, (apiResponse) => {
+            res.json(apiResponse);
+        });
+    }
+});
+
+// LOGOUT ROUTE
+app.put("/users/logout", authAdminUser, function (req, res) {
+    if (!res.locals.authSuccess) {
+        res.json({authSuccess: false});
+    } else {
+        api.removeAdminUserAuthToken(res.locals.authUserId, (apiResponse) => {
+            apiResponse.authSuccess = true;
             res.json(apiResponse);
         });
     }

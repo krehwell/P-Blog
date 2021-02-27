@@ -67,6 +67,26 @@ module.exports = {
                 callback({success: true});
             }
         });
+    },
+
+    // LOGOUT API (authenticate middlewares) -> (find user -> set token to null -> save)
+    removeAdminUserAuthToken: function (userId, callback) {
+        AdminUserModel.findOne({id: userId}).exec((error, user) => {
+            if (error || !user) {
+                callback({success: false});
+            } else {
+                user.authToken = null;
+                user.authTokenExpiresTimestamp = null;
+
+                user.save((saveError) => {
+                    if (saveError) {
+                        callback({success: false});
+                    } else {
+                        callback({success: true});
+                    }
+                });
+            }
+        });
     }
 
 };
