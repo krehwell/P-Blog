@@ -6,6 +6,8 @@ import { Controlled as CodeMirror } from "react-codemirror2";
 import Header from "../../components/header.js";
 import Sidebar from "../../components/sidebar.js";
 
+import authUser from "../../api/admin-user/auth.js";
+
 if (typeof navigator !== "undefined") {
     require("codemirror/mode/markdown/markdown");
 }

@@ -6,10 +6,7 @@ export default function login (email, password, callback) {
     axios
         .put(
             `${apiBaseUrl}/users/login`,
-            {
-                email: email,
-                password: password,
-            },
+            { email: email, password: password },
             { withCredentials: true }
         )
         .then((response) => {
