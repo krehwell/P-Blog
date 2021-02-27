@@ -2,22 +2,27 @@ const express = require("express");
 const tldjs = require("tldjs");
 
 const api = require("./api.js");
+const authAdminUser = require("../../middlewares/index.js").authAdminUser;
 
 const config = require("../../config.js");
 
-// CREATE ADMIN (this will run on start of server)
+// CREATE ADMIN (this will run on start of server only)
 api.createNewAdminUser(
     "q",
     "q",
     function (apiResponse) {
-        console.log(apiResponse);
+        // console.log(apiResponse);
     }
 );
 
 const app = express.Router();
 
 // ADD API ENDPOINT CODE HERE
+/*
+    - TOKEN TEMPLATE: ("adminUser", userId&userToken)
+*/
 
+// LOGIN ROUTE
 app.put("/users/login/", (req, res) => {
 
     if (!req.body.email || !req.body.password) {
@@ -49,6 +54,22 @@ app.put("/users/login/", (req, res) => {
                 // console.log("--- User Login Successfully ---");
                 res.json({ success: true });
             }
+        });
+    }
+});
+
+// AUTHENTICATION ROUTE
+app.get("/users/authenticate", function (req, res) {
+    const cookies = req.cookies.adminUser ? req.cookies.adminUser.split("&") : null;
+
+    let authUserId = cookies ? cookies[0] : "";
+    let authToken = cookies ? cookies[1] : "";
+
+    if (!authUserId || !authToken) {
+        res.json({ success: false });
+    } else {
+        api.authenticateAdminUser(authUserId, authToken, (apiResponse) => {
+            res.json(apiResponse);
         });
     }
 });

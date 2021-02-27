@@ -58,4 +58,15 @@ module.exports = {
         });
     },
 
+    // AUTHENTICATION API - FOR MIDDLEWARE
+    authenticateAdminUser: function (userId, authToken, callback) {
+        AdminUserModel.findOne({id: userId}).exec((error, user) => {
+            if (error || !user || authToken !== user.authToken || moment().unix() > user.authTokenExpiresTimestamp) {
+                callback({success: false});
+            } else {
+                callback({success: true});
+            }
+        });
+    }
+
 };
