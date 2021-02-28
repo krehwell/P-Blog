@@ -95,4 +95,20 @@ app.put("/users/remove-admin-user-cookie", function (req, res) {
 
     res.json({success: true});
 });
+
+// CHANGE PASSWORD ROUTE
+app.put("/users/change-password", authAdminUser, function (req, res) {
+    if (!req.body.currentPassword || !req.body.newPassword) {
+        res.json({ success: false });
+    } else if (!res.locals.authSuccess) {
+        res.json({ authSuccess: false });
+    } else {
+        api.changeAdminUserPassword(res.locals.authUserId, req.body.currentPassword, req.body.newPassword, function (apiResponse) {
+                apiResponse.authSuccess = true;
+                res.json(apiResponse);
+            }
+        );
+    }
+});
+
 module.exports = app;

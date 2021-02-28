@@ -87,6 +87,37 @@ module.exports = {
                 });
             }
         });
-    }
+    },
+
+    // CHANGE PASSWORD API (find user -> compare password -> bcrypt new pass -> save a new one)
+    changeAdminUserPassword: function (userId, currentPassword, newPassword, callback) {
+        AdminUserModel.findOne({id: userId}).exec((error, user) => {
+            if (error || !user) {
+                callback({ submitError: true });
+            } else {
+                user.comparePassword(currentPassword, (matchError, isMatch) => {
+                    if (matchError) {
+                        callback({ submitError: true });
+                    } else if(!isMatch) {
+                        callback({ invalidPasswordCredentialError: true });
+                    } else {
+                        user.password = newPassword;
+
+                        /*
+                         * when saving password, it also bcrypt a new one, refer:
+                           `AdminUserSchema.pre(..)` function at `./models/admin-user`
+                        */
+                        user.save((saveError) => {
+                            if (saveError) {
+                                callback({ submitError: true});
+                            } else {
+                                callback({success: true});
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    },
 
 };
