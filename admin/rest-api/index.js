@@ -6,6 +6,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
+/// REST-API CONFIG
 const config = require("./config.js");
 
 dotenv.config();
@@ -14,6 +15,8 @@ const PORT = process.env.PORT || 5001;
 
 const app = express();
 
+
+/// DB CONNECTION
 const mongoString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@coding-blog.rv1qo.mongodb.net/blog?retryWrites=true&w=majority`;
 
 mongoose.connect(mongoString, {
@@ -34,6 +37,8 @@ mongoose.connection.on("open", function () {
     }
 });
 
+
+/// REST-API CONFIG
 app.use(helmet());
 
 app.use(
@@ -46,15 +51,20 @@ app.use(
     })
 );
 
+
+/// PARSER
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: false, limit: "50mb" }));
 
 app.use(cookieParser());
 
+
 /// ROUTES
 app.use(require("./routes/admin-user/index.js"));
 app.use(require("./routes/blog-posts/index.js"));
 
+
+/// RUN SERVER
 app.listen(PORT, () => {
     console.log(`express app listening on port ${PORT}`);
 });

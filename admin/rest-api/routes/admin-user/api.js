@@ -5,7 +5,7 @@ const AdminUserModel = require("../../models/admin-user.js");
 
 module.exports = {
 
-    // CREATE ADMIN (only used once on server start)
+    /// CREATE ADMIN (only used once on server start)
     createNewAdminUser: function (email, password, callback) {
         const newAdminUser = new AdminUserModel({
             id: randomstring.generate(20),
@@ -24,7 +24,7 @@ module.exports = {
         });
     },
 
-    // LOGIN ADMIN (find email -> compare password -> create new token -> modify user token)
+    /// LOGIN ADMIN (find email -> compare password -> create new token -> modify user token)
     loginAdminUser: function (email, password, callback) {
         AdminUserModel.findOne({ email: email }).exec((error, user) => {
             if (error || !user) {
@@ -58,7 +58,7 @@ module.exports = {
         });
     },
 
-    // AUTHENTICATION API - FOR MIDDLEWARE
+    /// AUTHENTICATION API - FOR MIDDLEWARE
     authenticateAdminUser: function (userId, authToken, callback) {
         AdminUserModel.findOne({id: userId}).exec((error, user) => {
             if (error || !user || authToken !== user.authToken || moment().unix() > user.authTokenExpiresTimestamp) {
@@ -69,7 +69,7 @@ module.exports = {
         });
     },
 
-    // LOGOUT API (authenticate middlewares) -> (find user -> set token to null -> save)
+    /// LOGOUT API (authenticate middlewares) -> (find user -> set token to null -> save)
     removeAdminUserAuthToken: function (userId, callback) {
         AdminUserModel.findOne({id: userId}).exec((error, user) => {
             if (error || !user) {
@@ -89,7 +89,7 @@ module.exports = {
         });
     },
 
-    // CHANGE PASSWORD API (find user -> compare password -> bcrypt new pass -> save a new one)
+    /// CHANGE PASSWORD API (find user -> compare password -> bcrypt new pass -> save a new one)
     changeAdminUserPassword: function (userId, currentPassword, newPassword, callback) {
         AdminUserModel.findOne({id: userId}).exec((error, user) => {
             if (error || !user) {

@@ -18,7 +18,7 @@ const AdminUserSchema = new mongoose.Schema(
     { collection: "admin-users" }
 );
 
-// Saves the user"s password hashed (plain text password storage is not good)
+/// HASH PASSWORD EVERYTIME SAVE USER IS BEING CALLED
 AdminUserSchema.pre("save", function (next) {
     const user = this;
     if (this.isModified("password") || this.isNew) {

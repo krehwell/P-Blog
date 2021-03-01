@@ -7,7 +7,12 @@ const authAdminUser = require("../../middlewares/index.js").authAdminUser;
 const app = express.Router();
 
 
-/// BLOG POSTS API ENDPOINT HERE
+/// BLOG-POSTS ROUTES (define route -> call api -> return callback)
+/*
+    - IMPORTANT: ??
+*/
+
+/// GET ALL POSTS ROUTE
 app.get("/blog-posts/get-all", authAdminUser, function(req, res) {
     if (!res.locals.authSuccess) {
         res.json({authSuccess: false});

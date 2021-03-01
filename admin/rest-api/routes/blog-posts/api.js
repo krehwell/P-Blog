@@ -5,7 +5,7 @@ const BlogPostModel = require("../../models/post.js");
 
 module.exports = {
 
-    // GET ALL BLOG POST ACTIVE AND UPCOMING
+    /// GET ALL BLOG POST ACTIVE AND UPCOMING
     getAllBlogPosts: function (callback) {
         const now = moment().unix();
 

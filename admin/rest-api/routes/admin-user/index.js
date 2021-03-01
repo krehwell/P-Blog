@@ -17,12 +17,12 @@ api.createNewAdminUser(
 
 const app = express.Router();
 
-// ADD API ENDPOINT CODE HERE
+/// USERS(Admin) ROUTES (define route -> call api)
 /*
     - TOKEN TEMPLATE: ("adminUser", userId&userToken)
 */
 
-// LOGIN ROUTE
+/// LOGIN ROUTE
 app.put("/users/login", function (req, res) {
 
     if (!req.body.email || !req.body.password) {
@@ -58,7 +58,7 @@ app.put("/users/login", function (req, res) {
     }
 });
 
-// AUTHENTICATION ROUTE
+/// AUTHENTICATION ROUTE
 app.get("/users/authenticate", function (req, res) {
     const cookies = req.cookies.adminUser ? req.cookies.adminUser.split("&") : null;
 
@@ -74,7 +74,7 @@ app.get("/users/authenticate", function (req, res) {
     }
 });
 
-// LOGOUT ROUTE
+/// LOGOUT ROUTE
 app.put("/users/logout", authAdminUser, function (req, res) {
     if (!res.locals.authSuccess) {
         res.json({authSuccess: false});
@@ -86,7 +86,7 @@ app.put("/users/logout", authAdminUser, function (req, res) {
     }
 });
 
-// CLEAR CACHE
+/// CLEAR COOKIE
 app.put("/users/remove-admin-user-cookie", function (req, res) {
     res.clearCookie("adminUser", {
         path: "/",
@@ -96,7 +96,7 @@ app.put("/users/remove-admin-user-cookie", function (req, res) {
     res.json({success: true});
 });
 
-// CHANGE PASSWORD ROUTE
+/// CHANGE PASSWORD ROUTE
 app.put("/users/change-password", authAdminUser, function (req, res) {
     if (!req.body.currentPassword || !req.body.newPassword) {
         res.json({ success: false });
