@@ -37,8 +37,6 @@ export default class extends Component {
     static async getInitialProps({req, res}) {
         let authResult = await authUser(req);
 
-        console.log(authResult);
-
         if(!authResult.success) {
             res.writeHead(302, {Location: "/login"});
             res.end();

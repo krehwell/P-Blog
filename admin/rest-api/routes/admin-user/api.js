@@ -3,6 +3,7 @@ const randomstring = require("randomstring");
 
 const AdminUserModel = require("../../models/admin-user.js");
 
+/// API ENDPOINT CODE HERE
 module.exports = {
 
     /// CREATE ADMIN (only used once on server start)

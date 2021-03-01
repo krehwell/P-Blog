@@ -75,7 +75,6 @@ export default class extends Component {
                             passwordRequiredError: false,
                         });
                     } else {
-                        console.log("you hit me, should be refreshed now");
                         window.location.href = "/";
                     }
                 }

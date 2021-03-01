@@ -13,7 +13,6 @@ export default function login (email, password, callback) {
             callback(response.data);
         })
         .catch((error) => {
-            console.log("error in me");
             callback({ success: false });
         });
 }

@@ -2,7 +2,7 @@ const moment = require("moment");
 
 const BlogPostModel = require("../../models/post.js");
 
-
+/// API ENDPOINT CODE HERE
 module.exports = {
 
     /// GET ALL BLOG POST ACTIVE AND UPCOMING

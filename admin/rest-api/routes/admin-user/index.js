@@ -17,7 +17,7 @@ api.createNewAdminUser(
 
 const app = express.Router();
 
-/// USERS(Admin) ROUTES (define route -> call api)
+/// USERS(Admin) ROUTES (define route -> call api -> return callback)
 /*
     - TOKEN TEMPLATE: ("adminUser", userId&userToken)
 */
