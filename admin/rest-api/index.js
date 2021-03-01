@@ -51,7 +51,9 @@ app.use(bodyParser.urlencoded({ extended: false, limit: "50mb" }));
 
 app.use(cookieParser());
 
+/// ROUTES
 app.use(require("./routes/admin-user/index.js"));
+app.use(require("./routes/blog-posts/index.js"));
 
 app.listen(PORT, () => {
     console.log(`express app listening on port ${PORT}`);
