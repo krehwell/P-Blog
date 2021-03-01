@@ -4,7 +4,15 @@ const api = require("./api.js");
 
 const app = express.Router();
 
-// API ENDPOINT CODE WILL GO HERE
+/// BLOG POSTS ROUTES (define route -> call api -> return callback)
+/*
+    - route `/posts/get-blog-post-by-url-title` is not same as route on the page.
+      it is only endpoint route, the frontend passing the title to end point, then
+      api start searching db for the particular title.
+
+    - same goes for route `/posts/get-blog-posts-by-tag`
+*/
+
 app.get("/posts/get-all-blog-posts", (req, res) => {
     api.getAllBlogPosts((apiResponse) => {
         res.json(apiResponse);

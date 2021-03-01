@@ -2,7 +2,10 @@ const BlogPostModel = require("../models/post.js");
 const moment = require("moment");
 const showdown = require("showdown");
 
+/// API ENDPOINT CODE HERE
 module.exports = {
+
+    /// GET ALL BLOG POSTS (active post only)
     getAllBlogPosts: (callback) => {
         const now = moment().unix();
 
@@ -17,6 +20,7 @@ module.exports = {
             });
     },
 
+    /// GET POST BY TAG
     getBlogPostByTag: (tag, callback) => {
         const now = moment().unix();
 
@@ -31,6 +35,7 @@ module.exports = {
             });
     },
 
+    /// FRONT PAGE ENDPOINT (showing 5 newest post uploaded)
     getFiveNewestPosts: (callback) => {
         const now = moment().unix();
 
@@ -46,6 +51,7 @@ module.exports = {
             });
     },
 
+    /// GET POST BY TITLE
     getBlogTitleByUrlTilte: (urlTitle, callback) => {
         BlogPostModel.findOne({ urlTitle: urlTitle }).exec((error, post) => {
             if (error) {

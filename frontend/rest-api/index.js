@@ -4,12 +4,15 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
 
+/// FRONTEND REST-API CONFIG
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 
+
+/// DB CONNECTION
 const mongoString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@coding-blog.rv1qo.mongodb.net/blog?retryWrites=true&w=majority`;
 
 mongoose.connect(mongoString, {
@@ -28,12 +31,18 @@ mongoose.connection.on("open", () => {
     console.log("Connected to MongoDB database");
 });
 
-app.use(helmet());
 
-app.use(require("./routes/index.js"));
+/// FRONTEND REST-API CONFIG
+app.use(helmet());
 
 app.use("/assets", express.static(path.join(__dirname, "..", "..", "assets")));
 
+
+/// ROUTES
+app.use(require("./routes/index.js"));
+
+
+/// RUN SERVER
 app.listen(PORT, () => {
     console.log(`Express app listening on port ${PORT}`);
 });
