@@ -69,4 +69,17 @@ module.exports = {
             });
     },
 
+    /// EDIT POST or GET BLOG POST BY ID (edit route send the id to end point to be replied with the whole post information)
+    getBlogPostById: function (id, callback) {
+        BlogPostModel.findOne({id: id}).exec(function (error, post) {
+            if (error) {
+                callback({ getDataError : true});
+            } else if (!post) {
+                callback({ notFoundError: true })
+            } else {
+                callback({ success: true, post: post })
+            }
+        });
+    },
+
 };

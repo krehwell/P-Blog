@@ -57,5 +57,18 @@ app.post("/blog-posts/create-new", authAdminUser, function (req, res) {
     }
 });
 
+/// EDIT POST ROUTE
+app.get("/blog-posts/get-post-by-id", authAdminUser, function (req, res) {
+    if (!req.query.id) {
+        res.json({notFoundError: true});
+    } else if (!res.locals.authSuccess) {
+        res.json({authSuccess: false});
+    } else {
+        api.getBlogPostById(req.query.id, function (apiResponse) {
+            apiResponse.authSuccess = true;
+            res.json(apiResponse);
+        });
+    }
+});
 
 module.exports = app;
