@@ -7,6 +7,7 @@ import Header from "../../components/header.js";
 import Sidebar from "../../components/sidebar.js";
 
 import authUser from "../../api/admin-user/auth.js";
+import createNewPost from "../../api/blog-posts/createNewPost";
 
 if (typeof navigator !== "undefined") {
     require("codemirror/mode/markdown/markdown");
@@ -25,7 +26,7 @@ export default class extends Component {
             tagsInputValue: "",
             imageUrlInputValue: "",
             markdownInputValue: "",
-            seoTitleInputValue: "",
+            seoTitleTagInputValue: "",
             seoTitleTagCharLeft: 60,
             metaDescriptionInputValue: "",
             metaDescriptionCharLeft: 160,
@@ -76,7 +77,7 @@ export default class extends Component {
     }
 
     updateSeoTitleTagInputValue = (event) => {
-        let charLeft
+        let charLeft = 0;
         if (60 - event.target.value.length > 0) {
             charLeft = 60 - event.target.value.length
         } else {
@@ -104,7 +105,49 @@ export default class extends Component {
     }
 
     submitCreateNewPostRequest = () => {
-        this.setState({submitError: false, errorMsg: "", loading: true});
+        if (!this.state.titleInputValue) {
+            this.setState({submitError: true, errorMsg: "Title field is required."})
+        } else if (!this.state.urlTitleInputValue) {
+            this.setState({submitError: true, errorMsg: "URL title field is required."})
+        } else if (!this.state.dateInputValue) {
+            this.setState({submitError: true, errorMsg: "Date field is required."})
+        } else if (!this.state.tagsInputValue) {
+            this.setState({submitError: true, errorMsg: "Date field is required."})
+        } else if (!this.state.imageUrlInputValue) {
+            this.setState({submitError: true, errorMsg: "Image URL field is required."})
+        } else if (!this.state.markdownInputValue) {
+            this.setState({submitError: true, errorMsg: "Markdown content field is required."})
+        } else if (!this.state.seoTitleTagInputValue) {
+            this.setState({submitError: true, errorMsg: "SEO title field is required."})
+        } else if (!this.state.metaDescriptionInputValue) {
+            this.setState({submitError: true, errorMsg: "Meta description field is required."})
+        } else {
+            this.setState({submitError: false, errorMsg: "", loading: true})
+
+            const self = this
+
+            createNewPost(
+                this.state.titleInputValue,
+                this.state.urlTitleInputValue,
+                moment(this.state.dateInputValue).valueOf() / 1000,
+                this.state.tagsInputValue,
+                this.state.imageUrlInputValue,
+                this.state.markdownInputValue,
+                this.state.seoTitleTagInputValue,
+                this.state.metaDescriptionInputValue,
+                function(apiResponse) {
+                    if (!apiResponse.authSuccess) {
+                        window.location.href = "/login"
+                    } else if (apiResponse.alreadyExistsError) {
+                        self.setState({submitError: true, errorMsg: "Blog post with that title already exists.", loading: false})
+                    } else if (apiResponse.submitError || !apiResponse.success) {
+                        self.setState({submitError: true, errorMsg: "An error occurred.", loading: false})
+                    } else {
+                        window.location.href = "/"
+                    }
+                }
+            )
+        }
     }
 
     render() {
@@ -189,24 +232,24 @@ export default class extends Component {
                     <div className="create-blog-post-form-section-code-content-input">
                       {
                         CodeMirror &&
-                          <CodeMirror
-                            className="create-blog-post-form-section-codemirror"
-                            editorDidMount={editor => {
-                              this.codemirror = editor;
-                            }}
-                            value={this.state.markdownInputValue}
-                            onBeforeChange={(editor, data, value) => {
-                              this.updateMarkdownInputValue(value)
-                            }}
-                            onChange={(editor, data, value) => {
-                              this.updateMarkdownInputValue(value)
-                            }}
-                            options={{
-                              mode: "markdown",
-                              theme: "dracula",
-                              lineNumbers: true
-                            }}
-                          />
+                            <CodeMirror
+                              className="create-blog-post-form-section-codemirror"
+                              editorDidMount={editor => {
+                                this.codemirror = editor;
+                              }}
+                              value={this.state.markdownInputValue}
+                              onBeforeChange={(editor, data, value) => {
+                                this.updateMarkdownInputValue(value)
+                              }}
+                              onChange={(editor, data, value) => {
+                                this.updateMarkdownInputValue(value)
+                              }}
+                              options={{
+                                mode: "markdown",
+                                theme: "dracula",
+                                lineNumbers: true
+                              }}
+                            />
                       }
                     </div>
                   </div>

@@ -2,7 +2,7 @@ import axios from "axios";
 
 import apiBaseUrl from "../../utils/apiBaseUrl.js";
 
-export default async function (req) {
+export default async function getAllPosts(req) {
     try {
         const cookie = req.headers.cookie ? req.headers.cookie : "";
 
