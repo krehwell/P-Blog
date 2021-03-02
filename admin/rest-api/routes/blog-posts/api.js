@@ -69,7 +69,7 @@ module.exports = {
             });
     },
 
-    /// EDIT POST or GET BLOG POST BY ID (edit route send the id to end point to be replied with the whole post information)
+    /// GET POST TO EDIT or GET BLOG POST BY ID (edit route send the id to end point to be replied with the whole post information)
     getBlogPostById: function (id, callback) {
         BlogPostModel.findOne({id: id}).exec(function (error, post) {
             if (error) {
@@ -81,5 +81,34 @@ module.exports = {
             }
         });
     },
+
+    /// EDIT POST API or SUBMIT MODIFY POST
+	editBlogPost: function(id, title, urlTitle, dateTimestamp, tags, thumbnailImageUrl, markdownContent, seoTitleTag, seoMetaDescription, callback) {
+		const arrayOfTags = tags.split(",").map(function(tag) {
+			return tag.trim()
+		})
+
+		BlogPostModel.findOneAndUpdate(
+			{id: id},
+			{$set: {
+				title: title,
+				urlTitle: urlTitle,
+				dateTimestamp: dateTimestamp,
+				tags: arrayOfTags,
+				thumbnailImageUrl: thumbnailImageUrl,
+				markdownContent: markdownContent,
+				seoTitleTag: seoTitleTag,
+				seoMetaDescription:seoMetaDescription
+			}}
+		).exec(function(error, post) {
+			if (error) {
+				callback({submitError: true})
+			} else if (!post) {
+				callback({notFoundError: true})
+			} else {
+				callback({success: true})
+			}
+		})
+	},
 
 };

@@ -25,6 +25,10 @@ mongoose.connect(mongoString, {
     useUnifiedTopology: true,
 });
 
+// Make Mongoose use `findOneAndUpdate()`. Note that this option is `true`
+// by default, you need to set it to false.
+mongoose.set('useFindAndModify', false);
+
 mongoose.connection.on("error", (error) => {
     if (process.env.NODE_ENV === "develoment") {
         console.log(error);
