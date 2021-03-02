@@ -1,4 +1,5 @@
 const moment = require("moment");
+const randomstring = require("randomstring");
 
 const BlogPostModel = require("../../models/post.js");
 
@@ -28,6 +29,42 @@ module.exports = {
                                 });
                             }
                         });
+                }
+            });
+    },
+
+    /// CREATE NEW POST
+    createNewBlogPost: function (title, urlTitle, dateTimestamp, tags, thumbnailImageUrl, markdownContent, seoTitleTag, seoMetaDescription, callback) {
+        BlogPostModel
+            .findOne({ $or: [{ title: title }, { urlTitle: urlTitle }] })
+            .exec(function (error, post) {
+                if (error) {
+                    callback({submitError: true});
+                } else if (post) {
+                    callback({alreadyExistsError: true});
+                } else {
+                    const arrayOfTags = tags.split(",").map(tag => tag.trim());
+
+                    const newBlogPost = new BlogPostModel({
+                        id: randomstring.generate(12),
+                        title,
+                        urlTitle,
+                        dateTimestamp,
+                        tags: arrayOfTags,
+                        thumbnailImageUrl,
+                        markdownContent,
+                        seoTitleTag,
+                        seoMetaDescription,
+                        callback,
+                    });
+
+                    newBlogPost.save(error => {
+                        if (error) {
+                            callback({submitError: true});
+                        } else {
+                            callback({success: true});
+                        }
+                    })
                 }
             });
     },
