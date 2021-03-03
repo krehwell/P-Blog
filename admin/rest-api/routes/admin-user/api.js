@@ -114,11 +114,12 @@ module.exports = {
                             } else {
                                 callback({success: true});
                             }
-                        })
+                        });
                     }
-                })
+                });
             }
-        })
+        });
     },
+
 
 };

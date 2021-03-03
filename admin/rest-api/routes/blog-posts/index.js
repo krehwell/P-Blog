@@ -105,5 +105,6 @@ app.put("/blog-posts/edit", authAdminUser, function(req, res) {
         )
     }
 })
+});
 
 module.exports = app;
