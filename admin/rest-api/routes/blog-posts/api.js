@@ -75,9 +75,9 @@ module.exports = {
             if (error) {
                 callback({ getDataError : true});
             } else if (!post) {
-                callback({ notFoundError: true })
+                callback({ notFoundError: true });
             } else {
-                callback({ success: true, post: post })
+                callback({ success: true, post: post });
             }
         });
     },
@@ -85,7 +85,7 @@ module.exports = {
     /// EDIT POST API or SUBMIT MODIFY POST
 	editBlogPost: function(id, title, urlTitle, dateTimestamp, tags, thumbnailImageUrl, markdownContent, seoTitleTag, seoMetaDescription, callback) {
 		const arrayOfTags = tags.split(",").map(function(tag) {
-			return tag.trim()
+			return tag.trim();
 		})
 
 		BlogPostModel.findOneAndUpdate(
@@ -102,13 +102,24 @@ module.exports = {
 			}}
 		).exec(function(error, post) {
 			if (error) {
-				callback({submitError: true})
+				callback({submitError: true});
 			} else if (!post) {
-				callback({notFoundError: true})
+				callback({notFoundError: true});
 			} else {
-				callback({success: true})
+				callback({success: true});
 			}
 		})
 	},
+
+    /// DELETE POST
+    deleteBlogPost: function (id, callback) {
+        BlogPostModel.findOneAndRemove({id: id}).exec(function (error, post) {
+            if (error || !post) {
+                callback({submitError: true});
+			} else {
+				callback({success: true});
+			}
+        });
+    },
 
 };
