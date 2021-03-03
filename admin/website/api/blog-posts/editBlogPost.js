@@ -17,9 +17,9 @@ export default function editBlogPost(id, title, urlTitle, dateTimestamp, tags, t
 		withCredentials: true
 	})
 		.then(function(response) {
-			callback(response.data)
+			callback(response.data);
 		})
 		.catch(function(error) {
-			callback({submitError: true})
+			callback({submitError: true});
 		})
 }

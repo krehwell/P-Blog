@@ -84,9 +84,9 @@ app.put("/blog-posts/edit", authAdminUser, function(req, res) {
         !req.body.seoTitleTag ||
         !req.body.seoMetaDescription
     ) {
-        res.json({submitError: false})
+        res.json({submitError: false});
     } else if (!res.locals.authSuccess) {
-        res.json({authSuccess: false})
+        res.json({authSuccess: false});
     } else {
         api.editBlogPost(
             req.body.id,
@@ -99,13 +99,14 @@ app.put("/blog-posts/edit", authAdminUser, function(req, res) {
             req.body.seoTitleTag,
             req.body.seoMetaDescription,
             function(apiResponse) {
-                apiResponse.authSuccess = true
-                res.json(apiResponse)
+                apiResponse.authSuccess = true;
+                res.json(apiResponse);
             }
         )
     }
-})
+});
 
+/// DELETE POST ROUTE
 app.put("/blog-posts/delete", authAdminUser, function (req, res) {
 	if (!req.body.id) {
 		res.json({success: false})

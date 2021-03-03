@@ -47,15 +47,15 @@ export default class extends Component {
     }
 
     updateTitleInputValue = (event) => {
-        this.setState({titleInputValue: event.target.value})
+        this.setState({titleInputValue: event.target.value});
     }
 
     updateUrlTitleInputValue = (event) => {
-        this.setState({urlTitleInputValue: event.target.value})
+        this.setState({urlTitleInputValue: event.target.value});
     }
 
     updateDateInputValue = (event) => {
-        this.setState({dateInputValue: event.target.value})
+        this.setState({dateInputValue: event.target.value});
     }
 
     setDateInputValueToNow = () => {
@@ -65,64 +65,64 @@ export default class extends Component {
     }
 
     updateImageUrlInputValue = (event) => {
-        this.setState({imageUrlInputValue: event.target.value})
+        this.setState({imageUrlInputValue: event.target.value});
     }
 
     updateTagsInputValue = (event) => {
-        this.setState({tagsInputValue: event.target.value})
+        this.setState({tagsInputValue: event.target.value});
     }
 
     updateMarkdownInputValue = (value) => {
-        this.setState({markdownInputValue: value})
+        this.setState({markdownInputValue: value});
     }
 
     updateSeoTitleTagInputValue = (event) => {
         let charLeft = 0;
         if (60 - event.target.value.length > 0) {
-            charLeft = 60 - event.target.value.length
+            charLeft = 60 - event.target.value.length;
         } else {
-            charLeft = 0
+            charLeft = 0;
         }
 
         this.setState({
             seoTitleTagInputValue: event.target.value,
             seoTitleTagCharLeft: charLeft
-        })
+        });
     }
 
     updateMetaDescriptionInputValue = (event) => {
         let charLeft
         if (160 - event.target.value.length > 0) {
-            charLeft = 160 - event.target.value.length
+            charLeft = 160 - event.target.value.length;
         } else {
-            charLeft = 0
+            charLeft = 0;
         }
 
         this.setState({
             metaDescriptionInputValue: event.target.value,
             metaDescriptionCharLeft: charLeft
-        })
+        });
     }
 
     submitCreateNewPostRequest = () => {
         if (!this.state.titleInputValue) {
-            this.setState({submitError: true, errorMsg: "Title field is required."})
+            this.setState({submitError: true, errorMsg: "Title field is required."});
         } else if (!this.state.urlTitleInputValue) {
-            this.setState({submitError: true, errorMsg: "URL title field is required."})
+            this.setState({submitError: true, errorMsg: "URL title field is required."});
         } else if (!this.state.dateInputValue) {
-            this.setState({submitError: true, errorMsg: "Date field is required."})
+            this.setState({submitError: true, errorMsg: "Date field is required."});
         } else if (!this.state.tagsInputValue) {
-            this.setState({submitError: true, errorMsg: "Date field is required."})
+            this.setState({submitError: true, errorMsg: "Date field is required."});
         } else if (!this.state.imageUrlInputValue) {
-            this.setState({submitError: true, errorMsg: "Image URL field is required."})
+            this.setState({submitError: true, errorMsg: "Image URL field is required."});
         } else if (!this.state.markdownInputValue) {
-            this.setState({submitError: true, errorMsg: "Markdown content field is required."})
+            this.setState({submitError: true, errorMsg: "Markdown content field is required."});
         } else if (!this.state.seoTitleTagInputValue) {
-            this.setState({submitError: true, errorMsg: "SEO title field is required."})
+            this.setState({submitError: true, errorMsg: "SEO title field is required."});
         } else if (!this.state.metaDescriptionInputValue) {
-            this.setState({submitError: true, errorMsg: "Meta description field is required."})
+            this.setState({submitError: true, errorMsg: "Meta description field is required."});
         } else {
-            this.setState({submitError: false, errorMsg: "", loading: true})
+            this.setState({submitError: false, errorMsg: "", loading: true});
 
             const self = this
 
@@ -137,13 +137,13 @@ export default class extends Component {
                 this.state.metaDescriptionInputValue,
                 function(apiResponse) {
                     if (!apiResponse.authSuccess) {
-                        window.location.href = "/login"
+                        window.location.href = "/login";
                     } else if (apiResponse.alreadyExistsError) {
-                        self.setState({submitError: true, errorMsg: "Blog post with that title already exists.", loading: false})
+                        self.setState({submitError: true, errorMsg: "Blog post with that title already exists.", loading: false});
                     } else if (apiResponse.submitError || !apiResponse.success) {
-                        self.setState({submitError: true, errorMsg: "An error occurred.", loading: false})
+                        self.setState({submitError: true, errorMsg: "An error occurred.", loading: false});
                     } else {
-                        window.location.href = "/"
+                        window.location.href = "/";
                     }
                 }
             )
