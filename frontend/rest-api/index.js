@@ -39,6 +39,10 @@ app.use("/assets", express.static(path.join(__dirname, "..", "..", "assets")));
 
 
 /// ROUTES
+app.get("/", (req, res) => {
+    res.send({greetings: "from krehwell: hello, (website rest-api) is working"});
+})
+
 app.use(require("./routes/index.js"));
 
 
