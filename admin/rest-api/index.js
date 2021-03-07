@@ -50,7 +50,7 @@ app.use(
         origin:
             process.env.NODE_ENV === "development"
                 ? config.devAdminURL
-                : /admin.example\.com$/,
+                : /admin.vercel\.app$/,
         credentials: true,
     })
 );

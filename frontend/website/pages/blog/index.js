@@ -47,9 +47,9 @@ export default class extends Component {
                         </a>
                       )
                     }) :
-                                    <div className="blog-posts-get-data-error-msg">
-                                        <span>An error occurred while fetching Posts.</span>
-                                    </div>
+                    <div className="blog-posts-get-data-error-msg">
+                      <span>An error occurred while fetching Posts.</span>
+                    </div>
                 }
               </div>
             </div>
