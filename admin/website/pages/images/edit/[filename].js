@@ -51,7 +51,6 @@ export default class extends Component {
     render() {
         return (
             <div className="layout-wrapper">
-                (
               <div className="layout-wrapper">
                 <Header />
                 <Sidebar page="images" />

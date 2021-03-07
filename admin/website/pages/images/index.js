@@ -17,6 +17,12 @@ export default class extends Component {
             <Sidebar page="images"/>
 
             <div className="layout-content-container">
+
+            {/*
+              * IMPORTANT:
+            */}
+            <h1 className="images-upload-error-msg">THIS PAGE IS CURRENTLY NOT WORKING</h1>
+
               {
                 <div className="images-content">
                   <div className="images-top-header">

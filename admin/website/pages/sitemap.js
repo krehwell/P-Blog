@@ -63,6 +63,12 @@ export default class extends Component {
             <Header />
             <Sidebar page="sitemap" />
             <div className="layout-content-container">
+
+            {/*
+              * IMPORTANT:
+            */}
+            <h1 className="images-upload-error-msg">THIS PAGE IS CURRENTLY NOT WORKING</h1>
+
               <div className="sitemap-content">
                 <div className="sitemap-header">
                   <span>Manage Sitemap</span>
