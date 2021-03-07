@@ -27,7 +27,7 @@ export default class extends Component {
               <div>
                 <h1>Hi, I'm krehwell. I am never sleepless</h1>
                 <p>
-                  This is a blog which I make to implement Next.js after learning it
+                  This is a blog made to implement Next.js after learning it
                   from its <a href="http://nextjs.org/docs/">docs</a>. This project
                   is made right after my previous project{" "}
                   <a href="https://sexgod.herokuapp.com/">note10net</a> (note over internet) and my
