@@ -83,7 +83,7 @@ export default class extends Component {
                     </h3>
                     <p>send message, call, and mocking each other easily (now supports video call)</p>
                     <div className="homepage-project-btns">
-                      <a className="homepage-project-view-btn" href="https://callntol.surge.sh/">view</a>
+                      <a className="homepage-project-view-btn" href="https://callntol.vercel.app/">view</a>
                     </div>
                   </div>
                   <div className="homepage-project">
