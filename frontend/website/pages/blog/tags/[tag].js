@@ -8,6 +8,7 @@ import HeadMetadata from "../../../components/headMetadata";
 import getBlogPostsByTag from "../../../api/getBlogPostByTag.js";
 
 export default class extends Component {
+
     static async getInitialProps({ query }) {
         const apiResult = await getBlogPostsByTag(query.tag);
         return {

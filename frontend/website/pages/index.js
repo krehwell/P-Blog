@@ -6,7 +6,8 @@ import HeadMetadata from "../components/headMetadata.js";
 import getFiveNewestPost from "../api/getFiveNewestPost.js";
 
 export default class extends Component {
-    static async getInitialProps(){
+
+    static async getInitialProps() {
         let apiResult = await getFiveNewestPost();
 
         return {
@@ -30,7 +31,7 @@ export default class extends Component {
                   from its <a href="http://nextjs.org/docs/">docs</a>. This project
                   is made right after my previous project{" "}
                   <a href="https://sexgod.herokuapp.com/">note10net</a> (note over internet) and my
-                  WebRTC project <a href="https://callntol.surge.sh/">callntol</a>.
+                  WebRTC project <a href="https://callntol.vercel.app/">callntol</a>.
                 </p>
               </div>
               <div className="homepage-latest-blog-posts">
@@ -80,7 +81,7 @@ export default class extends Component {
                         <div className="homepage-project-title">callntol</div>
                       </a>
                     </h3>
-                    <p>send message, call, and mocking each other easily</p>
+                    <p>send message, call, and mocking each other easily (now supports video call)</p>
                     <div className="homepage-project-btns">
                       <a className="homepage-project-view-btn" href="https://callntol.surge.sh/">view</a>
                     </div>
@@ -92,7 +93,7 @@ export default class extends Component {
                         <div className="homepage-project-title">other unrelated to web</div>
                       </a>
                     </h3>
-                    <p>see on <a href="https://github.com/krehwell">my github</a></p>
+                    <p>see on my <a href="https://github.com/krehwell">GitHub</a></p>
                     <div className="homepage-project-btns">
                       <a className="homepage-project-view-btn" href="https://github.com/krehwell?tab=repositories">view</a>
                     </div>

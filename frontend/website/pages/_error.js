@@ -7,10 +7,10 @@ import HeadMetadata from "../components/headMetadata.js";
 export default class extends Component {
 
   static async getInitialProps({res, err}){
-    const statusCode = res ? res.statusCode : err ? err.statusCode : null
-    return {
-      statusCode
-    }
+      const statusCode = res ? res.statusCode : err ? err.statusCode : null
+      return {
+          statusCode
+      }
   }
 
   render() {

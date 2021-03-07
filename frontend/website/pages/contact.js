@@ -16,12 +16,12 @@ export default class extends Component {
             <Header />
             <div className="contact-container">
               <div className="contact-section">
-                <h1>Contact</h1>
-                <p>I love meme, vim, vim meme, and of course... nobody expects spanish inquisition</p>
-                <p>if you love me, thats mean you'r gay</p>
+                <h1>Brief myself</h1>
+                <p>I love meme, vim, vim meme, and of course... nobody expects spanish inquisition.</p>
+                <p>if you are interested in me then my contact is listed below  👇</p>
               </div>
               <div className="contact-section">
-                <h2>Around the Web</h2>
+                <h2>Contact</h2>
                 <ul>
                   <li><strong>Email</strong>: fahrimuham001@gmail.com</li>
                   <li><strong>GitHub</strong>: <a href="https://github.com/krehwell">krehwell</a></li>

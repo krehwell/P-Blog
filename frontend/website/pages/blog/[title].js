@@ -12,6 +12,7 @@ import HeadMetadata from "../../components/headMetadata.js"
 import getBlogPostByUrlTitle from "../../api/getBlogPostByUrlTitle.js"
 
 export default class extends Component {
+
     static async getInitialProps ({ query }) {
         const apiResult = await getBlogPostByUrlTitle(query.title)
 
@@ -63,7 +64,10 @@ export default class extends Component {
                   <div className="blog-post-get-data-error-msg">
                     {
                       this.props.notFoundError ?
-                        <span>Blog post not found.</span> :
+                        <span>
+                          Blog post not found.
+                          (if you really think this page should exist tho try to reload the browser)
+                        </span> :
                         <span>An error occurred.</span>
                     }
                   </div>
