@@ -32,7 +32,7 @@ export default class extends Component {
                   this.props.posts && !this.props.getDataError ?
                     this.props.posts.map((post, index) => {
                       return (
-                        <a key={index} href={`/blog/${post.title}`}>
+                        <a key={index} href={`/blog/${post.urlTitle}`}>
                           <div className="blog-posts-list-item">
                             <div className="blog-posts-thumbnail">
                               <img src={post.thumbnailImageUrl} />
@@ -47,9 +47,9 @@ export default class extends Component {
                         </a>
                       )
                     }) :
-                                    <div className="blog-posts-get-data-error-msg">
-                                        <span>An error occurred while fetching Posts.</span>
-                                    </div>
+                    <div className="blog-posts-get-data-error-msg">
+                      <span>An error occurred while fetching Posts.</span>
+                    </div>
                 }
               </div>
             </div>
