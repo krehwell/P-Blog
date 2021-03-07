@@ -1,8 +1,8 @@
 const config = {
     devAdminURL: "http://localhost:3001",
-    prodAdminURL: "https://www.admin.example.com",
+    prodAdminURL: "https://admin.vercel.app",
     devFrontendWebsiteURL: "http://localhost:3000",
-    prodFrontendWebsiteURL: "https://www.example.com",
+    prodFrontendWebsiteURL: "https://krehwell.vercel.app",
 };
 
 module.exports = config;
