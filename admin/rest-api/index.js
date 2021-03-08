@@ -50,7 +50,7 @@ app.use(
         origin:
             process.env.NODE_ENV === "development"
                 ? config.devAdminURL
-                : /admin.vercel\.app$/,
+                : config.prodAdminURL,
         credentials: true,
     })
 );
@@ -64,6 +64,7 @@ app.use(cookieParser());
 
 
 /// ROUTES
+app.get("/", (req, res) => {res.json({greetings: "from admin-krehwell: hello, (admin rest-api) is working!"})});
 app.use(require("./routes/admin-user/index.js"));
 app.use(require("./routes/blog-posts/index.js"));
 

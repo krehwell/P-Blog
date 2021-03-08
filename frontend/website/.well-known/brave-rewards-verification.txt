@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: krehwell.com
-Token: 0f245748ada5f0e57d85323b7c27d6c09ece1a28537dc57a3421396a168b03b9
