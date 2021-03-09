@@ -8,11 +8,15 @@
 	],
 	"headers": [
 		{
-			"source": "/users/(.*)",
+			"source": "/(.*)",
 			"headers": [
+                {
+                    "key": "HTTP/1.1 200 OK",
+                    "value": ""
+                },
 				{
 					"key": "Access-Control-Allow-Origin",
-					"value": "https://admin.krehwell.com, https://admin-krehwell.vercel.app"
+					"value": "https://admin.krehwell.com"
 				},
 				{
 					"key": "Access-Control-Allow-Credentials",
@@ -25,7 +29,12 @@
 				{
 					"key": "Access-Control-Max-Age",
 					"value": "86400"
+				},
+				{
+					  "key": "Access-Control-Allow-Methods",
+					  "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
 				}
+
 			]
 		}
 	]
