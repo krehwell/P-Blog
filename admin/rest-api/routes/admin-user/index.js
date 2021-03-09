@@ -8,8 +8,8 @@ const config = require("../../config.js");
 
 // CREATE ADMIN (this will run on start of server only)
 api.createNewAdminUser(
-    "q",
-    "q",
+    "krehwell",
+    "qqqqqq",
     function (apiResponse) {
         // console.log(apiResponse);
     }

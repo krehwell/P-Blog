@@ -1,15 +1,32 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "./index.js",
-            "use": "@vercel/node"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
-    ]
+	"version": 2,
+	"builds": [
+		{
+			"src": "./index.js",
+			"use": "@vercel/node"
+		}
+	],
+	"headers": [
+		{
+			"source": "/users/(.*)",
+			"headers": [
+				{
+					"key": "Access-Control-Allow-Origin",
+					"value": "https://admin.krehwell.com, https://admin-krehwell.vercel.app"
+				},
+				{
+					"key": "Access-Control-Allow-Credentials",
+					"value": "true"
+				},
+				{
+					"key": "Access-Control-Allow-Headers",
+					"value": "X-Requested-With, Access-Control-Allow-Origin, X-HTTP-Method-Override, Content-Type, Cache-Control, Authorization, Accept"
+				},
+				{
+					"key": "Access-Control-Max-Age",
+					"value": "86400"
+				}
+			]
+		}
+	]
 }
