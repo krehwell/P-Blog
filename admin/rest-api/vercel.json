@@ -10,10 +10,6 @@
 		{
 			"source": "/(.*)",
 			"headers": [
-                {
-                    "key": "HTTP/1.1 200 OK",
-                    "value": ""
-                },
 				{
 					"key": "Access-Control-Allow-Origin",
 					"value": "https://admin.krehwell.com"
@@ -32,6 +28,7 @@
 				},
 				{
 					  "key": "Access-Control-Allow-Methods",
+					  "key": "Access-Control-Request-Method",
 					  "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
 				}
 
