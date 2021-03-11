@@ -7,6 +7,9 @@
         "dev": "NODE_ENV=development nodemon index.js",
         "start": "NODE_ENV=production node index.js"
     },
+    "engines": {
+        "node": "14.11.0"
+    },
     "keywords": [],
     "author": "",
     "license": "ISC",
