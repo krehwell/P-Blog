@@ -45,11 +45,6 @@ mongoose.connection.on("open", function () {
 /// REST-API CONFIG
 app.use(helmet());
 
-app.use((req, res, next) => {
-    res.sendStatus(200);
-	next();
-});
-
 app.use(
     cors({
         origin:
@@ -69,7 +64,7 @@ app.use(cookieParser());
 
 
 /// ROUTES
-app.get("/", (req, res) => res.json({greetings: "from krehwell: hello, (admin rest-api) is working!"}));
+app.get("/", (req, res) => res.json({"greetings":"from krehwell: hello, (admin rest-api) is working!"}));
 app.use(require("./routes/admin-user/index.js"));
 app.use(require("./routes/blog-posts/index.js"));
 
