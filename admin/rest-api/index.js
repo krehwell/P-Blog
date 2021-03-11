@@ -64,6 +64,7 @@ app.use(cookieParser());
 
 
 /// ROUTES
+app.get("/", (req, res) => res.json({"greetings":"from krehwell: hello, (admin rest-api) is working!"}));
 app.use(require("./routes/admin-user/index.js"));
 app.use(require("./routes/blog-posts/index.js"));
 
