@@ -1,5 +1,4 @@
 import {Component} from "react";
-import Link from "next/link";
 
 export default class extends Component {
 
@@ -37,13 +36,11 @@ export default class extends Component {
             </a>
             */}
 
-            <Link href="/change-password">
-                <a className={this.props.page === "password" ? "active" : null } >
-                  <li>
-                    <span>Change Password</span>
-                  </li>
-                </a>
-            </Link>
+            <a className={this.props.page === "password" ? "active" : null } href="/change-password">
+              <li>
+                <span>Change Password</span>
+              </li>
+            </a>
 
           </ul>
         </div>
