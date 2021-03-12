@@ -39,6 +39,10 @@ app.use("/assets", express.static(path.join(__dirname, "..", "..", "assets")));
 
 
 /// ROUTES
+app.get("/", (_, res) => {
+    res.send("webstie-api is working, kel!")
+});
+
 app.use(require("./routes/index.js"));
 
 
