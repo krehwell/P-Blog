@@ -11,7 +11,7 @@ export default class extends Component {
             <Link href="/contact"><a>Contact</a></Link>
           </div>
           <div className="footer-bottom-msg">
-            <p>handcrafted by me and internet, use it freely as your freedom. no need to be wise. fork on <a href="https://github.com/krehwell/P-Blog">GitHub</a></p>
+            <p>📜 handcrafted by me and internet, use it freely as your freedom. no need to be wise. fork on <a href="https://github.com/krehwell/P-Blog">GitHub</a>.</p>
           </div>
         </footer>
       )

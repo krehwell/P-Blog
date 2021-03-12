@@ -1,5 +1,6 @@
 import {Component} from 'react';
 import useSwr from "swr";
+import Link from "next/link";
 
 import Header from "../components/header.js";
 import Footer from "../components/footer.js";
@@ -59,63 +60,68 @@ export default class extends Component {
             <Header />
             <div className="homepage-container">
               <div>
-                <h1>Hi, I'm krehwell. I am never sleepless</h1>
+                <h1>Hi, I'm krehwell. I am never sleepless.</h1>
                 <p>
                   This is a blog which I make to implement Next.js after learning it
                   from its <a href="http://nextjs.org/docs/">docs</a>. This project
                   is made right after my previous project{" "}
                   <a href="https://sexgod.herokuapp.com/">note10net</a> (note over internet) and my
                   WebRTC project <a href="https://callntol.vercel.app/">callntol</a>.
+                  <p>
+                    This is where I write stuff. Abandon all hope. Leave all the uncertainity of my future. And dump all the multibillion imaginary ideas.
+                  </p>
                 </p>
               </div>
               <div className="homepage-latest-blog-posts">
                 <h2>
-                  Latest Blog Posts{" "}
-                  <a className="homepage-latest-blog-posts-view-all" href="/blog">
-                    View all
-                  </a>
+                  📰 Latest Blog Posts{" "}
+                  <Link href="/blog">
+                    <a className="homepage-latest-blog-posts-view-all">
+                      View all
+                    </a>
+                  </Link>
                 </h2>
                 <div className="homepage-latest-blog-posts-list">
                   <Posts />
                 </div>
               </div>
               <div className="homepage-projects">
-                <h2>Other Weeebbzz</h2>
+                <h2>🌍 Other Weeebbzz</h2>
                 <div className="homepage-project-list">
                   <div className="homepage-project">
                     <h3>
-                      <a href="https://sexgod.herokuapp.com/">
+                      <a href="https://github.com/krehwell/Note10net">
                         <div className="homepage-project-icon"> 📝</div>
                         <div className="homepage-project-title">note10net (note over internet)</div>
                       </a>
                     </h3>
                     <p>you write your note, you save your note, you manage your note. but do it in on internet</p>
                     <div className="homepage-project-btns">
-                      <a className="homepage-project-view-btn" href="https://github.com/krehwell/Note10net">view</a>
+                      <a className="homepage-project-view-btn" href="https://sexgod.herokuapp.com" target="_blank">view</a>
                     </div>
                   </div>
                   <div className="homepage-project">
                     <h3>
-                      <a href="https://callntol.surge.sh/">
+                      <a href="https://github.com/krehwell/Callntol">
                         <div className="homepage-project-icon">📞</div>
                         <div className="homepage-project-title">callntol</div>
                       </a>
                     </h3>
                     <p>send message, call, and mocking each other easily (now supports video call)</p>
                     <div className="homepage-project-btns">
-                      <a className="homepage-project-view-btn" href="https://callntol.vercel.app/">view</a>
+                      <a className="homepage-project-view-btn" href="https://callntol.vercel.app/" target="_blank">view</a>
                     </div>
                   </div>
                   <div className="homepage-project">
                     <h3>
-                      <a href="https://callntol.surge.sh/">
+                      <a href="https://github.com/krehwell?tab=repositories">
                         <div className="homepage-project-icon">💔</div>
                         <div className="homepage-project-title">other unrelated to web</div>
                       </a>
                     </h3>
                     <p>see on my <a href="https://github.com/krehwell">GitHub</a></p>
                     <div className="homepage-project-btns">
-                      <a className="homepage-project-view-btn" href="https://github.com/krehwell?tab=repositories">view</a>
+                      <a className="homepage-project-view-btn" href="https://github.com/krehwell?tab=repositories" target="_blank">view</a>
                     </div>
                   </div>
                 </div>
