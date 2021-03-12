@@ -22,9 +22,9 @@ export default class extends Component {
                 <p>But hey nothing is too late, Now I learned stuff/things everyday and I hate css.</p>
               </div>
               <div className="about-section">
-                <h2>Personal Tools</h2>
+                <h2>🛠️ Personal Tools</h2>
                 <ul>
-                  <li><strong>Machine</strong>: <a href="https://ubuntu.com/wsl">WSL | Ubuntu</a></li>
+                  <li><strong>Main</strong>: <a href="https://ubuntu.com/wsl">WSL | Ubuntu</a></li>
                   <li><strong>Editor</strong>: <a href="https://vim.org">Vim</a></li>
                   <li><strong>Dildo</strong>: No, I don't use any</li>
                   <li><strong>Dotfiles</strong>: <a href="https://github.com/krehwell/dotfiles">My Setup</a></li>

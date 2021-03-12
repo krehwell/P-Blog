@@ -18,8 +18,8 @@
     "preact": "^10.4.1",
     "preact-render-to-string": "^5.1.4",
     "prismjs": "^1.23.0",
-    "react": "github:preact-compat/react#1.0.0",
-    "react-dom": "github:preact-compat/react-dom#1.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "swr": "^0.5.2"
   }
 }

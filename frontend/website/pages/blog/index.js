@@ -66,7 +66,7 @@ export default class extends Component {
               metaDescription="List of all blog posts public on krehwell blog" />
             <Header />
             <div className="blog-posts-container">
-              <h1>Blog posts</h1>
+              <h1>📰 Blog posts</h1>
               <div className="blog-posts-list">
                 <Posts />
               </div>
