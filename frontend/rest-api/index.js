@@ -3,6 +3,7 @@ const helmet = require("helmet");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
+const cors = require("cors");
 
 /// FRONTEND REST-API CONFIG
 dotenv.config();
@@ -30,6 +31,10 @@ mongoose.connection.on("error", (error) => {
 mongoose.connection.on("open", () => {
     console.log("Connected to MongoDB database");
 });
+
+
+/// REST-API CONFIG
+app.use(cors());
 
 
 /// FRONTEND REST-API CONFIG
