@@ -18,7 +18,7 @@ export default class extends Component {
               <div className="contact-section">
                 <h1>Brief myself</h1>
                 <p>I love meme, vim, vim meme, and of course... nobody expects spanish inquisition.</p>
-                <p>if you are interested in me then my contact is listed below  👇</p>
+                <p>Contact is listed below, be nice please.</p>
               </div>
               <div className="contact-section">
                 <h2>Contact</h2>

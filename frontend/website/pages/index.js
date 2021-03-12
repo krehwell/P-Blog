@@ -1,9 +1,43 @@
 import {Component} from 'react';
+import useSwr from "swr";
+
 import Header from "../components/header.js";
 import Footer from "../components/footer.js";
 import HeadMetadata from "../components/headMetadata.js";
 
 import getFiveNewestPost from "../api/getFiveNewestPost.js";
+
+const Posts = () => {
+    const {data, error} = useSwr('/posts/get-five-newest-posts', getFiveNewestPost, {revalidateOnFocus: false});
+
+    if (error) {
+        return <div>failed to load blog posts.</div>
+    }
+
+    if (!data) {
+        return <div>loading...</div>
+    }
+
+    console.log(data);
+
+    let posts =
+        data.posts ? data.posts?.map((post, index) => {
+          return (
+            <a key={index} href={`/blog/${post.urlTitle}`}>
+              <div className="homepage-latest-blog-post">
+                <div className="homepage-latest-thumbnail">
+                  <img src={post.thumbnailImageUrl} />
+                </div>
+                <div className="homepage-latest-blog-post-title">
+                  <h3>{post.title}</h3>
+                </div>
+              </div>
+            </a>
+          )})
+        : <a>no post.</a>
+
+    return (posts);
+}
 
 export default class extends Component {
 
@@ -42,21 +76,7 @@ export default class extends Component {
                   </a>
                 </h2>
                 <div className="homepage-latest-blog-posts-list">
-                  {this.props.posts ? this.props.posts?.map((post, index) => {
-                    return (
-                      <a key={index} href={`/blog/${post.urlTitle}`}>
-                        <div className="homepage-latest-blog-post">
-                          <div className="homepage-latest-thumbnail">
-                            <img src={post.thumbnailImageUrl} />
-                          </div>
-                          <div className="homepage-latest-blog-post-title">
-                            <h3>{post.title}</h3>
-                          </div>
-                        </div>
-                      </a>
-                    )})
-                    : null
-                  }
+                  <Posts />
                 </div>
               </div>
               <div className="homepage-projects">
