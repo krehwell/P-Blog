@@ -19,8 +19,6 @@ const Posts = () => {
         return <div>loading...</div>
     }
 
-    console.log(data);
-
     let posts =
         data.posts && !data.getDataError ?
         data.posts.map((post, index) => {
