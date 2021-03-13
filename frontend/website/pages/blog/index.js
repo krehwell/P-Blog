@@ -48,16 +48,6 @@ const Posts = () => {
 }
 
 export default class extends Component {
-
-    static async getInitialProps(){
-        const apiResult = await getAllBlogPost();
-
-        return {
-            posts: apiResult && apiResult.posts,
-            getDataError: apiResult && apiResult.getDataError
-        }
-    }
-
     render() {
         return (
           <div className="layout-wrapper">
