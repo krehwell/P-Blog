@@ -41,15 +41,6 @@ const Posts = () => {
 }
 
 export default class extends Component {
-
-    static async getInitialProps() {
-        let apiResult = await getFiveNewestPost();
-
-        return {
-            posts: apiResult && apiResult.posts
-        }
-    }
-
     render () {
         return (
           <div className="layout-wrapper">
