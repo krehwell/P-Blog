@@ -1,7 +1,7 @@
 {
   "name": "website",
   "version": "1.0.0",
-  "description": "",
+  "description": "admin website for admin.krehwell.com",
   "main": "index.js",
   "scripts": {
     "dev": "next -p 3001",
@@ -9,7 +9,7 @@
     "start": "next start -p 3001"
   },
   "keywords": [],
-  "author": "",
+  "author": "krehwell fahrimuham001@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "next": "^10.0.7",

@@ -1,14 +1,14 @@
 {
     "name": "rest-api",
     "version": "1.0.0",
-    "description": "",
+    "description": "admin server for admin.krehwell.com",
     "main": "index.js",
     "scripts": {
         "dev": "NODE_ENV=development nodemon index.js",
         "start": "NODE_ENV=production node index.js"
     },
     "keywords": [],
-    "author": "",
+    "author": "krehwell fahrimuham001@gmail.com",
     "license": "ISC",
     "dependencies": {
         "bcryptjs": "^2.4.3",
