@@ -15,6 +15,7 @@ export default class extends Component {
           <meta name="theme-color" content="#ffffff" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="google-site-verification" content="0SQVjTXy2XKkBxYO0-MlaohLaPAIGnOk5PsyPMDguA0" />
+          <meta name="msvalidate.01" content="63987749E77CB757DE18F80521B66F0A" />
           <title>{this.props.title}</title>
           <meta name="description" content={this.props.metaDescription} />
         </Head>
