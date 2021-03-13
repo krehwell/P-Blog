@@ -14,6 +14,7 @@ export default class extends Component {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="theme-color" content="#ffffff" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="google-site-verification" content="0SQVjTXy2XKkBxYO0-MlaohLaPAIGnOk5PsyPMDguA0" />
           <title>{this.props.title}</title>
           <meta name="description" content={this.props.metaDescription} />
         </Head>
