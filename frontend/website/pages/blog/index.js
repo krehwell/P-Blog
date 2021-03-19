@@ -9,7 +9,7 @@ import HeadMetadata from "../../components/headMetadata";
 import getAllBlogPost from "../../api/getAllBlogPosts";
 
 const Posts = () => {
-    const {data, error} = useSwr('/posts/get-five-newest-posts', getAllBlogPost, {revalidateOnFocus: false});
+    const {data, error} = useSwr('/posts/get-all-blog-posts', getAllBlogPost, {revalidateOnFocus: false});
 
     if (error) {
         return <div>failed to load blog posts.</div>
