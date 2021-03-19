@@ -1,14 +1,14 @@
 {
   "name": "rest-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "server for krehwell.com",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon index.js",
     "start": "NODE_ENV=production node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "krehwell fahrimuham001@gmail.com",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
