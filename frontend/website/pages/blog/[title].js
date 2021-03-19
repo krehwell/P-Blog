@@ -4,6 +4,8 @@ import moment from "moment"
 
 import "prismjs/plugins/line-numbers/prism-line-numbers.js"
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js"
+import 'prismjs/components/prism-vim.min.js';
+import 'prismjs/components/prism-bash.min.js';
 
 import Header from "../../components/header.js"
 import Footer from "../../components/footer.js"
@@ -14,7 +16,7 @@ import getBlogPostByUrlTitle from "../../api/getBlogPostByUrlTitle.js"
 export default class extends Component {
 
     static async getInitialProps ({ query }) {
-        const apiResult = await getBlogPostByUrlTitle(query.title)
+        const apiResult = await getBlogPostByUrlTitle(query.title);
 
         return {
             post: apiResult && apiResult.post,
@@ -24,7 +26,7 @@ export default class extends Component {
     }
 
     componentDidMount() {
-        Prism.highlightAll()
+        Prism.highlightAll();
     }
 
     render () {
