@@ -36,11 +36,13 @@ export default class extends Component {
               </li>
             </a>
 
+            {/*
             <a className={this.props.page === "password" ? "active" : null } href="/change-password">
               <li>
                 <span>Change Password</span>
               </li>
             </a>
+            */}
 
           </ul>
         </div>

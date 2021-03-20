@@ -3,8 +3,6 @@ import Head from "next/head";
 
 import login from "../api/admin-user/login.js";
 import authUser from "../api/admin-user/auth.js";
-import removeAdminUserCookie from "../api/admin-user/removeAdminUserCookie.js";
-
 
 export default class extends Component {
     constructor(props) {
@@ -28,10 +26,6 @@ export default class extends Component {
         }
 
         return {};
-    }
-
-    componentDidMount() {
-        removeAdminUserCookie();
     }
 
     updateEmailInputValue = (event) => {
