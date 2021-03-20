@@ -54,6 +54,16 @@ export default class extends Component {
         this.setState({urlTitleInputValue: event.target.value});
     }
 
+    setUrlTitleInputValueAutoGenerate = () => {
+        const curTitleInputValue = this.state.titleInputValue.trim().toLowerCase();
+
+        if (curTitleInputValue !== "") {
+            this.setState({
+                urlTitleInputValue: curTitleInputValue.split(" ").join("-")
+            });
+        }
+    }
+
     updateDateInputValue = (event) => {
         this.setState({dateInputValue: event.target.value});
     }
@@ -186,6 +196,7 @@ export default class extends Component {
                         value={this.state.urlTitleInputValue}
                         onChange={this.updateUrlTitleInputValue}
                       />
+                    <span onClick={() => this.setUrlTitleInputValueAutoGenerate()} className="create-blog-post-form-section-date-input-now">Generate</span>
                     </div>
                   </div>
                   <div className="create-blog-post-form-section">
