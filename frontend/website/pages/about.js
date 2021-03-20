@@ -24,7 +24,7 @@ export default class extends Component {
               <div className="about-section">
                 <h2>🛠️ Personal Tools</h2>
                 <ul>
-                  <li><strong>Main</strong>: <a href="https://ubuntu.com/wsl">WSL | Ubuntu</a></li>
+                  <li><strong>Main Machine</strong>: <a href="https://archlinux.org/">Arch Linux</a></li>
                   <li><strong>Editor</strong>: <a href="https://vim.org">Vim</a></li>
                   <li><strong>Dildo</strong>: No, I don't use any</li>
                   <li><strong>Dotfiles</strong>: <a href="https://github.com/krehwell/dotfiles">My Setup</a></li>
