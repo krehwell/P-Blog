@@ -11,6 +11,7 @@
     "author": "krehwell fahrimuham001@gmail.com",
     "license": "ISC",
     "dependencies": {
+        "axios": "^0.21.1",
         "bcryptjs": "^2.4.3",
         "body-parse": "^0.1.0",
         "body-parser": "^1.19.0",

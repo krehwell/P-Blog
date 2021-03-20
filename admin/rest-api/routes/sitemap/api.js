@@ -1,13 +1,10 @@
-const path = require("path");
 const moment = require("moment");
-const fs = require("fs");
 const formatXml = require("xml-formatter");
+const axios = require("axios");
 
 const BlogPostModel = require("../../models/post.js");
 
 const config = require("../../config.js");
-
-const sitemapDirLocation = path.join(__dirname, "sitemap.xml");
 
 module.exports = {
     updateSitemapXmlFile: function (callback) {
@@ -83,8 +80,29 @@ module.exports = {
 
                 xml += "</urlset>";
 
-                callback({ success: true, xml: formatXml(xml, { collapseContent: true }), });
+                callback({
+                    success: true,
+                    xml: formatXml(xml, { collapseContent: true }),
+                });
             }
         });
+    },
+
+
+    // TELL GOOGLE THAT MY SITE HAS A NEW POST
+    pingSearchEngines: function (callback) {
+        axios
+            .all([
+                axios.get( `https://www.google.com/ping?sitemap=${config.prodFrontendWebsiteURL}/sitemap.xml`),
+                axios.get( `https://www.bing.com/ping?sitemap=${config.prodFrontendWebsiteURL}/sitemap.xml`),
+            ])
+            .then(
+                axios.spread(function () {
+                    callback({ success: true });
+                })
+            )
+            .catch(function (pingError) {
+                callback({ submitError: false });
+            });
     },
 };
