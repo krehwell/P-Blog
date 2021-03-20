@@ -35,6 +35,7 @@
 
 .CodeMirror {
     height: 700px;
+    width: 5000px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
