@@ -1,30 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://krehwell.com/</loc>
-  <lastmod>2021-03-13T09:42:42+00:00</lastmod
-  <priority>1.00</priority
-</url
-<url
-  <loc>https://krehwell.com/blog</loc
-  <lastmod>2021-03-13T09:42:42+00:00</lastmod
-  <priority>0.80</priority
-</url
-<url
-  <loc>https://krehwell.com/about</loc>
-  <lastmod>2021-03-13T09:42:42+00:00</lastmod>
-  <priority>0.80</priority
-</url
-<url
-  <loc>https://krehwell.com/contact</loc
-  <lastmod>2021-03-13T09:42:42+00:00</lastmod
-  <priority>0.80</priority
-</url
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://krehwell.com</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/about</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/contact</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/blog</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/lorem ipsum</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/testing</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/wombat</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/react</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/swr</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/web</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/nvm</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/node</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/npm</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/bash</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/vim</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/markdown</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/tags/tips</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/blog/tf-is-lorem-ipsum</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/blog/testing-post-2</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/blog/testing-title</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/blog/using-swr-increase-website-performance</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/blog/nvm-problem-solution</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/blog/open-markdown-previewer-through-vim</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
 </urlset>

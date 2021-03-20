@@ -6,6 +6,11 @@ import Sidebar from "../components/sidebar.js";
 
 import authUser from "../api/admin-user/auth.js";
 
+import updateSitemap from "../api/sitemap/updateSitemap.js";
+import pingSearchEngines from "../api/sitemap/pingSearchEngines.js";
+
+import generateDownloadFile from "../utils/generateDownloadFile.js";
+
 export default class extends Component {
     constructor(props) {
         super(props)
@@ -39,7 +44,28 @@ export default class extends Component {
     updateSitemapRequest = () => {
         this.setState({updateSitemapLoading: true, updateSitemapError: false, updateSitemapSuccess: false});
 
-        // call update sitemap function
+        const self = this;
+
+        updateSitemap(function (apiResponse) {
+            if (apiResponse.submitError) {
+              self.setState({ updateSitemapLoading: false, updateSitemapError: true, updateSitemapSuccess: false, });
+            } else if (!apiResponse.authSuccess) {
+              window.location.href = "/login";
+            } else if (!apiResponse.success) {
+              self.setState({ updateSitemapLoading: false, updateSitemapError: true, updateSitemapSuccess: false, });
+            } else {
+              self.setState({ updateSitemapLoading: false, updateSitemapError: false, updateSitemapSuccess: true, });
+            }
+
+            // console.log(apiResponse.xml); // print sitemap.xml
+
+            // open xml in new window and save
+            let blob = new Blob([apiResponse.xml], {type: 'text/xml'});
+            let url = URL.createObjectURL(blob);
+            window.open(url);
+            URL.revokeObjectURL(url);
+            generateDownloadFile("sitemap.xml", apiResponse.xml);
+        });
     }
 
     restartPm2Request = () => {
@@ -49,9 +75,19 @@ export default class extends Component {
     }
 
     pingSearchEnginesRequest = () => {
-        this.setState({pingLoading: true, pingError: false, pingSuccess: false})
+        const self = this;
 
-        // call ping search engines function
+        pingSearchEngines(function (apiResponse) {
+            if (apiResponse.submitError) {
+                self.setState({ pingLoading: false, pingError: true, pingSuccess: false, });
+            } else if (!apiResponse.authSuccess) {
+                window.location.href = "/login";
+            } else if (!apiResponse.success) {
+                self.setState({ pingLoading: false, pingError: true, pingSuccess: false, });
+            } else {
+                self.setState({ pingLoading: false, pingError: false, pingSuccess: true, });
+            }
+        });
     }
 
     render() {
@@ -67,8 +103,6 @@ export default class extends Component {
             {/*
               * IMPORTANT:
             */}
-            <h1 className="images-upload-error-msg">THIS PAGE IS CURRENTLY NOT WORKING</h1>
-
               <div className="sitemap-content">
                 <div className="sitemap-header">
                   <span>Manage Sitemap</span>
@@ -105,6 +139,8 @@ export default class extends Component {
                         </div> : null
                     }
                   </div>
+
+                  {/*
                   <div className="sitemap-form-section">
                     <div className="sitemap-form-title">
                       <span>Restart Frontend Website PM2 Process</span>
@@ -136,6 +172,8 @@ export default class extends Component {
                         </div> : null
                     }
                   </div>
+                    */}
+
                   <div className="sitemap-form-section">
                     <div className="sitemap-form-title">
                       <span>Ping Search Engines</span>

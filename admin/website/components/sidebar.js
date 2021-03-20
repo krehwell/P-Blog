@@ -28,13 +28,13 @@ export default class extends Component {
             {/*
               * THIS IS COMMENTED SINCE:
                 - Website is very simple with only couple pages to be crawled so no need sitemap
+            */}
 
             <a className={this.props.page === "sitemap" ? "active" : null } href="/sitemap">
               <li>
                 <span>sitemap</span>
               </li>
             </a>
-            */}
 
             <a className={this.props.page === "password" ? "active" : null } href="/change-password">
               <li>
