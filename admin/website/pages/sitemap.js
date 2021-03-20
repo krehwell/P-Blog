@@ -6,6 +6,10 @@ import Sidebar from "../components/sidebar.js";
 
 import authUser from "../api/admin-user/auth.js";
 
+import updateSitemap from "../api/sitemap/updateSitemap.js";
+
+import generateDownloadFile from "../utils/generateDownloadFile.js";
+
 export default class extends Component {
     constructor(props) {
         super(props)
@@ -39,7 +43,28 @@ export default class extends Component {
     updateSitemapRequest = () => {
         this.setState({updateSitemapLoading: true, updateSitemapError: false, updateSitemapSuccess: false});
 
-        // call update sitemap function
+        const self = this;
+
+        updateSitemap(function (apiResponse) {
+            if (apiResponse.submitError) {
+              self.setState({ updateSitemapLoading: false, updateSitemapError: true, updateSitemapSuccess: false, });
+            } else if (!apiResponse.authSuccess) {
+              window.location.href = "/login";
+            } else if (!apiResponse.success) {
+              self.setState({ updateSitemapLoading: false, updateSitemapError: true, updateSitemapSuccess: false, });
+            } else {
+              self.setState({ updateSitemapLoading: false, updateSitemapError: false, updateSitemapSuccess: true, });
+            }
+
+            // console.log(apiResponse.xml); // print sitemap.xml
+
+            // open xml in new window and save
+            let blob = new Blob([apiResponse.xml], {type: 'text/xml'});
+            let url = URL.createObjectURL(blob);
+            window.open(url);
+            URL.revokeObjectURL(url);
+            generateDownloadFile("sitemap.xml", apiResponse.xml);
+        });
     }
 
     restartPm2Request = () => {
