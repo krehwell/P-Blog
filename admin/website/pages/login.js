@@ -76,6 +76,12 @@ export default class extends Component {
         }
     };
 
+    listenForEnterKeyPress = (event) => {
+        if (event.keyCode === 13 && this.state.passwordInputValue) {
+            this.submitLoginRequest();
+        }
+    }
+
     render() {
         return (
           <div className="layout-wrapper">
@@ -119,6 +125,7 @@ export default class extends Component {
                   <div className="login-form-field">
                     <input
                       onChange={this.updatePasswordInputValue}
+                      onKeyDown={this.listenForEnterKeyPress}
                       value={this.state.passwordInputValue}
                       type="password"
                       autoComplete="new-password"

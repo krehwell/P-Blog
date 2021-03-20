@@ -25,7 +25,7 @@ const Posts = () => {
             <a key={index} href={`/blog/${post.urlTitle}`}>
               <div className="homepage-latest-blog-post">
                 <div className="homepage-latest-thumbnail">
-                  <img src={post.thumbnailImageUrl} />
+                  <img src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post" />
                 </div>
                 <div className="homepage-latest-blog-post-title">
                   <h3>{post.title}</h3>
@@ -86,7 +86,7 @@ export default class extends Component {
                     </h3>
                     <p>you write your note, you save your note, you manage your note. but do it in on internet</p>
                     <div className="homepage-project-btns">
-                      <a className="homepage-project-view-btn" href="https://sexgod.herokuapp.com" target="_blank">view</a>
+                      <a className="homepage-project-view-btn" href="https://sexgod.herokuapp.com" >view</a>
                     </div>
                   </div>
                   <div className="homepage-project">
@@ -98,7 +98,7 @@ export default class extends Component {
                     </h3>
                     <p>send message, call, and mocking each other easily (now supports video call)</p>
                     <div className="homepage-project-btns">
-                      <a className="homepage-project-view-btn" href="https://callntol.vercel.app/" target="_blank">view</a>
+                      <a className="homepage-project-view-btn" href="https://callntol.vercel.app/" >view</a>
                     </div>
                   </div>
                   <div className="homepage-project">
@@ -110,7 +110,7 @@ export default class extends Component {
                     </h3>
                     <p>see on my <a href="https://github.com/krehwell">GitHub</a></p>
                     <div className="homepage-project-btns">
-                      <a className="homepage-project-view-btn" href="https://github.com/krehwell?tab=repositories" target="_blank">view</a>
+                      <a className="homepage-project-view-btn" href="https://github.com/krehwell?tab=repositories" >view</a>
                     </div>
                   </div>
                 </div>
