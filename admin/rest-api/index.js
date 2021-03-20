@@ -70,6 +70,7 @@ app.get("/", (_, res) => {
 
 app.use(require("./routes/admin-user/index.js"));
 app.use(require("./routes/blog-posts/index.js"));
+app.use(require("./routes/sitemap/index.js"));
 
 
 /// RUN SERVER
