@@ -75,6 +75,8 @@ export default class extends Component {
     }
 
     pingSearchEnginesRequest = () => {
+        this.setState({pingLoading: true, pingError: false, pingSuccess: false});
+
         const self = this;
 
         pingSearchEngines(function (apiResponse) {
