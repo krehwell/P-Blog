@@ -40,8 +40,6 @@ mongoose.connection.on("open", () => {
 /// FRONTEND REST-API CONFIG
 app.use(helmet());
 
-app.use("/assets", express.static(path.join(__dirname, "..", "..", "assets")));
-
 
 /// ROUTES
 app.get("/", (_, res) => {
