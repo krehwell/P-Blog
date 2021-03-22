@@ -3,7 +3,7 @@ const helmet = require("helmet");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
-// const cors = require("cors");
+const cors = require("cors");
 
 /// FRONTEND REST-API CONFIG
 dotenv.config();
@@ -34,7 +34,7 @@ mongoose.connection.on("open", () => {
 
 
 /// REST-API CONFIG
-// app.use(cors());
+app.use(cors());
 
 
 /// FRONTEND REST-API CONFIG
