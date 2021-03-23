@@ -26,7 +26,7 @@ const Posts = () => {
             <a key={index} href={`/blog/${post.urlTitle}`}>
               <div className="blog-posts-list-item">
                 <div className="blog-posts-thumbnail">
-                  <img src={post.thumbnailImageUrl} />
+                  <img src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post"/>
                 </div>
                 <div className="blog-posts-list-item-title-and-date">
                   <h2>{post.title}</h2>
