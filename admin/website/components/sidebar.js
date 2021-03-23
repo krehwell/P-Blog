@@ -32,7 +32,7 @@ export default class extends Component {
 
             <a className={this.props.page === "sitemap" ? "active" : null } href="/sitemap">
               <li>
-                <span>sitemap</span>
+                <span>Sitemap</span>
               </li>
             </a>
 
