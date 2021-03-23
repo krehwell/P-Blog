@@ -81,7 +81,7 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/tags/tips</loc>
+        <loc>https://krehwell.com/tags/cool guide</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
@@ -112,6 +112,11 @@
     </url>
     <url>
         <loc>https://krehwell.com/blog/Open Markdown Previewer Through Vim</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/blog/a-better-format-for-jsx-with-vim</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
