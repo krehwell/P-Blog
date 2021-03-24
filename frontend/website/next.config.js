@@ -11,6 +11,7 @@ module.exports = withPWA({
     dest: 'public'
   },
 
+  /*
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build
     // https://github.com/leerob/leerob.io/blob/main/next.config.js
@@ -23,4 +24,6 @@ module.exports = withPWA({
 
     return config;
   },
+  */
+
 });
