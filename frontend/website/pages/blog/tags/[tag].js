@@ -7,16 +7,26 @@ import HeadMetadata from "../../../components/headMetadata";
 
 import getBlogPostsByTag from "../../../api/getBlogPostByTag.js";
 
-export default class extends Component {
-
-    static async getInitialProps({ query }) {
-        const apiResult = await getBlogPostsByTag(query.tag);
+export async function getServerSideProps({query}) {
+    try {
+        const apiResponse = await getBlogPostsByTag(query.tag);
         return {
-            posts: apiResult && apiResult.posts,
-            tag: query.tag,
-            getDataError: apiResult && apiResult.getDataError,
+            props: {
+                posts: apiResponse.posts,
+                tag: query.tag
+            },
+        };
+
+    } catch (err) {
+        return {
+            props: {
+                posts: false,
+            },
         };
     }
+}
+
+export default class extends Component {
 
     render() {
         return (
@@ -31,7 +41,7 @@ export default class extends Component {
                 Blog posts tagged as <u>{this.props.tag}</u>
               </h1>
               <div className="blog-posts-list">
-                {this.props.posts && !this.props.getDataError ? (
+                {this.props.posts ? (
                   this.props.posts.map((post, index) => {
                     return (
                       <a key={index} href={`/blog/${post.urlTitle}`}>
@@ -43,9 +53,7 @@ export default class extends Component {
                             <h2>{post.title}</h2>
                             <div className="blog-posts-list-item-date">
                               <span>
-                                {moment
-                                    .unix(post.dateTimestamp)
-                                    .format("MMMM Do, YYYY")}
+                                {moment.unix(post.dateTimestamp).format("MMMM Do, YYYY")}
                               </span>
                             </div>
                           </div>

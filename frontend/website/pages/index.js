@@ -1,5 +1,4 @@
 import {Component} from 'react';
-import useSwr from "swr";
 import Link from "next/link";
 
 import Header from "../components/header.js";
@@ -8,34 +7,22 @@ import HeadMetadata from "../components/headMetadata.js";
 
 import getFiveNewestPost from "../api/getFiveNewestPost.js";
 
-const Posts = () => {
-    const {data, error} = useSwr('/posts/get-five-newest-posts', getFiveNewestPost, {revalidateOnFocus: false});
+export async function getServerSideProps() {
+    try {
+        const apiResponse = await getFiveNewestPost();
+        return {
+            props: {
+                posts: apiResponse.posts,
+            },
+        };
 
-    if (error) {
-        return <div>failed to load blog posts.</div>
+    } catch (err) {
+        return {
+            props: {
+                posts: false,
+            },
+        };
     }
-
-    if (!data) {
-        return <div>loading...</div>
-    }
-
-    let posts =
-        data.posts ? data.posts?.map((post, index) => {
-          return (
-            <a key={index} href={`/blog/${post.urlTitle}`}>
-              <div className="homepage-latest-blog-post">
-                <div className="homepage-latest-thumbnail">
-                  <img src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post" />
-                </div>
-                <div className="homepage-latest-blog-post-title">
-                  <h3>{post.title}</h3>
-                </div>
-              </div>
-            </a>
-          )})
-        : <a>no post.</a>
-
-    return (posts);
 }
 
 export default class extends Component {
@@ -71,7 +58,21 @@ export default class extends Component {
                   </Link>
                 </h2>
                 <div className="homepage-latest-blog-posts-list">
-                  <Posts />
+                  {
+                    this.props.posts ? this.props.posts.map((post, index) => {
+                      return (
+                        <a key={index} href={`/blog/${post.urlTitle}`}>
+                          <div className="homepage-latest-blog-post">
+                            <div className="homepage-latest-thumbnail">
+                              <img src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post" />
+                            </div>
+                            <div className="homepage-latest-blog-post-title">
+                              <h3>{post.title}</h3>
+                            </div>
+                          </div>
+                        </a>
+                      )}) : <a>posts is failed to be fethced :p</a>
+                  }
                 </div>
               </div>
               <div className="homepage-projects">

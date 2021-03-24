@@ -1,6 +1,6 @@
 import { Component } from "react";
 import moment from "moment";
-import useSwr from "swr";
+// import useSwr from "swr";
 
 import Header from "../../components/header.js";
 import Footer from "../../components/footer.js";
@@ -8,41 +8,22 @@ import HeadMetadata from "../../components/headMetadata";
 
 import getAllBlogPost from "../../api/getAllBlogPosts";
 
-const Posts = () => {
-    const {data, error} = useSwr('/posts/get-all-blog-posts', getAllBlogPost, {revalidateOnFocus: false});
+export async function getServerSideProps() {
+    try {
+        const apiResponse = await getAllBlogPost();
+        return {
+            props: {
+                posts: apiResponse.posts,
+            },
+        };
 
-    if (error) {
-        return <div>failed to load blog posts.</div>
+    } catch (err) {
+        return {
+            props: {
+                posts: false,
+            },
+        };
     }
-
-    if (!data) {
-        return <div>loading...</div>
-    }
-
-    let posts =
-        data.posts && !data.getDataError ?
-        data.posts.map((post, index) => {
-          return (
-            <a key={index} href={`/blog/${post.urlTitle}`}>
-              <div className="blog-posts-list-item">
-                <div className="blog-posts-thumbnail">
-                  <img src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post"/>
-                </div>
-                <div className="blog-posts-list-item-title-and-date">
-                  <h2>{post.title}</h2>
-                  <div className="blog-posts-list-item-date">
-                    <span>{moment.unix(post.dateTimestamp).format("MMMM Do, YYYY")}</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          )
-        }) :
-          <div className="blog-posts-get-data-error-msg">
-            <span>An error occurred while fetching Posts.</span>
-          </div>
-
-    return (posts);
 }
 
 export default class extends Component {
@@ -56,7 +37,25 @@ export default class extends Component {
             <div className="blog-posts-container">
               <h1>📰 Blog posts</h1>
               <div className="blog-posts-list">
-                <Posts />
+                {
+                  this.props.posts ? this.props.posts.map((post, index) => {
+                    return (
+                      <a key={index} href={`/blog/${post.urlTitle}`}>
+                        <div className="blog-posts-list-item">
+                          <div className="blog-posts-thumbnail">
+                            <img src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post"/>
+                          </div>
+                          <div className="blog-posts-list-item-title-and-date">
+                            <h2>{post.title}</h2>
+                            <div className="blog-posts-list-item-date">
+                              <span>{moment.unix(post.dateTimestamp).format("MMMM Do, YYYY")}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    )
+                  }) : <a>posts is failed to be fethced :p</a>
+                }
               </div>
             </div>
             <Footer />
