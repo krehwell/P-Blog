@@ -13,17 +13,26 @@ import HeadMetadata from "../../components/headMetadata.js"
 
 import getBlogPostByUrlTitle from "../../api/getBlogPostByUrlTitle.js"
 
-export default class extends Component {
-
-    static async getInitialProps ({ query }) {
-        const apiResult = await getBlogPostByUrlTitle(query.title);
-
+export async function getServerSideProps({query}) {
+    try {
+        const apiResponse = await getBlogPostByUrlTitle(query.title);
         return {
-            post: apiResult && apiResult.post,
-            getDataError: apiResult && apiResult.getDataError,
-            notFoundError: apiResult && apiResult.notFoundError
-        }
+            props: {
+                post: apiResponse.post,
+                title: query.title,
+            },
+        };
+
+    } catch (err) {
+        return {
+            props: {
+                posts: false,
+            },
+        };
     }
+}
+
+export default class extends Component {
 
     componentDidMount() {
         Prism.highlightAll();
@@ -39,7 +48,7 @@ export default class extends Component {
             <Header />
             <div className="blog-post-container">
               {
-                this.props.post && !this.props.getDataError && !this.props.notFoundError ?
+                this.props.post ?
                   <>
                     <div className="blog-post-top-section">
                       <h1>{this.props.post.title}</h1>
@@ -65,12 +74,10 @@ export default class extends Component {
                   </> :
                   <div className="blog-post-get-data-error-msg">
                     {
-                      this.props.notFoundError ?
                         <span>
                           Blog post not found.
                           (if you really think this page should exist tho try to reload the browser)
-                        </span> :
-                        <span>An error occurred.</span>
+                        </span>
                     }
                   </div>
               }
