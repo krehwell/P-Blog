@@ -1,6 +1,7 @@
-import { Component } from "react"
-import Prism from "prismjs"
-import moment from "moment"
+import { Component } from "react";
+import Prism from "prismjs";
+import moment from "moment";
+import Link from "next/link";
 
 import "prismjs/plugins/line-numbers/prism-line-numbers.js"
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js"
@@ -57,13 +58,11 @@ export default class extends Component {
                         {
                           this.props.post.tags.map((tag, index) => {
                             return (
-                              <a
-                                className="blog-post-top-tag-btn"
-                                key={index}
-                                href={`/blog/tags/${tag}`}
-                              >
-                                <span>{tag}</span>
-                              </a>
+                              <Link key={index} href={`/blog/tags/${tag}`}>
+                                <a className="blog-post-top-tag-btn" >
+                                  <span>{tag}</span>
+                                </a>
+                              </Link>
                             )
                           })
                         }

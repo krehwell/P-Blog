@@ -1,5 +1,6 @@
 import { Component } from "react";
 import moment from "moment";
+import Link from "next/link";
 
 import Header from "../../../components/header";
 import Footer from "../../../components/footer";
@@ -44,21 +45,23 @@ export default class extends Component {
                 {this.props.posts ? (
                   this.props.posts.map((post, index) => {
                     return (
-                      <a key={index} href={`/blog/${post.urlTitle}`}>
-                        <div className="blog-posts-list-item">
-                          <div className="blog-posts-thumbnail">
-                            <img src={post.thumbnailImageUrl} />
-                          </div>
-                          <div className="blog-posts-list-item-title-and-date">
-                            <h2>{post.title}</h2>
-                            <div className="blog-posts-list-item-date">
-                              <span>
-                                {moment.unix(post.dateTimestamp).format("MMMM Do, YYYY")}
-                              </span>
+                      <Link key={index} href={`/blog/${post.urlTitle}`}>
+                        <a>
+                          <div className="blog-posts-list-item">
+                            <div className="blog-posts-thumbnail">
+                              <img src={post.thumbnailImageUrl} />
+                            </div>
+                            <div className="blog-posts-list-item-title-and-date">
+                              <h2>{post.title}</h2>
+                              <div className="blog-posts-list-item-date">
+                                <span>
+                                  {moment.unix(post.dateTimestamp).format("MMMM Do, YYYY")}
+                                </span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </a>
+                        </a>
+                      </Link>
                     );
                   })
                 ) : (
