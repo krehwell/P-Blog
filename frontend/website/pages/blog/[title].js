@@ -30,7 +30,7 @@ export default function Title() {
             <div className="layout-wrapper">
               <Header />
               <div className="blog-post-container">
-                <div>failed to load blog posts.</div>
+                <div>❌Failed to Load Blog Posts.</div>
               </div>
             </div>
           )
