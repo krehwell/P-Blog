@@ -22,16 +22,18 @@ const Posts = () => {
     let posts =
         data.posts ? data.posts?.map((post, index) => {
           return (
-            <a key={index} href={`/blog/${post.urlTitle}`}>
-              <div className="homepage-latest-blog-post">
-                <div className="homepage-latest-thumbnail">
-                  <img src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post" />
+            <Link key={index} href={`/blog/${post.urlTitle}`}>
+              <a>
+                <div className="homepage-latest-blog-post">
+                  <div className="homepage-latest-thumbnail">
+                    <img src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post" />
+                  </div>
+                  <div className="homepage-latest-blog-post-title">
+                    <h3>{post.title}</h3>
+                  </div>
                 </div>
-                <div className="homepage-latest-blog-post-title">
-                  <h3>{post.title}</h3>
-                </div>
-              </div>
-            </a>
+              </a>
+            </Link>
           )})
         : <a>no post.</a>
 
