@@ -1,6 +1,7 @@
 import { Component } from "react";
 import moment from "moment";
 import Link from "next/link";
+import Image from "next/image";
 
 import Header from "../../../components/header";
 import Footer from "../../../components/footer";
@@ -49,7 +50,7 @@ export default class extends Component {
                         <a>
                           <div className="blog-posts-list-item">
                             <div className="blog-posts-thumbnail">
-                              <img src={post.thumbnailImageUrl} />
+                              <Image src={post.thumbnailImageUrl} height={65} width={65}/>
                             </div>
                             <div className="blog-posts-list-item-title-and-date">
                               <h2>{post.title}</h2>

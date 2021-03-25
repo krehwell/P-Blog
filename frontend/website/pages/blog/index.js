@@ -1,7 +1,7 @@
 import { Component } from "react";
 import moment from "moment";
-// import useSwr from "swr";
 import Link from "next/link";
+import Image from "next/image";
 
 import Header from "../../components/header.js";
 import Footer from "../../components/footer.js";
@@ -45,7 +45,7 @@ export default class extends Component {
                         <a>
                           <div className="blog-posts-list-item">
                             <div className="blog-posts-thumbnail">
-                              <img src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post"/>
+                              <Image src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post" height={65} width={65}/>
                             </div>
                             <div className="blog-posts-list-item-title-and-date">
                               <h2>{post.title}</h2>
