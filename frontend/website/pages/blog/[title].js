@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import Prism from "prismjs"
-import moment from "moment"
+import Prism from "prismjs";
+import moment from "moment";
 import useSwr from "swr";
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import Link from "next/link";
 
 import "prismjs/plugins/line-numbers/prism-line-numbers.js"
