@@ -38,7 +38,7 @@ export default function Tag() {
                 <Header />
                 <div className="blog-posts-container">
                   <h1> Blog posts tagged as <u>{tag}</u> </h1>
-                  Loading...
+                  loading...
                 </div>
               </div>
           )
