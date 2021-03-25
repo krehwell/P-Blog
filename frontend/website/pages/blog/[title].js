@@ -1,6 +1,8 @@
-import { Component } from "react";
+import { useEffect, useState } from 'react';
 import Prism from "prismjs";
 import moment from "moment";
+import useSwr from "swr";
+import { useRouter } from 'next/router';
 import Link from "next/link";
 
 import "prismjs/plugins/line-numbers/prism-line-numbers.js"
@@ -14,75 +16,88 @@ import HeadMetadata from "../../components/headMetadata.js"
 
 import getBlogPostByUrlTitle from "../../api/getBlogPostByUrlTitle.js"
 
-export async function getServerSideProps({query}) {
-    try {
-        const apiResponse = await getBlogPostByUrlTitle(query.title);
-        return {
-            props: {
-                post: apiResponse.post,
-                title: query.title,
-            },
-        };
+export default function Title() {
 
-    } catch (err) {
-        return {
-            props: {
-                posts: false,
-            },
-        };
-    }
-}
+    const router = useRouter();
+    const urlTitle = router.query.title;
 
-export default class extends Component {
+    const [rerenderPlease, setRerenderPlease] = useState(false);  // so that Prism understand when to highlight
 
-    componentDidMount() {
-        Prism.highlightAll();
-    }
+    const {data, error} = useSwr(`/posts/get-blog-post-by-url-title?urlTitle=${urlTitle}`, () => getBlogPostByUrlTitle(urlTitle), {revalidateOnFocus: false});
 
-    render () {
+    if (error) {
         return (
-          <div className="layout-wrapper">
-            <HeadMetadata
-              title={this.props.post ? this.props.post.seoTitleTag : "Blog Post | Coding Blog"}
-              metaDescription={this.props.post && this.props.post.seoMetaDescription}
-            />
-            <Header />
-            <div className="blog-post-container">
-              {
-                this.props.post ?
-                  <>
-                    <div className="blog-post-top-section">
-                      <h1>{this.props.post.title}</h1>
-                      <div className="blog-post-top-meta">
-                        <span>{moment.unix(this.props.post.dateTimestamp).format("MMMM Do, YYYY")}</span>
-                        {
-                          this.props.post.tags.map((tag, index) => {
-                            return (
-                              <Link key={index} href={`/blog/tags/${tag}`}>
-                                <a className="blog-post-top-tag-btn" >
-                                  <span>{tag}</span>
-                                </a>
-                              </Link>
-                            )
-                          })
-                        }
-                      </div>
-                    </div>
-                    <div dangerouslySetInnerHTML={{__html: this.props.post.markdownContent}} className="blog-post-body-content">
-                    </div>
-                  </> :
-                  <div className="blog-post-get-data-error-msg">
-                    {
-                        <span>
-                          Blog post not found.
-                          (if you really think this page should exist tho try to reload the browser)
-                        </span>
-                    }
-                  </div>
-              }
+            <div className="layout-wrapper">
+              <Header />
+              <div className="blog-post-container">
+                <div>❌Failed to Load Blog Posts.</div>
+              </div>
             </div>
-            <Footer />
-          </div>
+          )
+    }
+
+    if (!data) {
+        return (
+            <div className="layout-wrapper">
+              <Header />
+              <div className="blog-post-container">
+                <div>loading...</div>
+              </div>
+            </div>
         )
     }
+
+    useEffect(() => {
+        Prism.highlightAll();
+    }, [rerenderPlease]);
+
+    return (
+      <div className="layout-wrapper">
+        <HeadMetadata
+          title={data.post ? data.post.seoTitleTag : "Blog Post | Coding Blog"}
+          metaDescription={data.post && data.post.seoMetaDescription}
+        />
+        <Header />
+        <div className="blog-post-container">
+          {
+            data.post && !data.getDataError && !data.notFoundError ?
+              <>
+                <div className="blog-post-top-section">
+                  <h1>{data.post.title}</h1>
+                  <div className="blog-post-top-meta">
+                    <span>{moment.unix(data.post.dateTimestamp).format("MMMM Do, YYYY")}</span>
+                    {
+                      data.post.tags.map((tag, index) => {
+
+                        setRerenderPlease(true); // ask Prism to highlight if this post is to be rendered
+
+                        return (
+                          <Link key={index} href={`/blog/tags/${tag}`} >
+                            <a className="blog-post-top-tag-btn">
+                              <span>{tag}</span>
+                            </a>
+                          </Link>
+                        )
+                      })
+                    }
+                  </div>
+                </div>
+                <div dangerouslySetInnerHTML={{__html: data.post.markdownContent}} className="blog-post-body-content">
+                </div>
+              </> :
+              <div className="blog-post-get-data-error-msg">
+                {
+                  data.notFoundError ?
+                    <span>
+                      Blog post not found.
+                      (if you really think this page should exist tho try to reload the browser)
+                    </span> :
+                    <span>An error occurred.</span>
+                }
+              </div>
+          }
+        </div>
+        <Footer />
+      </div>
+    )
 }

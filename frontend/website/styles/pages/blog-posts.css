@@ -26,13 +26,13 @@
 
 .blog-posts-thumbnail {
     display: inline-block;
-    padding-right: 10px;
     width: 12%;
     text-align: left;
 }
 
 .blog-posts-thumbnail {
     vertical-align: middle;
+    padding-right: 20px;
     height: 65px;
     width: auto;
 }

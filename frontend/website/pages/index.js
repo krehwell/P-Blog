@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import useSwr from "swr";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -8,22 +9,36 @@ import HeadMetadata from "../components/headMetadata.js";
 
 import getFiveNewestPost from "../api/getFiveNewestPost.js";
 
-export async function getServerSideProps() {
-    try {
-        const apiResponse = await getFiveNewestPost();
-        return {
-            props: {
-                posts: apiResponse.posts,
-            },
-        };
+const Posts = () => {
+    const {data, error} = useSwr('/posts/get-five-newest-posts', getFiveNewestPost, {revalidateOnFocus: false});
 
-    } catch (err) {
-        return {
-            props: {
-                posts: false,
-            },
-        };
+    if (error) {
+        return <div>failed to load blog posts.</div>
     }
+
+    if (!data) {
+        return <div>loading...</div>
+    }
+
+    let posts =
+        data.posts ? data.posts?.map((post, index) => {
+          return (
+            <Link key={index} href={`/blog/${post.urlTitle}`}>
+              <a>
+                <div className="homepage-latest-blog-post">
+                  <div className="homepage-latest-thumbnail">
+                    <Image src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post" height={55} width={55} quality={20}/>
+                  </div>
+                  <div className="homepage-latest-blog-post-title">
+                    <h3>{post.title}</h3>
+                  </div>
+                </div>
+              </a>
+            </Link>
+          )})
+        : <a>no post.</a>
+
+    return (posts);
 }
 
 export default class extends Component {
@@ -39,7 +54,7 @@ export default class extends Component {
               <div>
                 <h1>Hi, I'm krehwell. I am never sleepless.</h1>
                 <p>
-                  This is a blog made to implement Next.js after learning it
+                  This is a blog which I make to implement Next.js after learning it
                   from its <a href="http://nextjs.org/docs/">docs</a>. This project
                   is made right after my previous project{" "}
                   <a href="https://sexgod.herokuapp.com/">note10net</a> (note over internet) and my
@@ -59,23 +74,7 @@ export default class extends Component {
                   </Link>
                 </h2>
                 <div className="homepage-latest-blog-posts-list">
-                  {
-                    this.props.posts ? this.props.posts.map((post, index) => {
-                      return (
-                        <Link key={index} href={`/blog/${post.urlTitle}`}>
-                          <a>
-                            <div className="homepage-latest-blog-post">
-                              <div className="homepage-latest-thumbnail">
-                                <Image src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post" height={55} width={55}/>
-                              </div>
-                              <div className="homepage-latest-blog-post-title">
-                                <h3>{post.title}</h3>
-                              </div>
-                            </div>
-                          </a>
-                        </Link>
-                      )}) : <a>posts is failed to be fethced :p</a>
-                  }
+                  <Posts />
                 </div>
               </div>
               <div className="homepage-projects">
