@@ -1,5 +1,6 @@
 import {Component} from 'react';
 import Link from "next/link";
+import Image from "next/image";
 
 import Header from "../components/header.js";
 import Footer from "../components/footer.js";
@@ -65,7 +66,7 @@ export default class extends Component {
                           <a>
                             <div className="homepage-latest-blog-post">
                               <div className="homepage-latest-thumbnail">
-                                <img src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post" />
+                                <Image src={post.thumbnailImageUrl} alt="dickbutt image unrelated to the post" height={55} width={55}/>
                               </div>
                               <div className="homepage-latest-blog-post-title">
                                 <h3>{post.title}</h3>
