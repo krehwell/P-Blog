@@ -4,6 +4,13 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import HeadMetadata from "../components/headMetadata.js";
 
+export async function getServerSideProps() {
+    return {
+        props: {
+        }
+    }
+}
+
 export default class extends Component {
 
     render(){
