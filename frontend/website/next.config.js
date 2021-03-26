@@ -7,7 +7,7 @@ module.exports = withPWA({
 
   env: {
     "DEV_API_URL": "http://localhost:5000",
-    "PRODUCTION_API_URL": "https://krehwell-rest-api.vercel.app/"
+    "PRODUCTION_API_URL": "https://krehwell-rest-api.vercel.app"
   },
 
   pwa: {
@@ -15,7 +15,7 @@ module.exports = withPWA({
     dest: 'public'
   },
 
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config) => {
     // https://github.com/leerob/leerob.io/blob/main/next.config.js
     Object.assign(config.resolve.alias, {
       react: 'preact/compat',
@@ -25,5 +25,4 @@ module.exports = withPWA({
 
     return config;
   },
-
 });
