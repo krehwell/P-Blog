@@ -28,7 +28,7 @@ export default class extends Component {
             </>
           ) : (
             <>
-              <h1>An Error Occured</h1>
+              <h1>❌An Error Occured</h1>
               <p>
                 no one knows why this error occured, how did you get one tho?
               </p>
