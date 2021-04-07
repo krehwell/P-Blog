@@ -21,12 +21,12 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/tags/lorem ipsum</loc>
+        <loc>https://krehwell.com/tags/testing</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/tags/testing</loc>
+        <loc>https://krehwell.com/tags/lorem ipsum</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
@@ -71,6 +71,11 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://krehwell.com/tags/tip slips</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://krehwell.com/tags/vim</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
@@ -81,17 +86,22 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/tags/cool guide</loc>
+        <loc>https://krehwell.com/tags/journey</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/blog/tf-is-lorem-ipsum</loc>
+        <loc>https://krehwell.com/tags/javascript</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://krehwell.com/blog/testing-post-2</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/blog/tf-is-lorem-ipsum</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
@@ -117,6 +127,16 @@
     </url>
     <url>
         <loc>https://krehwell.com/blog/a-better-format-for-jsx-with-vim</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/blog/get-onboard-with-knowt-how-excited</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/blog/char-sorting-js</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
