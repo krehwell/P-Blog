@@ -9,6 +9,7 @@ import "prismjs/plugins/line-numbers/prism-line-numbers.js"
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js"
 import 'prismjs/components/prism-vim.min.js';
 import 'prismjs/components/prism-bash.min.js';
+import 'prismjs/components/prism-json';
 
 import Header from "../../components/header.js"
 import Footer from "../../components/footer.js"
