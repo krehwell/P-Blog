@@ -1,6 +1,12 @@
 # P-Blog
 A Personal-Blog so that I follow the trend of those dev/s writing their opinion on a place nobody even care of.
+
 **LINK:** [https://krehwell.com](https://krehwell.com)
+
+<p align="center">
+  <img src="https://i.imgur.com/fwiqs58.png" height="350px" width="600px" />
+</p>
+
 
 ## Project Structure
 ```
@@ -12,24 +18,34 @@ P-Blog
   |- website/
   |- rest-api/
 ```
+- **`frontend/`** is the blog.  
+- **`admin/`** is the CMS.
+
 
 ## Frontend
+<p align="center">
+  <img src="https://i.imgur.com/uCWhJXy.png?1" width="520" height="140"/>
+</p>
+
+```
+|- frontend
+  |- website/
+  |- rest-api/
+```
 
 ### Frontend Website
-_explanation on flow for `./frontend/website/`._
 
-**routes**: Is defined all in the `pages/`.
+**`pages/`**: Routes to all pages.
 
-**`api/`**: This is a directory which defined all function to fetch from server e.g: `getAllBlogPost.js`. Later on each page which need to access db can just call this function and organized the data gotten in its particular Component. (all function inside `api/` is solely for retrieving data from db)
+**`api/`**: Directory which defined all function to fetch from server e.g: `getAllBlogPost.js`. Later on each page which need to access db can just call this function and organized the data gotten in its particular Component. (all function inside `api/` is solely for retrieving data from db)
 
 **`Utils/`**: Consist a helper for easing the definition of variable. e.g: `apiBaseUrl.js` is for defining the name of url for the server site either its locally from localhost or from the website url when on production.
 
 ### Website Rest-Api
-_explanation on flow for `./frontend/rest-api/`._
 
-**`index.js`**: This is a setup where dependecy and config goes (connect db, config cors, etc).
+**`index.js`**: This is a setup where dependecy and config goes (connect db, cors config, etc).
 
-**routes**: Is handled as a folder which consist of `index.js` and `api.js`.
+**`routes/`**: Directory consists files to access endpoint. (`index.js` and `api.js`)
 
 inside `index.js` consists the definition on the route name e.g:
 ```
@@ -57,11 +73,23 @@ module.exports = {
 
 ## Admin
 
+<p align="center">
+  <img src="https://i.imgur.com/IlpzFXZ.png" width="600" height="350"/>
+</p>
+
+This is CMS for making a new, modify, or delete a blog post.
+
+```
+|- admin
+  |- website/
+  |- rest-api/
+```
+
 ### Admin Frontend
-_screencapt and desc goes here...._
+_The workflow the same as frontend..._
 
 ### Admin Rest-Api
-_desc about flow on server goes here...._
+_The workflow the same as frontend..._
 
 ## Acknowledgement
 
