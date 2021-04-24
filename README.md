@@ -33,7 +33,7 @@ P-Blog
   |- rest-api/
 ```
 
-### Frontend Website
+### `frontend/website`
 
 **`pages/`**: Routes to all pages.
 
@@ -41,13 +41,13 @@ P-Blog
 
 **`Utils/`**: Consist a helper for easing the definition of variable. e.g: `apiBaseUrl.js` is for defining the name of url for the server site either its locally from localhost or from the website url when on production.
 
-### Website Rest-Api
+### `frontend/rest-api`
 
 **`index.js`**: This is a setup where dependecy and config goes (connect db, cors config, etc).
 
 **`routes/`**: Directory consists files to access endpoint. (`index.js` and `api.js`)
 
-inside `index.js` consists the definition on the route name e.g:
+inside `routes/index.js` consists the definition on the route name e.g:
 ```
 const api = require("./api.js");
 
@@ -58,7 +58,7 @@ app.get("/posts/get-all-blog-posts", (req, res) => {
 });
 ```
 
-and `api.js` is where the prosessing for the backend goes like fetching db etc.
+and `routes/api.js` is where the prosessing for the backend goes like fetching db etc.
 
 ```
 module.exports = {
@@ -85,10 +85,10 @@ This is CMS for making a new, modify, or delete a blog post.
   |- rest-api/
 ```
 
-### Admin Frontend
+### `admin/website`
 _The workflow the same as frontend..._
 
-### Admin Rest-Api
+### `admin/rest-api`
 _The workflow the same as frontend..._
 
 ## Acknowledgement
