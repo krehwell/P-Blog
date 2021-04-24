@@ -52,18 +52,12 @@ export default function ({ data }) {
                 <div>
                     <h1>Hi, I'm krehwell. I am never sleepless.</h1>
                     <p>
-                        This is a blog which I make to implement Next.js after
-                        learning it from its{" "}
-                        <a href="http://nextjs.org/docs/">docs</a>. This project
-                        is made right after my previous project{" "}
-                        <a href="https://sexgod.herokuapp.com/">note10net</a>{" "}
-                        (note over internet) and my WebRTC project{" "}
-                        <a href="https://callntol.vercel.app/">callntol</a>.
-                        <p>
-                            This is where I write stuff. Abandon all hope. Leave
-                            all the uncertainity of my future. And dump all the
-                            multibillion imaginary ideas.
-                        </p>
+                        This blog is made using Next.js. learned it from its docs, worth it!
+                    </p>
+                    <p>
+                        This is where I write stuff. Abandon all hope. Leave
+                        all uncertainity of my future. And dump all
+                        multibillion imaginary ideas.
                     </p>
                 </div>
                 <div className="homepage-latest-blog-posts">
