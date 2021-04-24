@@ -1,5 +1,3 @@
-import { Component } from "react";
-import useSwr from "swr";
 import Link from "next/link";
 import Image from "next/image";
 
