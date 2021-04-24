@@ -84,6 +84,7 @@ This is CMS for making a new, modify, or delete a blog post.
   |- website/
   |- rest-api/
 ```
+**np**: admin site is still using serverside rendering for everything and still using class based component instead of functional component. I haven't updated much on this but all the functionalities should work just fine.
 
 ### `admin/website`
 _The workflow the same as frontend..._
