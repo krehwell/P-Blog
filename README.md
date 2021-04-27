@@ -48,7 +48,7 @@ P-Blog
 **`routes/`**: Directory consists files to access endpoint. (`index.js` and `api.js`)
 
 inside `routes/index.js` consists the definition on the route name e.g:
-```
+```javascript
 const api = require("./api.js");
 
 app.get("/posts/get-all-blog-posts", (req, res) => {
@@ -60,7 +60,7 @@ app.get("/posts/get-all-blog-posts", (req, res) => {
 
 and `routes/api.js` is where the prosessing for the backend goes like fetching db etc.
 
-```
+```javascript
 module.exports = {
     getAllBlogPosts: (callback) => {
         // fetch db...
