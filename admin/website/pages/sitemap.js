@@ -58,25 +58,6 @@ export default class extends Component {
               self.setState({ updateSitemapLoading: false, updateSitemapError: false, updateSitemapSuccess: true, });
             }
 
-            /** Serverless function testing */
-            axios.post(`https://krehwell.com/api/renewSitemap`,
-                {
-                    xml: apiResponse.xml
-                },
-                {withCredentials: true}
-            ).then((response) => {
-                alert("it's responsed")
-                if (response.updateSitemapErrorAtCors) {
-                    alert("Sitemap failed to update, OK")
-                } else {
-                    alert("Sitemap has been updated, OK")
-                }
-            }).catch((error) => {
-                console.log(error);
-                alert("Sitemap failed update, has error in it.")
-            })
-            /** End Serverless function testing */
-
             // open xml in new window and save
             let blob = new Blob([apiResponse.xml], {type: 'text/xml'});
             let url = URL.createObjectURL(blob);
