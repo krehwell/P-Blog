@@ -15,7 +15,11 @@ const allowCors = (fn) => async (req, res) => {
         "Access-Control-Allow-Headers",
         "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
     );
-
+    if (req.method === "POST" || req.method === "OPTIONS") {
+        res.json({updateSitemapErrorAtCors: true})
+        return;
+    }
+    res.end(200);
     return await fn(req, res);
 };
 
@@ -25,6 +29,7 @@ const handler = (req, res) => {
     } else {
         res.json({updateSitemapError: false});
     }
+    res.end(200);
 };
 
 module.exports = allowCors(handler);

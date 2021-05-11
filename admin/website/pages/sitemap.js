@@ -66,10 +66,10 @@ export default class extends Component {
                 {withCredentials: true}
             ).then((response) => {
                 alert("it's responsed")
-                if (!response.updateSitemapError) {
-                    alert("Sitemap failed to update.")
+                if (response.updateSitemapErrorAtCors) {
+                    alert("Sitemap failed to update, OK")
                 } else {
-                    alert("Sitemap has been updated.")
+                    alert("Sitemap has been updated, OK")
                 }
             }).catch((error) => {
                 alert("Sitemap failed update, has error in it.")
