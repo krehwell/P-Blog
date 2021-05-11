@@ -65,10 +65,16 @@ export default class extends Component {
                 },
                 {withCredentials: true}
             ).then((response) => {
-                if (response.updateSitemapError) {
-                    alert("Sitemap has been updated.")
-                } else {
+                if (!response.updateSitemapError) {
                     alert("Sitemap failed to update.")
+                } else {
+                    alert("Sitemap has been updated.")
+                }
+
+                if (updateSitemapErrorAtCors) {
+                    alert("cors error");
+                } else {
+                    alert("cors success");
                 }
             }).catch((error) => {
                 alert("Sitemap failed update.")

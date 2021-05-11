@@ -4,7 +4,7 @@
  */
 const allowCors = (fn) => async (req, res) => {
     res.setHeader("Access-Control-Allow-Credentials", true);
-    res.setHeader("Access-Control-Allow-Origin", "https://admin.krehwell.com");
+    res.setHeader("Access-Control-Allow-Origin", "*");
     // another common pattern
     // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
     res.setHeader(
@@ -15,8 +15,8 @@ const allowCors = (fn) => async (req, res) => {
         "Access-Control-Allow-Headers",
         "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
     );
-    if (req.method === "POST") {
-        res.status(200).end();
+    if (req.method === "POST" || req.method === "OPTIONS") {
+        res.json({updateSitemapErrorAtCors: true})
         return;
     }
     return await fn(req, res);
