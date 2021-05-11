@@ -65,19 +65,14 @@ export default class extends Component {
                 },
                 {withCredentials: true}
             ).then((response) => {
+                alert("it's responsed")
                 if (!response.updateSitemapError) {
                     alert("Sitemap failed to update.")
                 } else {
                     alert("Sitemap has been updated.")
                 }
-
-                if (updateSitemapErrorAtCors) {
-                    alert("cors error");
-                } else {
-                    alert("cors success");
-                }
             }).catch((error) => {
-                alert("Sitemap failed update.")
+                alert("Sitemap failed update, has error in it.")
             })
             /** End Serverless function testing */
 
