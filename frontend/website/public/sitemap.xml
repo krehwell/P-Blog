@@ -21,12 +21,12 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/tags/testing</loc>
+        <loc>https://krehwell.com/tags/lorem ipsum</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/tags/lorem ipsum</loc>
+        <loc>https://krehwell.com/tags/testing</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
@@ -96,12 +96,12 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/blog/testing-post-2</loc>
+        <loc>https://krehwell.com/blog/tf-is-lorem-ipsum</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/blog/tf-is-lorem-ipsum</loc>
+        <loc>https://krehwell.com/blog/testing-post-2</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
@@ -136,7 +136,7 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/blog/char-sorting-js</loc>
+        <loc>https://krehwell.com/blog/chad-sorting-js</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
