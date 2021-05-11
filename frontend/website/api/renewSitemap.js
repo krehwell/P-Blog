@@ -1,3 +1,5 @@
+import * as fs from "fs";
+
 /**
  * ENABLING CORS
  * https://vercel.com/support/articles/how-to-enable-cors?query=cors#enabling-cors-in-a-single-node.js-serverless-function
@@ -16,7 +18,26 @@ const allowCors = (fn) => async (req, res) => {
         "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
     );
     if (req.method === "POST" || req.method === "OPTIONS") {
-        res.json({updateSitemapErrorAtCors: true})
+        const sitemapDirLocation = path.join(
+            __dirname,
+            "..",
+            "public",
+            "sitemap.xml"
+        );
+
+        fs.writeFile(
+            sitemapDirLocation,
+            formatXml(req.body.xml, { collapseContent: true }),
+            function (writeError) {
+                if (writeError) {
+                    res.json({ updateSitemapErrorAtCors: true });
+                } else {
+                    res.json({ updateSitemapErrorAtCors: false });
+                }
+            }
+        );
+
+        res.json({ updateSitemapErrorAtCors: true });
         return;
     }
     res.end(200);
@@ -25,9 +46,9 @@ const allowCors = (fn) => async (req, res) => {
 
 const handler = (req, res) => {
     if (!req.body.xml) {
-        res.json({updateSitemapError: true});
+        res.json({ updateSitemapError: true });
     } else {
-        res.json({updateSitemapError: false});
+        res.json({ updateSitemapError: false });
     }
     res.end(200);
 };

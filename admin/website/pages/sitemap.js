@@ -72,6 +72,7 @@ export default class extends Component {
                     alert("Sitemap has been updated, OK")
                 }
             }).catch((error) => {
+                console.log(error);
                 alert("Sitemap failed update, has error in it.")
             })
             /** End Serverless function testing */
