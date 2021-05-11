@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Head from "next/head";
+import axios from "axios";
 
 import Header from "../components/header.js";
 import Sidebar from "../components/sidebar.js";
@@ -57,7 +58,22 @@ export default class extends Component {
               self.setState({ updateSitemapLoading: false, updateSitemapError: false, updateSitemapSuccess: true, });
             }
 
-            // console.log(apiResponse.xml); // print sitemap.xml
+            /** Serverless function testing */
+            axios.post(`https://krehwell.com/api/renewSitemap`,
+                {
+                    xml: apiResponse.xml
+                },
+                {withCredentials: true}
+            ).then((response) => {
+                if (response.updateSitemapError) {
+                    alert("Sitemap has been updated.")
+                } else {
+                    alert("Sitemap failed to update.")
+                }
+            }).catch((error) => {
+                alert("Sitemap failed update.")
+            })
+            /** End Serverless function testing */
 
             // open xml in new window and save
             let blob = new Blob([apiResponse.xml], {type: 'text/xml'});
