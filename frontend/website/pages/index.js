@@ -120,7 +120,7 @@ export default function ({ data }) {
                                 </a>
                             </h3>
                             <p>
-                                Remember Bomberman on early 20's? Well, the
+                                Remember Bomberman in early 20's? Well, the
                                 remake is for those boomer who wants to learn
                                 math just so they think there were ever good at
                                 it
