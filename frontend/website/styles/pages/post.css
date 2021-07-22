@@ -139,13 +139,14 @@
 }
 
 .blog-post-body-code-snippet-header {
-    background-color: hsl(220, 14%, 12.5%);
-    border-radius: 4px 4px 0 0;
+    background-color: #20211c;
+    border-radius: 4px 4px 4px 4px;
     font-size: 13.5px;
     line-height: 14px;
     padding: 10px 10px 10px 24px;
     color: #a3acb9;
     cursor: default;
+    translate: 0 37%;
 }
 
 .blog-post-body-code-snippet pre {
@@ -259,7 +260,7 @@
 
     .blog-post-body-code-snippet-header {
         font-size: 12.5px;
-        padding: 8px 10px 8px 24px;
+        /* padding: 8px 10px 8px 24px; */
     }
 
     .blog-post-body-content blockquote {
