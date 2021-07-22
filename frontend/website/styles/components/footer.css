@@ -1,44 +1,44 @@
 .footer-wrapper {
-  border: 100;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 0 solid transparent;
-  box-sizing: content-box;
-  overflow: visible;
-  padding-top: 30px;
-  padding-bottom: 20px;
+    border: 100;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 0 solid transparent;
+    box-sizing: content-box;
+    overflow: visible;
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 .footer-links a {
-  margin-left: 10px;
-  margin-right: 10px;
-  text-decoration: none;
-  background-color: transparent;
-  color: grey;
-  padding-bottom: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    background-color: transparent;
+    color: grey;
+    padding-bottom: 2px;
 }
 
 .footer-links a:first-child {
-  text-decoration: none;
-  margin-left: 0px;
+    text-decoration: none;
+    margin-left: 0px;
 }
 
 .footer-links a:hover {
-  border-bottom: 2px solid #2161f2;
-  color: #272727;
+    border-bottom: 2px solid #ff6600;
+    color: #272727;
 }
 
 .footer-bottom-msg {
-  margin-top: 25px;
-  font-size: 16px;
+    margin-top: 25px;
+    font-size: 16px;
 }
 
 @media only screen and (max-width: 900px) and (min-width: 0px) {
-  .footer-links a {
-    display: block;
-    margin: 20px 0px 0px 0px;
-  }
+    .footer-links a {
+        display: block;
+        margin: 20px 0px 0px 0px;
+    }
 
-  .footer-bottom-msg {
-    font-size: 14px;
-  }
+    .footer-bottom-msg {
+        font-size: 14px;
+    }
 }

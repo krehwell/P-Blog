@@ -22,6 +22,11 @@ export default function about() {
                         fullstack + cms project of mine and there are always
                         last minute changes which are not last minute.
                     </p>
+                    <p>
+                        Sometimes hanging around with frontend, sometimes
+                        backend, sometimes designing. But who knows that in most
+                        of the time I beat those meat.
+                    </p>
                 </div>
                 <div className="about-section">
                     <h2>🛠️ Personal Tools</h2>
