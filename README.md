@@ -21,6 +21,12 @@ P-Blog
 - **`frontend/`** is the blog.  
 - **`admin/`** is the CMS.
 
+## .env Structure
+every `rest-api/` on front-end and admin has an environment variable (`.env` file) which consist of string for MongoDB config:
+``` 
+DB_USERNAME=usernameofmongodb
+DB_PASSWORD=passwordofmongodb
+```
 
 ## Frontend
 <p align="center">
