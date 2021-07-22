@@ -21,7 +21,7 @@
         "express": "^4.17.1",
         "helmet": "^4.4.1",
         "moment": "^2.29.1",
-        "mongoose": "^5.11.16",
+        "mongoose": "^5.11.15",
         "nodemon": "^2.0.7",
         "randomstring": "^1.1.5",
         "tldjs": "^2.3.1",
