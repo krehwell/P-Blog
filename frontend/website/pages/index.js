@@ -112,7 +112,7 @@ export default function ({ data }) {
                                 <a href="https://gitlab.com/krehwell/boomermath">
                                     <div className="homepage-project-icon">
                                         {" "}
-                                        💥
+                                        💣
                                     </div>
                                     <div className="homepage-project-title">
                                         Boomermath

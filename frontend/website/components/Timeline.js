@@ -8,12 +8,12 @@ const Year = ({ children }) => {
     return <h3>{children}</h3>;
 };
 
-const Step = ({ title, children, succeed }) => {
+const Step = ({ title, children, succeed, inProgress }) => {
     return (
         <li>
             <div>
                 <h4>
-                    {succeed ? "✅" : "❌"} {title}
+                    {inProgress ? "🚧" : succeed ? "✅" : "❌"} {title}
                 </h4>
             </div>
             <p>{children}</p>
@@ -115,7 +115,7 @@ const FullTimeline = () => (
             </Step>
             <Step title="#1 in Class for Second Time">
                 Unfortunately to be #1 can only persist for one semester. But
-                since the class is still full of those dumbs, can't believe
+                since the class was still full of those dumbs, can't believe
                 still got a chance to be on the top 5.
             </Step>
         </ul>
@@ -163,18 +163,51 @@ export default function Timeline() {
             <h2>📆 Timeline</h2>
             <Year>2021</Year>
             <ul>
-                <Step title="Head of Developer Relations at Vercel 👨‍👩‍👧‍👦">
-                    I'm extremely excited about this new role helping grow the
-                    Next.js and Vercel community.
+                <Step title="Get Onboard with Knowt 💼" succeed>
+                    My post on Reddit about a project I made attracted one of
+                    their team which later offered me to be a part-time web
+                    developer with them. The project suits me well that they are
+                    using things which I use it a lot which makes me can dive
+                    deeper throught it. <a href="https://knowt.io/">Knowt</a>
                 </Step>
-                <Step title="10,000 YouTube Subscribers 🎥">
-                    After many years on YouTube, I've started to figure this
-                    whole video thing out.
+                <Step title="Migrate to Arch Linux " succeed>
+                    I previously using Manjaro dual boot with Windows.
+                    Unfortunitly Manjaro doesn't really seem to "just-work" to
+                    me. And somehow Arch Linux fulfil all my needs perfectly. My
+                    working environment is just even better with Arch+i3wm now.
                 </Step>
-                <Step title="5,000 Newsletter Subscribers 💌">
-                    If you want to stay up-to-date on my latest work, it usually
-                    hits the newsletter first. I try to send an update once a
-                    month.
+                <Step title="This Blog Made" succeed>
+                    This blog is my first fullstack web project with an
+                    additional custom made fullstack CMS. I learned many things
+                    which step up the level on how to boost performance and
+                    handle to deployment, all this things on production level.
+                </Step>
+                <Step title="HeckarNews - Hacker News Clone" succeed>
+                    This project is a fullstack just like this blog itself. But
+                    with even a more features which teaches me a lot on how many
+                    website/forum out there handle their flow, handle reset
+                    password by email, search functionality within site, and
+                    many more.{" "}
+                    <a href="https://forum.krehwell.com/">HeckarNews</a>
+                </Step>
+                <Step title="10FastFingers - Average 71 WPM 💫" succeed />
+                <Step title="Learn Next.js" succeed />
+                <Step title="Learn Nest.js" inProgress />
+                <Step title="Contribute to Open-source שׂ" succeed>
+                    Small salvation but worth to start. I started contributing
+                    on Vim plugin which mostly made for themes. I'm happy that
+                    most of thing I contributed is the things which I found it
+                    disturbing.
+                </Step>
+                <Step title="Boomermath Made 💣" succeed>
+                    Me with some of dudes made this game. So much satisfaction
+                    finishing this project. Probably a bad game for many people,
+                    but my personal desirement on how I built the game is so so
+                    super breathtaking moment.{" "}
+                    <a href="https://gitlab.com/krehwell/boomermath">
+                        Boomermath
+                    </a>{" "}
+                    💖 💕 💞
                 </Step>
             </ul>
             <Divider />
@@ -209,6 +242,12 @@ export default function Timeline() {
                     One of my first web project which enables Call, Send
                     Message, & Video Call.{" "}
                 </Step>
+                <Step title="Learn Typescript ﯤ" succeed />
+                <Step title="Re-Learn MySQL " succeed />
+                <Step
+                    title="Complete Algorithms Solving on Advent of Code"
+                    succeed
+                />
             </ul>
             <Divider />
             <Year>2019</Year>
@@ -217,9 +256,9 @@ export default function Timeline() {
                     <a href="https://freecodecamp.org/">freeCodeCamp</a> helps
                     much in stepping up to the next level. College web
                     programming course doesn't seem relevant anymore with
-                    current modern web. Yes I know they will say that the most
-                    important is the technique, but still saying that is just
-                    same with teaching adobe flash to student.
+                    current modern web. Yes, I know they will say that the most
+                    important is the technique, but still saying that can also
+                    mean it is just same with teaching adobe flash to student.
                 </Step>
                 <Step
                     title="Finished freeCodeCamp - Responsive Web Design"
@@ -248,6 +287,7 @@ export default function Timeline() {
                     Combined with HHKB, I feel blessed to be alive ❤️💖.
                 </Step>
                 <Step title="10FastFingers - Average 50 WPM 💫" succeed />
+                <Step title="Kill Elon Musk">I canceled my plan.</Step>
             </ul>
             {isShowingFullTimeline ? (
                 <FullTimeline />
