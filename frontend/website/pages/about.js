@@ -1,6 +1,7 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 import HeadMetadata from "../components/headMetadata.js";
+import Timeline from "../components/Timeline.js";
 
 export default function about() {
     return (
@@ -23,9 +24,9 @@ export default function about() {
                         last minute changes which are not last minute.
                     </p>
                     <p>
-                        Sometimes hanging around with frontend, sometimes
-                        backend, sometimes designing. But who knows that in most
-                        of the time I beat those meat.
+                        Sometimes hang around with frontend, sometimes backend,
+                        sometimes design. Everythings are just so tiring which
+                        leads to beat a meat in the end.
                     </p>
                 </div>
                 <div className="about-section">
@@ -52,6 +53,9 @@ export default function about() {
                             </a>
                         </li>
                     </ul>
+                </div>
+                <div className="about-section">
+                    <Timeline />
                 </div>
             </div>
             <Footer />
