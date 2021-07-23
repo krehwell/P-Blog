@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
-import Router from "next/router";
+import { useRouter } from "next/router";
 
 import Header from "../components/header.js";
 import Sidebar from "../components/sidebar.js";
@@ -13,6 +13,8 @@ import pingSearchEngines from "../api/sitemap/pingSearchEngines.js";
 import generateDownloadFile from "../utils/generateDownloadFile.js";
 
 export default function Sitemap() {
+    const router = useRouter();
+
     const [updateSitemapLoading, setUpdateSitemapLoading] = useState(false);
     const [updateSitemapError, setUpdateSitemapError] = useState(false);
     const [updateSitemapSuccess, setUpdateSitemapSuccess] = useState(false);
@@ -33,7 +35,7 @@ export default function Sitemap() {
                 setUpdateSitemapError(true);
                 setUpdateSitemapSuccess(false);
             } else if (!apiResponse.authSuccess) {
-                Router.push("/login");
+                router.push("/login");
             } else if (!apiResponse.success) {
                 setUpdateSitemapError(true);
                 setUpdateSitemapSuccess(false);
@@ -60,7 +62,7 @@ export default function Sitemap() {
                 setPingError(true);
                 setPingSuccess(false);
             } else if (!apiResponse.authSuccess) {
-                Router.push("/login");
+                router.push("/login");
             } else if (!apiResponse.success) {
                 setPingError(true);
                 setPingSuccess(false);

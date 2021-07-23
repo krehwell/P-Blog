@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import Router from "next/router";
+import { useRouter } from "next/router";
 
 import login from "../api/admin-user/login.js";
 import authUser from "../api/admin-user/auth.js";
 import removeAdminUserCookie from "../api/admin-user/removeAdminUserCookie.js";
 
 export default function Login() {
+    const router = useRouter();
+
     const [loading, setLoading] = useState(false);
     const [credentialError, setCredentialError] = useState(false);
     const [emailInputValue, setEmailInputValue] = useState("");
@@ -47,7 +49,7 @@ export default function Login() {
                     setEmailRequiredError(false);
                     setPasswordRequiredError(false);
                 } else {
-                    Router.push("/");
+                    router.push("/");
                 }
             });
         }
