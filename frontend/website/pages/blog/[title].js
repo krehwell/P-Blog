@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Prism from "prismjs";
-import moment from "moment";
+import dayjs from "dayjs";
 import Link from "next/link";
 
 import "prismjs/plugins/line-numbers/prism-line-numbers.js";
@@ -40,9 +40,9 @@ export default function Title({ data }) {
                             <h1>{data.post.title}</h1>
                             <div className="blog-post-top-meta">
                                 <span>
-                                    {moment
+                                    {dayjs
                                         .unix(data.post.dateTimestamp)
-                                        .format("MMMM Do, YYYY")}
+                                        .format("MMMM D, YYYY")}
                                 </span>
                                 {data.post.tags.map((tag, index) => {
                                     return (
@@ -90,7 +90,7 @@ export async function getStaticProps({ params }) {
         props: {
             data,
         },
-        revalidate: 60,
+        revalidate: 1,
     };
 }
 

@@ -29,12 +29,6 @@ mongoose.connect(mongoString, {
 // by default, you need to set it to false.
 mongoose.set('useFindAndModify', false);
 
-mongoose.connection.on("error", (error) => {
-    if (process.env.NODE_ENV === "develoment") {
-        console.log(error);
-    }
-});
-
 mongoose.connection.on("open", function () {
     if (process.env.NODE_ENV === "development") {
         console.log("Connected to database.");
@@ -43,6 +37,15 @@ mongoose.connection.on("open", function () {
 
 
 /// REST-API CONFIG
+app.enable('trust proxy');
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", config.prodAdminURL);
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+    next();
+});
+
 app.use(helmet());
 
 app.use(

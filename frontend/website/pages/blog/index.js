@@ -1,4 +1,4 @@
-import moment from "moment";
+import dayjs from "dayjs";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -29,9 +29,9 @@ const Posts = ({ data }) => {
                                     <h2>{post.title}</h2>
                                     <div className="blog-posts-list-item-date">
                                         <span>
-                                            {moment
+                                            {dayjs
                                                 .unix(post.dateTimestamp)
-                                                .format("MMMM Do, YYYY")}
+                                                .format("MMMM D, YYYY")}
                                         </span>
                                     </div>
                                 </div>
@@ -75,6 +75,6 @@ export async function getStaticProps() {
         props: {
             data,
         },
-        revalidate: 60,
+        revalidate: 1,
     };
 }

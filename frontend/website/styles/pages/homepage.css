@@ -134,9 +134,9 @@
 .homepage-project-view-btn {
     -webkit-appearance: none;
     display: inline-block;
-    border: 2px solid #5183f5;
+    border: 2px solid #ff6600;
     border-radius: 4px;
-    background: #5183f5;
+    background: #ff6600;
     color: #fff;
     font-weight: 600;
     font-size: 14px;
@@ -150,9 +150,9 @@
 }
 
 .homepage-project-view-btn:hover {
-    border: 2px solid #0e51ec;
+    border: 2px solid #ff6600;
     color: #fff;
-    background: #0e51ec;
+    background: #ff6600;
     text-decoration: none;
 }
 

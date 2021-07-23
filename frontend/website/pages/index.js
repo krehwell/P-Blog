@@ -43,19 +43,27 @@ export default function ({ data }) {
         <div className="layout-wrapper">
             <HeadMetadata
                 title="krehwell"
-                metaDescription="a blog which a krehwell make to express his uncertainity and unrelated topic with his life"
+                metaDescription="a blog which krehwell make to express his uncertainity and unrelated topic with his life"
             />
             <Header />
             <div className="homepage-container">
                 <div>
                     <h1>Hi, I'm krehwell. I am never sleepless.</h1>
                     <p>
-                        This blog is made using Next.js. learned it from its docs, worth it!
+                        This is where I write stuff. Abandon all hope. Leave all
+                        uncertainity of my future. And dump all multibillion
+                        imaginary ideas.
                     </p>
                     <p>
-                        This is where I write stuff. Abandon all hope. Leave
-                        all uncertainity of my future. And dump all
-                        multibillion imaginary ideas.
+                        This blog is a jamstack. And yes this is following those
+                        tacky web developer who think that instead of making a
+                        stupid LinkedIn bullshit, it is more efficient to waste
+                        2 weeks building a "from scratch" portfolio blog which
+                        has no visitor except the author.
+                    </p>
+                    <p>
+                        This blog is made using Next.js. The doc teaches
+                        everything!
                     </p>
                 </div>
                 <div className="homepage-latest-blog-posts">
@@ -72,8 +80,59 @@ export default function ({ data }) {
                     </div>
                 </div>
                 <div className="homepage-projects">
-                    <h2>🌍 Other Weeebbzz</h2>
+                    <h2>🌍 My Pile of Shits</h2>
                     <div className="homepage-project-list">
+                        <div className="homepage-project">
+                            <h3>
+                                <a href="https://github.com/krehwell/heckarNews/">
+                                    <div className="homepage-project-icon">
+                                        {" "}
+                                        💼
+                                    </div>
+                                    <div className="homepage-project-title">
+                                        HeckarNews
+                                    </div>
+                                </a>
+                            </h3>
+                            <p>
+                                Hacker News Clone. Ad least 95% of the features
+                                are same + the search functionality is working
+                                unlike the original forum itself
+                            </p>
+                            <div className="homepage-project-btns">
+                                <a
+                                    className="homepage-project-view-btn"
+                                    href="https://forum.krehwell.com/">
+                                    view
+                                </a>
+                            </div>
+                        </div>
+                        <div className="homepage-project">
+                            <h3>
+                                <a href="https://gitlab.com/krehwell/boomermath">
+                                    <div className="homepage-project-icon">
+                                        {" "}
+                                        💣
+                                    </div>
+                                    <div className="homepage-project-title">
+                                        Boomermath
+                                    </div>
+                                </a>
+                            </h3>
+                            <p>
+                                Remember Bomberman in early 20's? Well, the
+                                remake is for those boomer who wants to learn
+                                math just so they think there were ever good at
+                                it
+                            </p>
+                            <div className="homepage-project-btns">
+                                <a
+                                    className="homepage-project-view-btn"
+                                    href="https://gitlab.com/krehwell/boomermath">
+                                    view
+                                </a>
+                            </div>
+                        </div>
                         <div className="homepage-project">
                             <h3>
                                 <a href="https://github.com/krehwell/Note10net">
@@ -82,12 +141,12 @@ export default function ({ data }) {
                                         📝
                                     </div>
                                     <div className="homepage-project-title">
-                                        note10net (note over internet)
+                                        Note10net (note over internet)
                                     </div>
                                 </a>
                             </h3>
                             <p>
-                                you write your note, you save your note, you
+                                You write your note, you save your note, you
                                 manage your note. but do it in on internet
                             </p>
                             <div className="homepage-project-btns">
@@ -105,12 +164,12 @@ export default function ({ data }) {
                                         📞
                                     </div>
                                     <div className="homepage-project-title">
-                                        callntol
+                                        Callntol
                                     </div>
                                 </a>
                             </h3>
                             <p>
-                                send message, call, and mocking each other
+                                Send message, call, and mocking each other
                                 easily (now supports video call)
                             </p>
                             <div className="homepage-project-btns">
@@ -128,12 +187,12 @@ export default function ({ data }) {
                                         💔
                                     </div>
                                     <div className="homepage-project-title">
-                                        other unrelated to web
+                                        Other?
                                     </div>
                                 </a>
                             </h3>
                             <p>
-                                see on my{" "}
+                                Etc. on my{" "}
                                 <a href="https://github.com/krehwell">GitHub</a>
                             </p>
                             <div className="homepage-project-btns">
@@ -159,6 +218,6 @@ export async function getStaticProps() {
         props: {
             data,
         },
-        revalidate: 60,
+        revalidate: 1,
     };
 }
