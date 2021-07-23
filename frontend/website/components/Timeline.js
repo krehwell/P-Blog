@@ -168,7 +168,7 @@ export default function Timeline() {
                     their team which later offered me to be a part-time web
                     developer with them. The project suits me well that they are
                     using things which I use it a lot which makes me can dive
-                    deeper throught it. <a href="https://knowt.io/">Knowt</a>
+                    deeper through it. <a href="https://knowt.io/">Knowt</a>
                 </Step>
                 <Step title="Migrate to Arch Linux " succeed>
                     I previously using Manjaro dual boot with Windows.

@@ -121,7 +121,7 @@ export default function ({ data }) {
                             </h3>
                             <p>
                                 Remember Bomberman in early 20's? Well, the
-                                remake is for those boomer who wants to learn
+                                remake is for those boomers who want to learn
                                 math just so they think there were ever good at
                                 it
                             </p>
