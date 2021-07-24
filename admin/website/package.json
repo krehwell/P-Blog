@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "axios": "^0.21.1",
+        "capitalize-title": "^1.0.0",
         "codemirror": "^5.59.3",
         "moment": "^2.29.1",
         "react-codemirror2": "^7.2.1"

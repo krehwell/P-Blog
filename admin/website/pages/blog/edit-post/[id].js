@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import moment from "moment";
 import { Controlled as CodeMirror } from "react-codemirror2";
+import capitalizeTitle from "capitalize-title";
 
 import Header from "../../../components/header.js";
 import Sidebar from "../../../components/sidebar.js";
@@ -52,8 +53,15 @@ export default function Id({ post, getDataError, notFoundError }) {
     };
 
     const setUrlTitleInputValueAutoGenerate = () => {
-        const curTitleInputValue = titleInputValue.trim().toLowerCase();
-        setUrlTitleInputValue(curTitleInputValue.split(" ").join("-"));
+        const curTitleInputValue = titleInputValue
+            .match(/(\w)*/g)
+            .filter((w) => w)
+            .join("-")
+            .toLowerCase();
+
+        if (curTitleInputValue !== "") {
+            setUrlTitleInputValue(curTitleInputValue);
+        }
     };
 
     const updateDateInputValue = (e) => {
@@ -152,7 +160,7 @@ export default function Id({ post, getDataError, notFoundError }) {
                 seoTitleTagInputValue,
                 metaDescriptionInputValue,
                 (apiResponse) => {
-                    submitLoading(false);
+                    setSubmitLoading(false);
                     if (apiResponse.submitError) {
                         setSubmitSuccess(false);
                         setSubmitError(true);
@@ -229,6 +237,11 @@ export default function Id({ post, getDataError, notFoundError }) {
                                 </div>
                                 <div className="edit-blog-post-form-section-input">
                                     <input type="text" value={titleInputValue} onChange={updateTitleInputValue} />
+                                    <span
+                                        onClick={() => setTitleInputValue(capitalizeTitle(titleInputValue))}
+                                        className="create-blog-post-form-section-date-input-now">
+                                        Capitalize
+                                    </span>
                                 </div>
                             </div>
                             <div className="edit-blog-post-form-section">
@@ -240,7 +253,7 @@ export default function Id({ post, getDataError, notFoundError }) {
                                     <span
                                         onClick={() => setUrlTitleInputValueAutoGenerate()}
                                         className="edit-blog-post-form-section-date-input-now">
-                                        Generate
+                                        Generate Url
                                     </span>
                                 </div>
                             </div>

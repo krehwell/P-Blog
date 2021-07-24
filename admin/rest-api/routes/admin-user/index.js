@@ -6,14 +6,14 @@ const authAdminUser = require("../../middlewares/index.js").authAdminUser;
 
 const config = require("../../config.js");
 
-// CREATE ADMIN (this will run on start of server only)
-api.createNewAdminUser(
-    "krehwell",
-    "qqqqqq",
-    function (apiResponse) {
-        // console.log(apiResponse);
-    }
-);
+// CREATE ADMIN (Run this to create new admin user)
+// api.createNewAdminUser(
+//     "USERNAME-DESIRED",
+//     "PASSWORD-DESIRED",
+//     function (apiResponse) {
+//         // console.log(apiResponse);
+//     }
+// );
 
 const app = express.Router();
 
