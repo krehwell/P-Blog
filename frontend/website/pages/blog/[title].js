@@ -17,9 +17,10 @@ import getBlogPostByUrlTitle from "../../api/getBlogPostByUrlTitle.js";
 import getAllBlogPost from "../../api/getAllBlogPosts.js";
 
 export default function Title({ data }) {
+
     useEffect(() => {
         Prism.highlightAll();
-    });
+    })
 
     return (
         <div className="layout-wrapper">
@@ -100,5 +101,5 @@ export async function getStaticPaths() {
         params: { title: post.urlTitle },
     }));
 
-    return { paths, fallback: true };
+    return { paths, fallback: "blocking" };
 }
