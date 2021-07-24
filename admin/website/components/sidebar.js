@@ -8,7 +8,7 @@ export default function Sidebar({ page }) {
                     <Link href="/">
                         <a className={page === "blog-posts" ? "active" : null}>
                             <li>
-                                <span>Blog Post</span>
+                                <span>Blog Posts</span>
                             </li>
                         </a>
                     </Link>
