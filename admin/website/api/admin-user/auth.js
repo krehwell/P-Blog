@@ -12,7 +12,6 @@ export default async function auth(req) {
         });
 
         return response.data;
-
     } catch (error) {
         return { success: false };
     }

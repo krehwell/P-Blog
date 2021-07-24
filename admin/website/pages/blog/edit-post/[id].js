@@ -25,34 +25,17 @@ export default function Id({ post, getDataError, notFoundError }) {
     const [errorMsg, setErrorMsg] = useState("");
 
     const [titleInputValue, setTitleInputValue] = useState(post?.title);
-    const [urlTitleInputValue, setUrlTitleInputValue] = useState(
-        post?.urlTitle
-    );
+    const [urlTitleInputValue, setUrlTitleInputValue] = useState(post?.urlTitle);
     const [dateInputValue, setDateInputValue] = useState(
-        moment.unix(post?.dateTimestamp).format("YYYY-MM-DD") +
-            "T" +
-            moment.unix(post?.dateTimestamp).format("HH:mm")
+        moment.unix(post?.dateTimestamp).format("YYYY-MM-DD") + "T" + moment.unix(post?.dateTimestamp).format("HH:mm")
     );
     const [tagsInputValue, setTagsInputValue] = useState(post.tags.join(", "));
-    const [imageUrlInputValue, setImageUrlInputValue] = useState(
-        post?.thumbnailImageUrl
-    );
-    console.log(post);
-    const [markdownInputValue, setMarkdownInputValue] = useState(
-        post?.markdownContent
-    );
-    const [seoTitleTagInputValue, setSeoTitleTagInputValue] = useState(
-        post?.seoTitleTag
-    );
-    const [seoTitleTagCharLeft, setSeoTitleTagCharLeft] = useState(
-        60 - post?.seoTitleTag.length
-    );
-    const [metaDescriptionInputValue, setMetaDescriptionInputValue] = useState(
-        post.seoMetaDescription
-    );
-    const [metaDescriptionCharLeft, setMetaDescriptionCharLeft] = useState(
-        160 - post?.seoMetaDescription.length
-    );
+    const [imageUrlInputValue, setImageUrlInputValue] = useState(post?.thumbnailImageUrl);
+    const [markdownInputValue, setMarkdownInputValue] = useState(post?.markdownContent);
+    const [seoTitleTagInputValue, setSeoTitleTagInputValue] = useState(post?.seoTitleTag);
+    const [seoTitleTagCharLeft, setSeoTitleTagCharLeft] = useState(60 - post?.seoTitleTag.length);
+    const [metaDescriptionInputValue, setMetaDescriptionInputValue] = useState(post.seoMetaDescription);
+    const [metaDescriptionCharLeft, setMetaDescriptionCharLeft] = useState(160 - post?.seoMetaDescription.length);
 
     const [deleteError, setDeleteError] = useState(false);
     const [deleteLoading, setDeleteLoading] = useState(false);
@@ -245,11 +228,7 @@ export default function Id({ post, getDataError, notFoundError }) {
                                     <span>Title</span>
                                 </div>
                                 <div className="edit-blog-post-form-section-input">
-                                    <input
-                                        type="text"
-                                        value={titleInputValue}
-                                        onChange={updateTitleInputValue}
-                                    />
+                                    <input type="text" value={titleInputValue} onChange={updateTitleInputValue} />
                                 </div>
                             </div>
                             <div className="edit-blog-post-form-section">
@@ -257,15 +236,9 @@ export default function Id({ post, getDataError, notFoundError }) {
                                     <span>Url Title</span>
                                 </div>
                                 <div className="edit-blog-post-form-section-input">
-                                    <input
-                                        type="text"
-                                        value={urlTitleInputValue}
-                                        onChange={updateUrlTitleInputValue}
-                                    />
+                                    <input type="text" value={urlTitleInputValue} onChange={updateUrlTitleInputValue} />
                                     <span
-                                        onClick={() =>
-                                            setUrlTitleInputValueAutoGenerate()
-                                        }
+                                        onClick={() => setUrlTitleInputValueAutoGenerate()}
                                         className="edit-blog-post-form-section-date-input-now">
                                         Generate
                                     </span>
@@ -293,11 +266,7 @@ export default function Id({ post, getDataError, notFoundError }) {
                                     <span>Image URL</span>
                                 </div>
                                 <div className="edit-blog-post-form-section-input">
-                                    <input
-                                        type="text"
-                                        value={imageUrlInputValue}
-                                        onChange={updateImageUrlInputValue}
-                                    />
+                                    <input type="text" value={imageUrlInputValue} onChange={updateImageUrlInputValue} />
                                 </div>
                             </div>
                             <div className="edit-blog-post-form-section">
@@ -305,11 +274,7 @@ export default function Id({ post, getDataError, notFoundError }) {
                                     <span>Tags</span>
                                 </div>
                                 <div className="edit-blog-post-form-section-input">
-                                    <input
-                                        type="text"
-                                        value={tagsInputValue}
-                                        onChange={updateTagsInputValue}
-                                    />
+                                    <input type="text" value={tagsInputValue} onChange={updateTagsInputValue} />
                                 </div>
                             </div>
                             <div className="edit-blog-post-form-section">
@@ -324,11 +289,7 @@ export default function Id({ post, getDataError, notFoundError }) {
                                                 codemirror = editor;
                                             }}
                                             value={markdownInputValue}
-                                            onBeforeChange={(
-                                                editor,
-                                                data,
-                                                value
-                                            ) => {
+                                            onBeforeChange={(editor, data, value) => {
                                                 updateMarkdownInputValue(value);
                                             }}
                                             onChange={(editor, data, value) => {
@@ -356,12 +317,7 @@ export default function Id({ post, getDataError, notFoundError }) {
                                         value={seoTitleTagInputValue}
                                         onChange={updateSeoTitleTagInputValue}
                                     />
-                                    <span
-                                        className={
-                                            seoTitleTagCharLeft > 0
-                                                ? "char-length green"
-                                                : "char-length red"
-                                        }>
+                                    <span className={seoTitleTagCharLeft > 0 ? "char-length green" : "char-length red"}>
                                         {seoTitleTagCharLeft}
                                     </span>
                                 </div>
@@ -374,15 +330,11 @@ export default function Id({ post, getDataError, notFoundError }) {
                                     <textarea
                                         type="text"
                                         value={metaDescriptionInputValue}
-                                        onChange={
-                                            updateMetaDescriptionInputValue
-                                        }
+                                        onChange={updateMetaDescriptionInputValue}
                                     />
                                     <span
                                         className={
-                                            metaDescriptionCharLeft > 0
-                                                ? "char-length green"
-                                                : "char-length red"
+                                            metaDescriptionCharLeft > 0 ? "char-length green" : "char-length red"
                                         }>
                                         {metaDescriptionCharLeft}
                                     </span>
@@ -391,9 +343,7 @@ export default function Id({ post, getDataError, notFoundError }) {
                             <div className="edit-blog-post-form-btns-section">
                                 <div className="edit-blog-post-form-submit-btn-container">
                                     {!submitLoading ? (
-                                        <div
-                                            onClick={submitEditPostRequest}
-                                            className="edit-blog-post-form-btn">
+                                        <div onClick={submitEditPostRequest} className="edit-blog-post-form-btn">
                                             <span>Submit</span>
                                         </div>
                                     ) : (
@@ -402,9 +352,7 @@ export default function Id({ post, getDataError, notFoundError }) {
                                         </div>
                                     )}
                                 </div>
-                                <div
-                                    onClick={showDeleteModalRequest}
-                                    className="edit-blog-post-form-delete">
+                                <div onClick={showDeleteModalRequest} className="edit-blog-post-form-delete">
                                     <span>Delete</span>
                                 </div>
                             </div>
@@ -422,11 +370,7 @@ export default function Id({ post, getDataError, notFoundError }) {
                     </div>
                 ) : (
                     <div className="edit-blog-post-get-data-error-msg">
-                        {getDataError ? (
-                            <span>An error occurred.</span>
-                        ) : (
-                            <span>Blog post not found.</span>
-                        )}
+                        {getDataError ? <span>An error occurred.</span> : <span>Blog post not found.</span>}
                     </div>
                 )}
             </div>

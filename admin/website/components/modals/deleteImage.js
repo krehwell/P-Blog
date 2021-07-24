@@ -37,10 +37,7 @@ export default class extends Component {
                             </div>
                             <div className="delete-image-modal-content-text-wrapper">
                                 <div className="delete-image-modal-content-text">
-                                    <span>
-                                        Are you sure you want to delete this
-                                        image&#63;
-                                    </span>
+                                    <span>Are you sure you want to delete this image&#63;</span>
                                 </div>
                             </div>
                             <div className="delete-image-modal-confirm-btn-container">
@@ -49,9 +46,7 @@ export default class extends Component {
                                         <span>Loading</span>
                                     </div>
                                 ) : (
-                                    <div
-                                        onClick={this.props.deleteRequest}
-                                        className="delete-image-modal-confirm-btn">
+                                    <div onClick={this.props.deleteRequest} className="delete-image-modal-confirm-btn">
                                         <span>Confirm</span>
                                     </div>
                                 )}

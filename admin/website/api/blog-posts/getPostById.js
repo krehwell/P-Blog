@@ -13,7 +13,6 @@ export default async function getBlogPostById(id, req) {
         });
 
         return response.data;
-
     } catch (error) {
         return { submitError: true };
     }

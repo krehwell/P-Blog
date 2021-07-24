@@ -48,9 +48,7 @@ export default function Home({ activePosts, upcomingPosts, getDataError }) {
                             <div className="blog-posts-list-tab-btn-container">
                                 <div
                                     className={
-                                        showActivePosts
-                                            ? "blog-posts-list-tab-btn active"
-                                            : "blog-posts-list-tab-btn"
+                                        showActivePosts ? "blog-posts-list-tab-btn active" : "blog-posts-list-tab-btn"
                                     }
                                     onClick={() => handleActiveBtnClick()}>
                                     <span>Active</span>
@@ -59,9 +57,7 @@ export default function Home({ activePosts, upcomingPosts, getDataError }) {
                             <div className="blog-posts-list-tab-btn-container">
                                 <div
                                     className={
-                                        showUpcomingPosts
-                                            ? "blog-posts-list-tab-btn active"
-                                            : "blog-posts-list-tab-btn"
+                                        showUpcomingPosts ? "blog-posts-list-tab-btn active" : "blog-posts-list-tab-btn"
                                     }
                                     onClick={() => handleUpcomingBtnClick()}>
                                     <span>Upcoming</span>
@@ -85,24 +81,15 @@ export default function Home({ activePosts, upcomingPosts, getDataError }) {
                             {showActivePosts && activePosts.length
                                 ? activePosts.map((post, index) => {
                                       return (
-                                          <div
-                                              key={index}
-                                              className="blog-posts-list-items-table-item">
+                                          <div key={index} className="blog-posts-list-items-table-item">
                                               <div className="blog-posts-list-items-table-item-data title">
                                                   <span>{post.title}</span>
                                               </div>
                                               <div className="blog-posts-list-items-table-item-data date">
-                                                  <span>
-                                                      {moment
-                                                          .unix(
-                                                              post.dateTimestamp
-                                                          )
-                                                          .format("MM/DD/YYYY")}
-                                                  </span>
+                                                  <span>{moment.unix(post.dateTimestamp).format("MM/DD/YYYY")}</span>
                                               </div>
                                               <div className="blog-posts-list-items-table-item-data edit">
-                                                  <a
-                                                      href={`/blog/edit-post/${post.id}`}>
+                                                  <a href={`/blog/edit-post/${post.id}`}>
                                                       <span>Edit</span>
                                                   </a>
                                                   <span> </span>
@@ -116,24 +103,15 @@ export default function Home({ activePosts, upcomingPosts, getDataError }) {
                             {showUpcomingPosts && upcomingPosts.length
                                 ? upcomingPosts.map((post, index) => {
                                       return (
-                                          <div
-                                              key={index}
-                                              className="blog-posts-list-items-table-item">
+                                          <div key={index} className="blog-posts-list-items-table-item">
                                               <div className="blog-posts-list-items-table-item-data title">
                                                   <span>{post.title}</span>
                                               </div>
                                               <div className="blog-posts-list-items-table-item-data date">
-                                                  <span>
-                                                      {moment
-                                                          .unix(
-                                                              post.dateTimestamp
-                                                          )
-                                                          .format("MM/DD/YYYY")}
-                                                  </span>
+                                                  <span>{moment.unix(post.dateTimestamp).format("MM/DD/YYYY")}</span>
                                               </div>
                                               <div className="blog-posts-list-items-table-item-data edit">
-                                                  <a
-                                                      href={`/blog/edit-post/${post.id}`}>
+                                                  <a href={`/blog/edit-post/${post.id}`}>
                                                       <span>Edit</span>
                                                   </a>
                                                   <span> </span>
@@ -161,9 +139,7 @@ export async function getServerSideProps({ req, res }) {
     return {
         props: {
             activePosts: apiResult.activePosts ? apiResult.activePosts : [],
-            upcomingPosts: apiResult.upcomingPosts
-                ? apiResult.upcomingPosts
-                : [],
+            upcomingPosts: apiResult.upcomingPosts ? apiResult.upcomingPosts : [],
             getDataError: (apiResult && apiResult.getDataError) || false,
         },
     };

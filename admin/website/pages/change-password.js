@@ -15,14 +15,9 @@ export default function ChangePassword() {
     const [error, setError] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
     const [success, setSuccess] = useState(false);
-    const [currentPasswordInputValue, setCurrentPasswordInputValue] = useState(
-        ""
-    );
+    const [currentPasswordInputValue, setCurrentPasswordInputValue] = useState("");
     const [newPasswordInputValue, setNewPasswordInputValue] = useState("");
-    const [
-        confirmNewPasswordInputValue,
-        setConfirmNewPasswordInputValue,
-    ] = useState("");
+    const [confirmNewPasswordInputValue, setConfirmNewPasswordInputValue] = useState("");
 
     const updateCurrentPasswordInputValue = (e) => {
         setCurrentPasswordInputValue(e.target.value);
@@ -55,28 +50,24 @@ export default function ChangePassword() {
             setErrorMsg("");
             setSuccess(false);
 
-            changePassword(
-                currentPasswordInputValue,
-                newPasswordInputValue,
-                (apiResponse) => {
-                    setLoading(false);
+            changePassword(currentPasswordInputValue, newPasswordInputValue, (apiResponse) => {
+                setLoading(false);
 
-                    if (apiResponse.submitError) {
-                        setError(true);
-                        setErrorMsg("An error occured");
-                        setSuccess(false);
-                    } else if (apiResponse.invalidPasswordCredentialError) {
-                        setError(true);
-                        setErrorMsg("Current password credential is invalid.");
-                        setSuccess(false);
-                    } else if (!apiResponse.authSuccess) {
-                        router.push("/login");
-                    } else {
-                        setError(false);
-                        setSuccess(true);
-                    }
+                if (apiResponse.submitError) {
+                    setError(true);
+                    setErrorMsg("An error occured");
+                    setSuccess(false);
+                } else if (apiResponse.invalidPasswordCredentialError) {
+                    setError(true);
+                    setErrorMsg("Current password credential is invalid.");
+                    setSuccess(false);
+                } else if (!apiResponse.authSuccess) {
+                    router.push("/login");
+                } else {
+                    setError(false);
+                    setSuccess(true);
                 }
-            );
+            });
         }
     };
 
@@ -128,18 +119,14 @@ export default function ChangePassword() {
                                 <input
                                     type="password"
                                     value={confirmNewPasswordInputValue}
-                                    onChange={
-                                        updateConfirmNewPasswordInputValue
-                                    }
+                                    onChange={updateConfirmNewPasswordInputValue}
                                 />
                             </div>
                         </div>
                         <div className="settings-page-submit-btn-section">
                             <div className="settings-form-btn-container">
                                 {!loading ? (
-                                    <div
-                                        onClick={submitChangeRequest}
-                                        className="settings-form-btn">
+                                    <div onClick={submitChangeRequest} className="settings-form-btn">
                                         <span>Submit</span>
                                     </div>
                                 ) : (

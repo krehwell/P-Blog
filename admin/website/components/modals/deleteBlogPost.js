@@ -37,10 +37,7 @@ export default class extends Component {
                             </div>
                             <div className="delete-blog-post-modal-content-text-wrapper">
                                 <div className="delete-blog-post-modal-content-text">
-                                    <span>
-                                        Are you sure you want to delete this
-                                        blog post&#63;
-                                    </span>
+                                    <span>Are you sure you want to delete this blog post&#63;</span>
                                 </div>
                             </div>
                             <div className="delete-blog-post-modal-confirm-btn-container">
@@ -50,9 +47,7 @@ export default class extends Component {
                                     </div>
                                 ) : (
                                     <div
-                                        onClick={
-                                            this.props.deleteBlogPostRequest
-                                        }
+                                        onClick={this.props.deleteBlogPostRequest}
                                         className="delete-blog-post-modal-confirm-btn">
                                         <span>Confirm</span>
                                     </div>
@@ -65,9 +60,7 @@ export default class extends Component {
                                 <span>Delete Blog Post Error</span>
                             </div>
                             <div className="delete-blog-post-modal-error-text">
-                                <span>
-                                    Error occurred deleting the blog post.
-                                </span>
+                                <span>Error occurred deleting the blog post.</span>
                             </div>
                         </div>
                     )}
