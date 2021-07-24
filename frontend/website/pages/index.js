@@ -122,7 +122,7 @@ export default function ({ data }) {
                             <p>
                                 Remember Bomberman in early 20's? Well, the
                                 remake is for those boomers who want to learn
-                                math just so they think there were ever good at
+                                math just so they think they were ever good at
                                 it
                             </p>
                             <div className="homepage-project-btns">
