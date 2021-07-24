@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import moment from "moment";
 import { Controlled as CodeMirror } from "react-codemirror2";
+import capitalizeTitle from "capitalize-title";
 
 import Header from "../../components/header.js";
 import Sidebar from "../../components/sidebar.js";
@@ -41,10 +42,13 @@ export default function CreateNewPost({}) {
     };
 
     const setUrlTitleInputValueAutoGenerate = () => {
-        const curTitleInputValue = titleInputValue.trim().toLowerCase();
+        const curTitleInputValue = titleInputValue
+            .match(/(\w)*/g)
+            .filter((w) => w)
+            .join("-").toLowerCase();
 
         if (curTitleInputValue !== "") {
-            setUrlTitleInputValue(curTitleInputValue.split(" ").join("-"));
+            setUrlTitleInputValue(curTitleInputValue);
         }
     };
 
@@ -170,6 +174,11 @@ export default function CreateNewPost({}) {
                             </div>
                             <div className="create-blog-post-form-section-input">
                                 <input type="text" value={titleInputValue} onChange={updateTitleInputValue} />
+                                <span
+                                    onClick={() => setTitleInputValue(capitalizeTitle(titleInputValue))}
+                                    className="create-blog-post-form-section-date-input-now">
+                                    Capitalize
+                                </span>
                             </div>
                         </div>
                         <div className="create-blog-post-form-section">
@@ -181,7 +190,7 @@ export default function CreateNewPost({}) {
                                 <span
                                     onClick={() => setUrlTitleInputValueAutoGenerate()}
                                     className="create-blog-post-form-section-date-input-now">
-                                    Generate
+                                    Generate Url
                                 </span>
                             </div>
                         </div>
