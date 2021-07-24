@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import logout from "../_api/admin-user/logout.js";
 
 export default class extends Component {
     requestLogout = () => {
-        window.alert("this functionality is not implemented due to vercel suck!");
+        logout(function () {
+            window.location.href = "/login";
+        });
     };
 
     render() {

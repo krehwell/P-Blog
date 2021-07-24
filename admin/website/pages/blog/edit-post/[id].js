@@ -9,9 +9,9 @@ import Header from "../../../components/header.js";
 import Sidebar from "../../../components/sidebar.js";
 import DeleteBlogPostModal from "../../../components/modals/deleteBlogPost.js";
 
-import getBlogPostById from "../../../api/blog-posts/getPostById.js";
-import editBlogPost from "../../../api/blog-posts/editBlogPost.js";
-import deleteBlogPost from "../../../api/blog-posts/deleteBlogPost.js";
+import getBlogPostById from "../../../_api/blog-posts/getPostById.js";
+import editBlogPost from "../../../_api/blog-posts/editBlogPost.js";
+import deleteBlogPost from "../../../_api/blog-posts/deleteBlogPost.js";
 
 if (typeof navigator !== "undefined") {
     require("codemirror/mode/markdown/markdown");

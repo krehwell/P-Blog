@@ -5,7 +5,7 @@ import moment from "moment";
 import Header from "../components/header.js";
 import Sidebar from "../components/sidebar.js";
 
-import getAllPosts from "../api/blog-posts/getAllPosts.js";
+import getAllPosts from "../_api/blog-posts/getAllPosts.js";
 
 export default function Home({ activePosts, upcomingPosts, getDataError }) {
     const [showActivePosts, setShowActivePost] = useState(true);

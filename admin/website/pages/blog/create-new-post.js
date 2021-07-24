@@ -8,8 +8,8 @@ import capitalizeTitle from "capitalize-title";
 import Header from "../../components/header.js";
 import Sidebar from "../../components/sidebar.js";
 
-import authUser from "../../api/admin-user/auth.js";
-import createNewPost from "../../api/blog-posts/createNewPost";
+import authUser from "../../_api/admin-user/auth.js";
+import createNewPost from "../../_api/blog-posts/createNewPost";
 
 if (typeof navigator !== "undefined") {
     require("codemirror/mode/markdown/markdown");

@@ -5,8 +5,8 @@ import Head from "next/head";
 import Header from "../components/header.js";
 import Sidebar from "../components/sidebar.js";
 
-import authUser from "../api/admin-user/auth.js";
-import changePassword from "../api/admin-user/changePassword.js";
+import authUser from "../_api/admin-user/auth.js";
+import changePassword from "../_api/admin-user/changePassword.js";
 
 export default function ChangePassword() {
     const router = useRouter();

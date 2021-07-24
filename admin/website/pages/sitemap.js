@@ -5,10 +5,9 @@ import { useRouter } from "next/router";
 import Header from "../components/header.js";
 import Sidebar from "../components/sidebar.js";
 
-import authUser from "../api/admin-user/auth.js";
-
-import updateSitemap from "../api/sitemap/updateSitemap.js";
-import pingSearchEngines from "../api/sitemap/pingSearchEngines.js";
+import authUser from "../_api/admin-user/auth.js";
+import updateSitemap from "../_api/sitemap/updateSitemap.js";
+import pingSearchEngines from "../_api/sitemap/pingSearchEngines.js";
 
 import generateDownloadFile from "../utils/generateDownloadFile.js";
 
