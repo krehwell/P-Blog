@@ -18,8 +18,8 @@ import "../styles/prismjs.css";
 
 export default function MyApp({ Component, pageProps }) {
     return (
-      <>
-        <Component {...pageProps} />
-      </>
-    )
+        <>
+            <Component {...pageProps} />
+        </>
+    );
 }

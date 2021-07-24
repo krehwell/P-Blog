@@ -76,5 +76,6 @@ export async function getStaticProps() {
             data,
         },
         revalidate: 1,
+        fallback: true,
     };
 }
