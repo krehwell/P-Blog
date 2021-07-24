@@ -17,7 +17,7 @@ import getBlogPostByUrlTitle from "../../api/getBlogPostByUrlTitle.js";
 import getAllBlogPost from "../../api/getAllBlogPosts.js";
 
 export default function Title({ data }) {
-    if (!data || !!Object.keys(data).length) {
+    if (!data || Object.keys(data).length === 0) {
         return null;
     }
 
@@ -88,6 +88,12 @@ export default function Title({ data }) {
 export async function getStaticProps({ params }) {
     // console.log("params is", params);
     const data = await getBlogPostByUrlTitle(params.title);
+
+    if (!data) {
+        return {
+            notFound: true,
+        };
+    }
 
     return {
         props: {
