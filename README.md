@@ -1,4 +1,5 @@
 # P-Blog
+
 A Personal-Blog so that I follow the trend of those dev/s writing their opinion on a place nobody even care of.
 
 **LINK:** [https://krehwell.com](https://krehwell.com)
@@ -7,9 +8,9 @@ A Personal-Blog so that I follow the trend of those dev/s writing their opinion 
   <img src="https://i.imgur.com/fwiqs58.png" height="350px" width="600px" />
 </p>
 
-
 ## Project Structure
-```
+
+```bash
 P-Blog
 |- frontend
   |- website/
@@ -18,22 +19,26 @@ P-Blog
   |- website/
   |- rest-api/
 ```
-- **`frontend/`** is the blog.  
-- **`admin/`** is the CMS.
 
-## .env Structure
+-   **`frontend/`** is the blog.
+-   **`admin/`** is the CMS.
+
+## `.env` Structure
+
 every `rest-api/` on front-end and admin has an environment variable (`.env` file) which consist of string for MongoDB config:
-``` 
+
+```
 DB_USERNAME=usernameofmongodb
 DB_PASSWORD=passwordofmongodb
 ```
 
 ## Frontend
+
 <p align="center">
   <img src="https://i.imgur.com/uCWhJXy.png?1" width="520" height="140"/>
 </p>
 
-```
+```bash
 |- frontend
   |- website/
   |- rest-api/
@@ -54,6 +59,7 @@ DB_PASSWORD=passwordofmongodb
 **`routes/`**: Directory consists files to access endpoint. (`index.js` and `api.js`)
 
 inside `routes/index.js` consists the definition on the route name e.g:
+
 ```javascript
 const api = require("./api.js");
 
@@ -71,11 +77,9 @@ module.exports = {
     getAllBlogPosts: (callback) => {
         // fetch db...
         callback(posts);
-    }
-}
+    },
+};
 ```
-
-
 
 ## Admin
 
@@ -85,20 +89,20 @@ module.exports = {
 
 This is CMS for making a new, modify, or delete a blog post.
 
-```
+```bash
 |- admin
   |- website/
   |- rest-api/
 ```
-**np**: admin site is still using serverside rendering for everything and still using class based component instead of functional component. I haven't updated much on this but all the functionalities should work just fine.
+
+**np**: all pages on admin site use serverside rendering.
 
 ### `admin/website`
+
 _The workflow the same as frontend..._
 
 ### `admin/rest-api`
+
 _The workflow the same as frontend..._
 
 ## Acknowledgement
-
-
-
