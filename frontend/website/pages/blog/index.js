@@ -71,11 +71,16 @@ export default function blog({ data }) {
 export async function getStaticProps() {
     const data = await getAllBlogPost();
 
+    if (!data) {
+        return {
+            notFound: true,
+        };
+    }
+
     return {
         props: {
             data,
         },
         revalidate: 1,
-        fallback: true,
     };
 }

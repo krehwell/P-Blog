@@ -214,11 +214,16 @@ export default function ({ data }) {
 export async function getStaticProps() {
     const data = await getFiveNewestPost();
 
+    if (!data) {
+        return {
+            notFound: true,
+        };
+    }
+
     return {
         props: {
             data,
         },
         revalidate: 1,
-        fallback: true,
     };
 }
