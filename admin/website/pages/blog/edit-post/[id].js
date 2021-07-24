@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import Head from "next/head";
 import moment from "moment";
 import { Controlled as CodeMirror } from "react-codemirror2";
