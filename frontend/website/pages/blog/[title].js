@@ -85,6 +85,12 @@ export async function getStaticProps({ params }) {
     // console.log("params is", params);
     const data = await getBlogPostByUrlTitle(params.title);
 
+    if (!data) {
+        return {
+            notFound: true,
+        };
+    }
+
     return {
         props: {
             data,
