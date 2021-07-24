@@ -105,7 +105,7 @@ export default function Id({ post, getDataError, notFoundError }) {
     const showSuccessMsg = () => {
         setSubmitSuccess(true);
 
-        setTimeout(function () {
+        setTimeout(() => {
             setSubmitSuccess(false);
         }, 3000);
     };

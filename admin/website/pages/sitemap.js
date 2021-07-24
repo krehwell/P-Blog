@@ -28,7 +28,7 @@ export default function Sitemap() {
         setUpdateSitemapError(false);
         setUpdateSitemapSuccess(false);
 
-        updateSitemap(function (apiResponse) {
+        updateSitemap((apiResponse) => {
             setUpdateSitemapLoading(false);
 
             if (apiResponse.submitError) {
