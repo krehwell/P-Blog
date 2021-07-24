@@ -1,4 +1,5 @@
-import { Component } from "react";
+import { useState } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 
 import Header from "../components/header.js";
@@ -7,210 +8,171 @@ import Sidebar from "../components/sidebar.js";
 import authUser from "../api/admin-user/auth.js";
 import changePassword from "../api/admin-user/changePassword.js";
 
-export default class extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            loading: false,
-            error: false,
-            errorMsg: "",
-            success: false,
-            currentPasswordInputValue: "",
-            newPasswordInputValue: "",
-            confirmNewPasswordInputValue: "",
-        };
-    }
+export default function ChangePassword() {
+    const router = useRouter();
 
-    static async getInitialProps({ req, res }) {
-        let authResult = await authUser(req);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
+    const [success, setSuccess] = useState(false);
+    const [currentPasswordInputValue, setCurrentPasswordInputValue] = useState(
+        ""
+    );
+    const [newPasswordInputValue, setNewPasswordInputValue] = useState("");
+    const [
+        confirmNewPasswordInputValue,
+        setConfirmNewPasswordInputValue,
+    ] = useState("");
 
-        if (!authResult.success) {
-            res.writeHead(302, { Location: "/login" });
-            res.end();
-        }
-
-        return {};
-    }
-
-    updateCurrentPasswordInputValue = (event) => {
-        this.setState({ currentPasswordInputValue: event.target.value });
+    const updateCurrentPasswordInputValue = (e) => {
+        setCurrentPasswordInputValue(e.target.value);
     };
 
-    updateNewPasswordInputValue = (event) => {
-        this.setState({ newPasswordInputValue: event.target.value });
+    const updateNewPasswordInputValue = (e) => {
+        setNewPasswordInputValue(e.target.value);
     };
 
-    updateConfirmNewPasswordInputValue = (event) => {
-        this.setState({ confirmNewPasswordInputValue: event.target.value });
+    const updateConfirmNewPasswordInputValue = (e) => {
+        setConfirmNewPasswordInputValue(e.target.value);
     };
 
-    submitChangeRequest = () => {
-        if (!this.state.currentPasswordInputValue) {
-            this.setState({
-                error: true,
-                errorMsg: "Current password field is required.",
-                success: false,
-            });
-        } else if (!this.state.newPasswordInputValue) {
-            this.setState({
-                error: true,
-                errorMsg: "New password field is required.",
-                success: false,
-            });
-        } else if (
-            this.state.newPasswordInputValue !==
-            this.state.confirmNewPasswordInputValue
-        ) {
-            this.setState({
-                error: true,
-                errorMsg: "New password values do not match.",
-                success: false,
-            });
+    const submitChangeRequest = () => {
+        if (!currentPasswordInputValue) {
+            setError(true);
+            setErrorMsg("Current password field is required.");
+            setSuccess(false);
+        } else if (!newPasswordInputValue) {
+            setError(true);
+            setErrorMsg("New password field is required.");
+            setSuccess(false);
+        } else if (newPasswordInputValue !== confirmNewPasswordInputValue) {
+            setError(true);
+            setErrorMsg("New password values do not match.");
+            setSuccess(false);
         } else {
-            this.setState({
-                loading: true,
-                error: false,
-                errorMsg: false,
-                success: false,
-            });
+            setLoading(true);
+            setError(false);
+            setErrorMsg("");
+            setSuccess(false);
 
-            const self = this;
-
-            /*
-		     *  api response of change password can be:
-                {
-                    submitError? -> something wrong in server which cause it to fail
-                    invalidPasswordCredentialError? -> old password not match with new one
-                    authSuccess? -> either user is authenticate or not (this is checked in rest-api by the middleware auth function)
-                    success? -> when endpoint response everythings is good
-                }
-			*/
             changePassword(
-                this.state.currentPasswordInputValue,
-                this.state.newPasswordInputValue,
-                function (apiResponse) {
+                currentPasswordInputValue,
+                newPasswordInputValue,
+                (apiResponse) => {
+                    setLoading(false);
+
                     if (apiResponse.submitError) {
-                        self.setState({
-                            loading: false,
-                            error: true,
-                            errorMsg: "An error occured.",
-                            success: false,
-                        });
+                        setError(true);
+                        setErrorMsg("An error occured");
+                        setSuccess(false);
                     } else if (apiResponse.invalidPasswordCredentialError) {
-                        self.setState({
-                            loading: false,
-                            error: true,
-                            errorMsg: "Current password credential is invalid.",
-                            success: false,
-                        });
+                        setError(true);
+                        setErrorMsg("Current password credential is invalid.");
+                        setSuccess(false);
                     } else if (!apiResponse.authSuccess) {
-                        window.location.href = "/login";
+                        router.push("/login");
                     } else {
-                        self.setState({
-                            loading: false,
-                            error: false,
-                            success: true,
-                        });
+                        setError(false);
+                        setSuccess(true);
                     }
                 }
             );
         }
     };
 
-    render() {
-        return (
-            <div className="layout-wrapper">
-                <Head>
-                    <title>Change Password | Admin</title>
-                </Head>
-                <Header />
-                <Sidebar page="password" />
-                <div className="layout-content-container">
-                    <div className="settings-content">
-                        <div className="settings-header">
-                            <span>Admin Password</span>
+    return (
+        <div className="layout-wrapper">
+            <Head>
+                <title>Change Password | Admin</title>
+            </Head>
+            <Header />
+            <Sidebar page="password" />
+            <div className="layout-content-container">
+                <div className="settings-content">
+                    <div className="settings-header">
+                        <span>Admin Password</span>
+                    </div>
+                    <div className="settings-form-container">
+                        <div className="settings-form-title">
+                            <span>Change Password</span>
                         </div>
-                        <div className="settings-form-container">
-                            <div className="settings-form-title">
-                                <span>Change Password</span>
+                        <div className="settings-form-section">
+                            <div className="settings-form-section-label">
+                                <span>Current Password:</span>
                             </div>
-                            <div className="settings-form-section">
-                                <div className="settings-form-section-label">
-                                    <span>Current Password:</span>
-                                </div>
-                                <div className="settings-form-section-input">
-                                    <input
-                                        type="password"
-                                        value={
-                                            this.state.currentPasswordInputValue
-                                        }
-                                        onChange={
-                                            this.updateCurrentPasswordInputValue
-                                        }
-                                    />
-                                </div>
+                            <div className="settings-form-section-input">
+                                <input
+                                    type="password"
+                                    value={currentPasswordInputValue}
+                                    onChange={updateCurrentPasswordInputValue}
+                                />
                             </div>
-                            <div className="settings-form-section">
-                                <div className="settings-form-section-label">
-                                    <span>New Password:</span>
-                                </div>
-                                <div className="settings-form-section-input">
-                                    <input
-                                        type="password"
-                                        value={this.state.newPasswordInputValue}
-                                        onChange={
-                                            this.updateNewPasswordInputValue
-                                        }
-                                    />
-                                </div>
+                        </div>
+                        <div className="settings-form-section">
+                            <div className="settings-form-section-label">
+                                <span>New Password:</span>
                             </div>
-                            <div className="settings-form-section">
-                                <div className="settings-form-section-label">
-                                    <span>Confirm New Password:</span>
-                                </div>
-                                <div className="settings-form-section-input">
-                                    <input
-                                        type="password"
-                                        value={
-                                            this.state
-                                                .confirmNewPasswordInputValue
-                                        }
-                                        onChange={
-                                            this
-                                                .updateConfirmNewPasswordInputValue
-                                        }
-                                    />
-                                </div>
+                            <div className="settings-form-section-input">
+                                <input
+                                    type="password"
+                                    value={newPasswordInputValue}
+                                    onChange={updateNewPasswordInputValue}
+                                />
                             </div>
-                            <div className="settings-page-submit-btn-section">
-                                <div className="settings-form-btn-container">
-                                    {!this.state.loading ? (
-                                        <div
-                                            onClick={this.submitChangeRequest}
-                                            className="settings-form-btn">
-                                            <span>Submit</span>
-                                        </div>
-                                    ) : (
-                                        <div className="settings-form-btn loading">
-                                            <span>Loading</span>
-                                        </div>
-                                    )}
-                                </div>
-                                {this.state.error ? (
-                                    <div className="settings-submit-error-msg">
-                                        <span>{this.state.errorMsg}</span>
+                        </div>
+                        <div className="settings-form-section">
+                            <div className="settings-form-section-label">
+                                <span>Confirm New Password:</span>
+                            </div>
+                            <div className="settings-form-section-input">
+                                <input
+                                    type="password"
+                                    value={confirmNewPasswordInputValue}
+                                    onChange={
+                                        updateConfirmNewPasswordInputValue
+                                    }
+                                />
+                            </div>
+                        </div>
+                        <div className="settings-page-submit-btn-section">
+                            <div className="settings-form-btn-container">
+                                {!loading ? (
+                                    <div
+                                        onClick={submitChangeRequest}
+                                        className="settings-form-btn">
+                                        <span>Submit</span>
                                     </div>
-                                ) : null}
-                                {this.state.success ? (
-                                    <div className="settings-submit-success-msg">
-                                        <span>Success!</span>
+                                ) : (
+                                    <div className="settings-form-btn loading">
+                                        <span>Loading</span>
                                     </div>
-                                ) : null}
+                                )}
                             </div>
+                            {error ? (
+                                <div className="settings-submit-error-msg">
+                                    <span>{errorMsg}</span>
+                                </div>
+                            ) : null}
+                            {success ? (
+                                <div className="settings-submit-success-msg">
+                                    <span>Success!</span>
+                                </div>
+                            ) : null}
                         </div>
                     </div>
                 </div>
             </div>
-        );
+        </div>
+    );
+}
+
+export async function getServerSideProps({ req, res }) {
+    let authResult = await authUser(req);
+
+    if (!authResult.success) {
+        res.writeHead(302, { Location: "/login" });
+        res.end();
     }
+
+    return { props: {} };
 }
