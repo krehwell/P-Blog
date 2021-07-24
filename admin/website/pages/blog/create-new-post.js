@@ -29,9 +29,7 @@ export default function CreateNewPost({}) {
     const [markdownInputValue, setMarkdownInputValue] = useState("");
     const [seoTitleTagInputValue, setSeoTitleTagInputValue] = useState("");
     const [seoTitleTagCharLeft, setSeoTitleTagCharLeft] = useState(60);
-    const [metaDescriptionInputValue, setMetaDescriptionInputValue] = useState(
-        ""
-    );
+    const [metaDescriptionInputValue, setMetaDescriptionInputValue] = useState("");
     const [metaDescriptionCharLeft, setMetaDescriptionCharLeft] = useState(160);
 
     const updateTitleInputValue = (e) => {
@@ -141,13 +139,8 @@ export default function CreateNewPost({}) {
                         router.push("/login");
                     } else if (apiResponse.alreadyExistsError) {
                         setSubmitError(true);
-                        setErrorMsg(
-                            "Blog post with that title already exists."
-                        );
-                    } else if (
-                        apiResponse.submitError ||
-                        !apiResponse.success
-                    ) {
+                        setErrorMsg("Blog post with that title already exists.");
+                    } else if (apiResponse.submitError || !apiResponse.success) {
                         setSubmitError(true);
                         setErrorMsg("An error occurred.");
                     } else {
@@ -176,11 +169,7 @@ export default function CreateNewPost({}) {
                                 <span>Title</span>
                             </div>
                             <div className="create-blog-post-form-section-input">
-                                <input
-                                    type="text"
-                                    value={titleInputValue}
-                                    onChange={updateTitleInputValue}
-                                />
+                                <input type="text" value={titleInputValue} onChange={updateTitleInputValue} />
                             </div>
                         </div>
                         <div className="create-blog-post-form-section">
@@ -188,15 +177,9 @@ export default function CreateNewPost({}) {
                                 <span>Url Title</span>
                             </div>
                             <div className="create-blog-post-form-section-input">
-                                <input
-                                    type="text"
-                                    value={urlTitleInputValue}
-                                    onChange={updateUrlTitleInputValue}
-                                />
+                                <input type="text" value={urlTitleInputValue} onChange={updateUrlTitleInputValue} />
                                 <span
-                                    onClick={() =>
-                                        setUrlTitleInputValueAutoGenerate()
-                                    }
+                                    onClick={() => setUrlTitleInputValueAutoGenerate()}
                                     className="create-blog-post-form-section-date-input-now">
                                     Generate
                                 </span>
@@ -207,15 +190,9 @@ export default function CreateNewPost({}) {
                                 <span>Date</span>
                             </div>
                             <div className="create-blog-post-form-section-date-input">
-                                <input
-                                    type="datetime-local"
-                                    value={dateInputValue}
-                                    onChange={updateDateInputValue}
-                                />
+                                <input type="datetime-local" value={dateInputValue} onChange={updateDateInputValue} />
                                 <span
-                                    onClick={() =>
-                                        setDateInputValueToNow()
-                                    }
+                                    onClick={() => setDateInputValueToNow()}
                                     className="create-blog-post-form-section-date-input-now">
                                     Now
                                 </span>
@@ -226,11 +203,7 @@ export default function CreateNewPost({}) {
                                 <span>Image URL</span>
                             </div>
                             <div className="create-blog-post-form-section-input">
-                                <input
-                                    type="text"
-                                    value={imageUrlInputValue}
-                                    onChange={updateImageUrlInputValue}
-                                />
+                                <input type="text" value={imageUrlInputValue} onChange={updateImageUrlInputValue} />
                             </div>
                         </div>
                         <div className="create-blog-post-form-section">
@@ -238,11 +211,7 @@ export default function CreateNewPost({}) {
                                 <span>Tags</span>
                             </div>
                             <div className="create-blog-post-form-section-input">
-                                <input
-                                    type="text"
-                                    value={tagsInputValue}
-                                    onChange={updateTagsInputValue}
-                                />
+                                <input type="text" value={tagsInputValue} onChange={updateTagsInputValue} />
                             </div>
                         </div>
                         <div className="create-blog-post-form-section">
@@ -257,19 +226,11 @@ export default function CreateNewPost({}) {
                                             codemirror = editor;
                                         }}
                                         value={markdownInputValue}
-                                        onBeforeChange={(
-                                            editor,
-                                            data,
-                                            value
-                                        ) => {
-                                            updateMarkdownInputValue(
-                                                value
-                                            );
+                                        onBeforeChange={(editor, data, value) => {
+                                            updateMarkdownInputValue(value);
                                         }}
                                         onChange={(editor, data, value) => {
-                                            updateMarkdownInputValue(
-                                                value
-                                            );
+                                            updateMarkdownInputValue(value);
                                         }}
                                         options={{
                                             mode: "markdown",
@@ -293,12 +254,7 @@ export default function CreateNewPost({}) {
                                     value={seoTitleTagInputValue}
                                     onChange={updateSeoTitleTagInputValue}
                                 />
-                                <span
-                                    className={
-                                        seoTitleTagCharLeft > 0
-                                            ? "char-length green"
-                                            : "char-length red"
-                                    }>
+                                <span className={seoTitleTagCharLeft > 0 ? "char-length green" : "char-length red"}>
                                     {seoTitleTagCharLeft}
                                 </span>
                             </div>
@@ -311,25 +267,16 @@ export default function CreateNewPost({}) {
                                 <textarea
                                     type="text"
                                     value={metaDescriptionInputValue}
-                                    onChange={
-                                        updateMetaDescriptionInputValue
-                                    }
+                                    onChange={updateMetaDescriptionInputValue}
                                 />
-                                <span
-                                    className={
-                                        metaDescriptionCharLeft > 0
-                                            ? "char-length green"
-                                            : "char-length red"
-                                    }>
+                                <span className={metaDescriptionCharLeft > 0 ? "char-length green" : "char-length red"}>
                                     {metaDescriptionCharLeft}
                                 </span>
                             </div>
                         </div>
                         <div className="create-blog-post-form-btn-container">
                             {!loading ? (
-                                <div
-                                    onClick={submitCreateNewPostRequest}
-                                    className="create-blog-post-form-btn">
+                                <div onClick={submitCreateNewPostRequest} className="create-blog-post-form-btn">
                                     <span>Submit</span>
                                 </div>
                             ) : (

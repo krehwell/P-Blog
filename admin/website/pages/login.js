@@ -71,9 +71,7 @@ export default function Login() {
                     <div className="login-form-container">
                         {credentialError ? (
                             <div className="login-form-error-block">
-                                <span>
-                                    Email address and/or password is Incorrect
-                                </span>
+                                <span>Email address and/or password is Incorrect</span>
                             </div>
                         ) : null}
 
@@ -88,11 +86,7 @@ export default function Login() {
                                 type="email"
                                 autoComplete="new-password"
                                 placeholder="Email Adress"
-                                className={
-                                    credentialError || emailRequiredError
-                                        ? "error"
-                                        : null
-                                }
+                                className={credentialError || emailRequiredError ? "error" : null}
                             />
                             {emailRequiredError ? (
                                 <div className="login-form-msg">
@@ -109,11 +103,7 @@ export default function Login() {
                                 type="password"
                                 autoComplete="new-password"
                                 placeholder="Password"
-                                className={
-                                    credentialError || emailRequiredError
-                                        ? "error"
-                                        : null
-                                }
+                                className={credentialError || emailRequiredError ? "error" : null}
                             />
                             {emailRequiredError ? (
                                 <div className="login-form-msg">
@@ -124,9 +114,7 @@ export default function Login() {
 
                         <div className="login-form-submit-btn-container">
                             {!loading ? (
-                                <div
-                                    onClick={() => submitLoginRequest()}
-                                    className="login-form-submit-btn">
+                                <div onClick={() => submitLoginRequest()} className="login-form-submit-btn">
                                     <span>Login</span>
                                 </div>
                             ) : (

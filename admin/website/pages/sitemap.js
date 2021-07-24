@@ -28,7 +28,7 @@ export default function Sitemap() {
         setUpdateSitemapError(false);
         setUpdateSitemapSuccess(false);
 
-        updateSitemap(function (apiResponse) {
+        updateSitemap((apiResponse) => {
             setUpdateSitemapLoading(false);
 
             if (apiResponse.submitError) {
@@ -92,16 +92,12 @@ export default function Sitemap() {
                             </div>
                             <div className="sitemap-form-description">
                                 <span>
-                                    This will write new content to the
-                                    sitemap.xml file hosted by the fronted
-                                    website.
+                                    This will write new content to the sitemap.xml file hosted by the fronted website.
                                 </span>
                             </div>
                             <div className="sitemap-form-btn-container">
                                 {!updateSitemapLoading ? (
-                                    <div
-                                        onClick={updateSitemapRequest}
-                                        className="sitemap-form-btn">
+                                    <div onClick={updateSitemapRequest} className="sitemap-form-btn">
                                         <span>Update Sitemap</span>
                                     </div>
                                 ) : (
@@ -128,15 +124,13 @@ export default function Sitemap() {
                             </div>
                             <div className="sitemap-form-description">
                                 <span>
-                                    This will ping Google and Bing to let them
-                                    know updates to the sitemap have been made.
+                                    This will ping Google and Bing to let them know updates to the sitemap have been
+                                    made.
                                 </span>
                             </div>
                             <div className="sitemap-form-btn-container">
                                 {!pingLoading ? (
-                                    <div
-                                        onClick={pingSearchEnginesRequest}
-                                        className="sitemap-form-btn">
+                                    <div onClick={pingSearchEnginesRequest} className="sitemap-form-btn">
                                         <span>Send Ping</span>
                                     </div>
                                 ) : (
