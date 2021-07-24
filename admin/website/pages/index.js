@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
-import moment from "moment";
+import dayjs from "dayjs";
 
 import Header from "../components/header.js";
 import Sidebar from "../components/sidebar.js";
@@ -86,7 +86,7 @@ export default function Home({ activePosts, upcomingPosts, getDataError }) {
                                                   <span>{post.title}</span>
                                               </div>
                                               <div className="blog-posts-list-items-table-item-data date">
-                                                  <span>{moment.unix(post.dateTimestamp).format("MM/DD/YYYY")}</span>
+                                                  <span>{dayjs.unix(post.dateTimestamp).format("MM/DD/YYYY")}</span>
                                               </div>
                                               <div className="blog-posts-list-items-table-item-data edit">
                                                   <a href={`/blog/edit-post/${post.id}`}>
@@ -108,7 +108,7 @@ export default function Home({ activePosts, upcomingPosts, getDataError }) {
                                                   <span>{post.title}</span>
                                               </div>
                                               <div className="blog-posts-list-items-table-item-data date">
-                                                  <span>{moment.unix(post.dateTimestamp).format("MM/DD/YYYY")}</span>
+                                                  <span>{dayjs.unix(post.dateTimestamp).format("MM/DD/YYYY")}</span>
                                               </div>
                                               <div className="blog-posts-list-items-table-item-data edit">
                                                   <a href={`/blog/edit-post/${post.id}`}>

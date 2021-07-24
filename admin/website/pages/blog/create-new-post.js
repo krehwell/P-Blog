@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import moment from "moment";
+import dayjs from "dayjs";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import capitalizeTitle from "capitalize-title";
 
@@ -57,8 +57,8 @@ export default function CreateNewPost({}) {
     };
 
     const setDateInputValueToNow = () => {
-        const dateString = moment().format("YYYY-MM-DD");
-        const timeString = moment().format("HH:mm");
+        const dateString = dayjs().format("YYYY-MM-DD");
+        const timeString = dayjs().format("HH:mm");
         setDateInputValue(dateString + "T" + timeString);
     };
 
@@ -131,7 +131,7 @@ export default function CreateNewPost({}) {
             createNewPost(
                 titleInputValue,
                 urlTitleInputValue,
-                moment(dateInputValue).valueOf() / 1000,
+                dayjs(dateInputValue).valueOf() / 1000,
                 tagsInputValue,
                 imageUrlInputValue,
                 markdownInputValue,
