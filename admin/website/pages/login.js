@@ -3,9 +3,9 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
-const login = dynamic(() => import("../_api/admin-user/login.js"));
-const authUser = dynamic(() => import("../_api/admin-user/auth.js"));
-const removeAdminUserCookie = dynamic(() => import("../_api/admin-user/removeAdminUserCookie.js"));
+import login from "../_api/admin-user/login.js";
+import authUser from "../_api/admin-user/auth.js";
+import removeAdminUserCookie from "../_api/admin-user/removeAdminUserCookie.js";
 
 export default function Login() {
     const router = useRouter();
@@ -141,3 +141,8 @@ export async function getServerSideProps({ req, res }) {
 
     return { props: {} };
 }
+
+export const config = {
+    unstable_runtimeJS: false,
+    unstable_JsPreload: false,
+};
