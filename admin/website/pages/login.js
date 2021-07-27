@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
 
 import login from "../_api/admin-user/login.js";
 import authUser from "../_api/admin-user/auth.js";

@@ -23,6 +23,8 @@
         "next-pwa": "^5.2.24",
         "preact": "^8.5.3",
         "preact-compat": "^3.19.0",
-        "react-codemirror2": "^7.2.1"
+        "react-codemirror2": "^7.2.1",
+        "react": "github:preact-compat/react#1.0.0",
+        "react-dom": "github:preact-compat/react-dom#1.0.0"
     }
 }
