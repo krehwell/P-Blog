@@ -2,14 +2,9 @@ const withPWA = require("next-pwa");
 
 module.exports = withPWA({
     future: {
-        webpack5: true,
         strictPostcssConfiguration: true,
     },
     reactStrictMode: true,
-    experimental: {
-        turboMode: true,
-        eslint: true,
-    },
 
     env: {
         DEV_ADMIN_API_URL: "http://localhost:5001",
