@@ -13,9 +13,7 @@
     "license": "ISC",
     "devDependencies": {
         "next": "^10.0.7",
-        "prettier": "2.3.2",
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1"
+        "prettier": "2.3.2"
     },
     "dependencies": {
         "axios": "^0.21.1",
@@ -25,6 +23,8 @@
         "next-pwa": "^5.2.24",
         "preact": "^8.5.3",
         "preact-compat": "^3.19.0",
-        "react-codemirror2": "^7.2.1"
+        "react-codemirror2": "^7.2.1",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1"
     }
 }
