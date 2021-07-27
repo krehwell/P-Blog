@@ -149,3 +149,8 @@ export async function getServerSideProps({ req, res }) {
         },
     };
 }
+
+export const config = {
+    unstable_runtimeJS: false,
+    unstable_JsPreload: false,
+};

@@ -18,3 +18,8 @@ import "../styles/components/modals/delete-image.css";
 export default function MyApp({ Component, pageProps }) {
     return <Component {...pageProps} />;
 }
+
+export const config = {
+    unstable_runtimeJS: false,
+    unstable_JsPreload: false,
+};
