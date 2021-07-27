@@ -33,16 +33,15 @@
 }
 
 .CodeMirror {
-    height: auto;
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
+    min-height: 700px;
+    max-height: 4000px;
 }
 
 .CodeMirror-scroll {
     height: auto;
-    min-height: 500px;
-    max-height: 800px;
 }
 
 /* Global animation */

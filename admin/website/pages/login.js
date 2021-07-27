@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 
-import login from "../api/admin-user/login.js";
-import authUser from "../api/admin-user/auth.js";
-import removeAdminUserCookie from "../api/admin-user/removeAdminUserCookie.js";
+const login = dynamic(() => import("../api/admin-user/login.js"));
+const authUser = dynamic(() => import("../api/admin-user/auth.js"));
+const removeAdminUserCookie = dynamic(() => import("../api/admin-user/removeAdminUserCookie.js"));
 
 export default function Login() {
     const router = useRouter();

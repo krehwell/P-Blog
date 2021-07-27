@@ -18,13 +18,13 @@ module.exports = withPWA({
     webpack: (config, { dev, isServer }) => {
         // Replace React with Preact only in client production build
         // https://github.com/leerob/leerob.io/blob/main/next.config.js
-        if (!dev && !isServer) {
-            Object.assign(config.resolve.alias, {
-                react: "preact/compat",
-                "react-dom/test-utils": "preact/test-utils",
-                "react-dom": "preact/compat",
-            });
-        }
+        // if (!dev && !isServer) {
+        //     Object.assign(config.resolve.alias, {
+        //         react: "preact/compat",
+        //         "react-dom/test-utils": "preact/test-utils",
+        //         "react-dom": "preact/compat",
+        //     });
+        // }
 
         return config;
     },

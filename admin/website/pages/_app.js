@@ -10,7 +10,6 @@ import "../styles/blog/create-new-post.css";
 import "../styles/blog/edit.css";
 import "../styles/sitemap.css";
 import "../styles/change-password.css";
-import "../styles/_error.css";
 
 // modals
 import "../styles/components/modals/delete-blog-post.css";
