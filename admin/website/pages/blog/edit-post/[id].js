@@ -419,8 +419,3 @@ export async function getServerSideProps({ req, res, query }) {
         },
     };
 }
-
-export const config = {
-    unstable_runtimeJS: false,
-    unstable_JsPreload: false,
-};
