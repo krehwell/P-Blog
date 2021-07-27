@@ -1,17 +1,22 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import dayjs from "dayjs";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import capitalizeTitle from "capitalize-title";
 
-import Header from "../../../components/header.js";
-import Sidebar from "../../../components/sidebar.js";
-import DeleteBlogPostModal from "../../../components/modals/deleteBlogPost.js";
+const Header = dynamic(() => import("../../../components/header.js"));
+const Sidebar = dynamic(() => import("../../../components/sidebar.js"));
+const DeleteBlogPostModal = dynamic(() => import("../../../components/modals/deleteBlogPost.js"));
 
 import getBlogPostById from "../../../api/blog-posts/getPostById.js";
 import editBlogPost from "../../../api/blog-posts/editBlogPost.js";
 import deleteBlogPost from "../../../api/blog-posts/deleteBlogPost.js";
+
+// codemirror
+import("codemirror/lib/codemirror.css");
+import("codemirror/theme/dracula.css");
 
 if (typeof navigator !== "undefined") {
     require("codemirror/mode/markdown/markdown");

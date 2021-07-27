@@ -1,7 +1,3 @@
-// codemirror
-import "codemirror/lib/codemirror.css";
-import "codemirror/theme/dracula.css";
-
 // layout
 import "../styles/layout.css";
 import "../styles/components/header.css";

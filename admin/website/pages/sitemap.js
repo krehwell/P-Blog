@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 
-import Header from "../components/header.js";
-import Sidebar from "../components/sidebar.js";
+const Header = dynamic(import("../components/header.js"));
+const Sidebar = dynamic(import("../components/sidebar.js"));
 
 import authUser from "../api/admin-user/auth.js";
 

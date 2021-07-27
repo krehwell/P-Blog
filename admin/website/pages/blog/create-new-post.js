@@ -1,17 +1,21 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import dayjs from "dayjs";
-import { Controlled as CodeMirror } from "react-codemirror2";
 import capitalizeTitle from "capitalize-title";
 
-import Header from "../../components/header.js";
-import Sidebar from "../../components/sidebar.js";
+const Header = dynamic(() => import("../../components/header.js"));
+const Sidebar = dynamic(() => import("../../components/sidebar.js"));
+const CodeMirror = dynamic(import("react-codemirror2").then((mod) => mod.Controlled));
 
 import authUser from "../../api/admin-user/auth.js";
 import createNewPost from "../../api/blog-posts/createNewPost";
 
-if (typeof navigator !== "undefined") {
+// codemirror
+import("codemirror/lib/codemirror.css");
+import("codemirror/theme/dracula.css");
+if (typeof window !== "undefined" && typeof window.navigator !== "undefined") {
     require("codemirror/mode/markdown/markdown");
 }
 
@@ -45,7 +49,8 @@ export default function CreateNewPost({}) {
         const curTitleInputValue = titleInputValue
             .match(/(\w)*/g)
             .filter((w) => w)
-            .join("-").toLowerCase();
+            .join("-")
+            .toLowerCase();
 
         if (curTitleInputValue !== "") {
             setUrlTitleInputValue(curTitleInputValue);

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import dayjs from "dayjs";
+import Link from "next/link";
 
 import Header from "../components/header.js";
 import Sidebar from "../components/sidebar.js";
@@ -35,11 +36,13 @@ export default function Home({ activePosts, upcomingPosts, getDataError }) {
                             <span>All Blog Posts</span>
                         </div>
                         <div className="blog-posts-add-new-btn-container">
-                            <a href="/blog/create-new-post">
-                                <div className="blog-posts-add-new-btn">
-                                    <span>+ Add New Post</span>
-                                </div>
-                            </a>
+                            <Link href="/blog/create-new-post">
+                                <a>
+                                    <div className="blog-posts-add-new-btn">
+                                        <span>+ Add New Post</span>
+                                    </div>
+                                </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -89,9 +92,11 @@ export default function Home({ activePosts, upcomingPosts, getDataError }) {
                                                   <span>{dayjs.unix(post.dateTimestamp).format("MM/DD/YYYY")}</span>
                                               </div>
                                               <div className="blog-posts-list-items-table-item-data edit">
-                                                  <a href={`/blog/edit-post/${post.id}`}>
-                                                      <span>Edit</span>
-                                                  </a>
+                                                  <Link href={`/blog/edit-post/${post.id}`}>
+                                                      <a>
+                                                          <span>Edit</span>
+                                                      </a>
+                                                  </Link>
                                                   <span> </span>
                                               </div>
                                           </div>
