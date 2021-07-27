@@ -1,4 +1,10 @@
-module.exports = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
+    future: {
+        strictPostcssConfiguration: true,
+    },
+    reactStrictMode: true,
     env: {
         DEV_ADMIN_API_URL: "http://localhost:5001",
         PRODUCTION_ADMIN_API_URL: "https://admin-rest-api.krehwell.com",
@@ -9,15 +15,17 @@ module.exports = {
         dest: "public",
     },
 
-    webpack: (config) => {
-        /* https://github.com/leerob/leerob.io/blob/main/next.config.js */
-
-        // Object.assign(config.resolve.alias, {
-        //   react: 'preact/compat',
-        //   'react-dom/test-utils': 'preact/test-utils',
-        //   'react-dom': 'preact/compat'
-        // });
+    webpack: (config, { dev, isServer }) => {
+        // Replace React with Preact only in client production build
+        // https://github.com/leerob/leerob.io/blob/main/next.config.js
+        if (!dev && !isServer) {
+            Object.assign(config.resolve.alias, {
+                react: "preact/compat",
+                "react-dom/test-utils": "preact/test-utils",
+                "react-dom": "preact/compat",
+            });
+        }
 
         return config;
     },
-};
+});
