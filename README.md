@@ -25,14 +25,14 @@ P-Blog
 
 ## `.env` Structure
 
-every `rest-api/` on front-end and admin has an environment variable (`.env` file) which consist of string for MongoDB config:
+every `rest-api/` on front-end and admin has an environment variable (`.env` file) that consist of string for MongoDB config:
 
 ```
 DB_USERNAME=usernameofmongodb
 DB_PASSWORD=passwordofmongodb
 ```
 
-Make sure to update MongoDB string URI as well in each `rest-api/index.js`:
+Make sure to update MongoDB string URI as well in each `rest-api/index.js` on front-end and admin:
 
 ```javascript
 /// DB CONNECTION
