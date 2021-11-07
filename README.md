@@ -104,5 +104,3 @@ _The workflow the same as frontend..._
 ### `admin/rest-api`
 
 _The workflow the same as frontend..._
-
-## Acknowledgement
