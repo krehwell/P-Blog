@@ -12,6 +12,7 @@
   "author": "krehwell fahrimuham001@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "@giscus/react": "^1.0.0",
     "axios": "^0.21.1",
     "dayjs": "^1.10.6",
     "next": "^12.0.3",
