@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://krehwell.com</loc>
         <changefreq>daily</changefreq>
@@ -21,17 +21,7 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/tags/lorem ipsum</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
         <loc>https://krehwell.com/tags/testing</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://krehwell.com/tags/wombat</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
@@ -96,11 +86,6 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/tags/stupid junk</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
         <loc>https://krehwell.com/tags/garbage thought</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
@@ -111,12 +96,7 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krehwell.com/blog/testing-post-2</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://krehwell.com/blog/testing-title</loc>
+        <loc>https://krehwell.com/blog/blogs-template-markdown-looks</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
@@ -167,6 +147,11 @@
     </url>
     <url>
         <loc>https://krehwell.com/blog/how-to-beat-fight-destroy-and-devastating-the-stress</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://krehwell.com/blog/measure-api-response-fetch-time-in-javascript</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
