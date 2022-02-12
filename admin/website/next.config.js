@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const withPWA = require("next-pwa");
 
 module.exports = withPWA({
@@ -13,12 +14,25 @@ module.exports = withPWA({
 
     webpack: (config, { dev, isServer }) => {
         // Replace React with Preact only in client production build
-        https://github.com/leerob/leerob.io/blob/main/next.config.js
-        if (!dev && !isServer) {
+        //github.com/leerob/leerob.io/blob/main/next.config.js
+        https: if (!dev && !isServer) {
             Object.assign(config.resolve.alias, {
                 react: "preact/compat",
                 "react-dom": "preact/compat",
             });
+        }
+
+        config.plugins.push(
+            new webpack.ProvidePlugin({
+                $: "jquery",
+                jQuery: "jquery",
+            })
+        );
+        if (
+            config.optimization.splitChunks.cacheGroups &&
+            config.optimization.splitChunks.cacheGroups.shared !== undefined
+        ) {
+            config.optimization.splitChunks.cacheGroups.shared.enforce = true;
         }
 
         return config;
