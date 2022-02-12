@@ -6,7 +6,7 @@ async function handler(req, res) {
     await NextCors(req, res, {
         // Options
         methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-        origin: !process.env.NODE_ENV === "development" ? "krehwell.com" : "*",
+        origin: !process.env.NODE_ENV === "development" ? "https://admin-rest-api.krehwell.com" : "*",
         optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
     });
 
