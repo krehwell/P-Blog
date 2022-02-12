@@ -20,7 +20,7 @@ async function handler(req, res) {
     console.log("--------------- SERVERLESS RESULT ---------------");
 
     try {
-        fs.writeFileSync(process.cwd() + onDevMode ? "" : "/.next/server" + "/public/sitemap.xml", newSitemap);
+        fs.writeFileSync(process.cwd() + "/.next/server/public/sitemap.xml", newSitemap);
         res.status(200).send("Sitemap updated successfully");
     } catch (err) {
         console.error(err);
