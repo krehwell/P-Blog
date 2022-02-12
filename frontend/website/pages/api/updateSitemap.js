@@ -17,6 +17,7 @@ async function handler(req, res) {
     const newSitemap = body.newSitemap;
     console.log(typeof newSitemap);
     console.log("cwd", process.cwd(), "__dirname", __dirname);
+    console.log("--------------- SERVERLESS RESULT ---------------");
 
     try {
         fs.writeFileSync(process.cwd() + onDevMode ? "" : "/.next/server" + "/public/sitemap.xml", newSitemap);
