@@ -137,6 +137,8 @@ export default function Timeline() {
     return (
         <>
             <h2>📆 Timeline</h2>
+            <Year>2022</Year>
+            <Step title="Get into Golang " succeed />
             <Year>2021</Year>
             <ul>
                 <Step title="Graduate University 🎓" succeed>
