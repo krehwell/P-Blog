@@ -20,8 +20,6 @@
         "capitalize-title": "^1.0.0",
         "codemirror": "^5.59.3",
         "dayjs": "^1.10.6",
-        "next-pwa": "^5.2.24",
-        "preact": "^10.5.14",
         "react": "^17.0.1",
         "react-codemirror2": "^7.2.1",
         "react-dom": "^17.0.1"
