@@ -138,10 +138,15 @@ export default function Timeline() {
         <>
             <h2>📆 Timeline</h2>
             <Year>2022</Year>
-            <Step title="Get into Golang " succeed>
-                Took a bootcamp and finished <a href="https://gobyexample.com/waitgroups">gobyexample.com</a> is a great
-                journey to get started. Thank you stranger on internet!
-            </Step>
+            <ul>
+                <Step title="Get into Golang " succeed>
+                    Took a bootcamp and finished <a href="https://gobyexample.com/waitgroups">gobyexample.com</a> is a
+                    great journey to get started. Thank you stranger on internet!
+                </Step>
+            </ul>
+
+            <Divider />
+
             <Year>2021</Year>
             <ul>
                 <Step title="Graduate University 🎓" succeed>
@@ -178,7 +183,9 @@ export default function Timeline() {
                     <a href="https://gitlab.com/krehwell/boomermath">Boomermath</a> 💞 💖 💕
                 </Step>
             </ul>
+
             <Divider />
+
             <Year>2020</Year>
             <ul>
                 <Step title="Interned at Cool Code as Game Developer 🎮" succeed>
@@ -198,7 +205,9 @@ export default function Timeline() {
                 <Step title="Re-Learn MySQL " succeed />
                 <Step title="Complete Algorithms Solving on Advent of Code" succeed />
             </ul>
+
             <Divider />
+
             <Year>2019</Year>
             <ul>
                 <Step title="Get Into Web" succeed>
@@ -224,6 +233,7 @@ export default function Timeline() {
                 </Step>
                 <Step title="10FastFingers - Average 50 WPM 💫" succeed />
             </ul>
+
             {isShowingFullTimeline ? (
                 <FullTimeline />
             ) : (
