@@ -138,7 +138,10 @@ export default function Timeline() {
         <>
             <h2>📆 Timeline</h2>
             <Year>2022</Year>
-            <Step title="Get into Golang " succeed />
+            <Step title="Get into Golang " succeed>
+                Took a bootcamp and finished <a href="https://gobyexample.com/waitgroups">gobyexample.com</a> is a great
+                journey to get started. Thank you stranger on internet!
+            </Step>
             <Year>2021</Year>
             <ul>
                 <Step title="Graduate University 🎓" succeed>
