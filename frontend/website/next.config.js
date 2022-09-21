@@ -15,23 +15,4 @@ module.exports = withPWA({
         disable: process.env.NODE_ENV === "development",
         dest: "public",
     },
-
-    webpack: (config) => {
-        config.plugins.push(
-            new webpack.ProvidePlugin({
-                $: "jquery",
-                jQuery: "jquery",
-            })
-        );
-        if (
-            config.optimization.splitChunks.cacheGroups &&
-            config.optimization.splitChunks.cacheGroups.shared !== undefined
-        ) {
-            config.optimization.splitChunks.cacheGroups.shared.enforce = true;
-        }
-
-        return config;
-    },
-
-    swcMinify: true,
 });
