@@ -1,7 +1,4 @@
-const webpack = require("webpack");
-const withPWA = require("next-pwa");
-
-module.exports = withPWA({
+module.exports = {
     images: {
         domains: ["i.imgur.com"],
     },
@@ -15,4 +12,4 @@ module.exports = withPWA({
         disable: process.env.NODE_ENV === "development",
         dest: "public",
     },
-});
+};
